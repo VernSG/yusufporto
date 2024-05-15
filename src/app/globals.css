@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@layer base {
+  *::-webkit-scrollbar {
+    @apply h-1 w-1;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-sm bg-[#B3FFAB];
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .gradient__text {
+    @apply bg-gradient-linear text-black dark:bg-clip-text dark:text-transparent;
+  }
+
+  .primary {
+    @apply text-primary-light dark:text-primary-dark;
+  }
+
+  .primary__reverse {
+    @apply text-primary-dark dark:text-primary-light;
+  }
+
+  .secondary {
+    @apply text-secondary-light dark:text-secondary-dark;
+  }
+
+  .secondary__reverse {
+    @apply text-secondary-dark dark:text-secondary-light;
+  }
+
+  .secondary--hover {
+    @apply lg:hover:text-primary-light lg:dark:hover:text-primary-dark;
+  }
+
+  .border__color {
+    @apply border border-solid border-neutral-200 dark:border-neutral-800;
+  }
+
+  .border__gradient {
+    @apply border-t border-solid border-primary-gradient border-opacity-30 shadow-md shadow-primary-gradient dark:border-secondary-gradient dark:border-opacity-30 dark:shadow-secondary-dark;
+  }
+}

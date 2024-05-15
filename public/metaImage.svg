@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1200"
+   height="630"
+   viewBox="0 0 317.5 166.68749"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="metaImage.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="metaImage.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.72426347"
+     inkscape:cx="649.62548"
+     inkscape:cy="258.88369"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient7"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#b3ffab;stop-opacity:1;"
+         offset="0"
+         id="stop7" />
+      <stop
+         style="stop-color:#12fff7;stop-opacity:1;"
+         offset="1"
+         id="stop8" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7"
+       id="linearGradient8"
+       x1="97.242549"
+       y1="45.820713"
+       x2="214.17006"
+       y2="45.820713"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(3.1850055,23.55183)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;stroke-width:1.42964;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.4;stroke-dasharray:1.42964, 5.71857;paint-order:markers fill stroke;fill-opacity:1"
+       id="rect1"
+       width="317.5"
+       height="166.6875"
+       x="-4.7619051e-06"
+       y="-2.5000002e-06" />
+    <g
+       id="g8"
+       transform="translate(0,-4.3881848)">
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:9.87778px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';fill:#ffffff;stroke-width:0.869;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.4;stroke-dasharray:0.869, 3.47599;paint-order:markers fill stroke"
+         x="159.7041"
+         y="91.937279"
+         id="text1"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Inter;-inkscape-font-specification:Inter;text-align:center;text-anchor:middle;stroke-width:0.869"
+           x="159.7041"
+           y="91.937279"
+           id="tspan2">Personal website and  blog by AndreAvindra. </tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Inter;-inkscape-font-specification:Inter;text-align:center;text-anchor:middle;stroke-width:0.869"
+           x="159.7041"
+           y="104.55853"
+           id="tspan3">Showcase of my projects, thoughts, and</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87778px;font-family:Inter;-inkscape-font-specification:Inter;text-align:center;text-anchor:middle;stroke-width:0.869"
+           x="159.7041"
+           y="117.17979"
+           id="tspan4">skills on website development</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.4px;font-family:Inter;-inkscape-font-specification:Inter;text-align:center;text-anchor:middle;fill:url(#linearGradient8);fill-opacity:1;stroke-width:0.869;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.4;stroke-dasharray:0.869, 3.47599;paint-order:markers fill stroke"
+         x="159.17392"
+         y="75.791672"
+         id="text5"><tspan
+           sodipodi:role="line"
+           id="tspan5"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.4px;font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient8);fill-opacity:1;stroke-width:0.869"
+           x="159.17392"
+           y="75.791672">Andre Avindra</tspan></text>
+    </g>
+  </g>
+</svg>
