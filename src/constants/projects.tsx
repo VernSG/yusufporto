@@ -1,8 +1,7 @@
+import * as SiIcons from "react-icons/si";
 import {
   SiFirebase,
   SiFlask,
-  SiCpp,
-  SiVultr,
   SiMongodb,
   SiNextdotjs,
   SiPython,
