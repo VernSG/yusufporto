@@ -1,4 +1,3 @@
-import { SiCpp } from "react-icons/si/cpp";
 import {
   SiFirebase,
   SiFlask,
@@ -15,10 +14,6 @@ import {
 const ICON_SIZE: number = 24;
 
 export const TECH_STACK_GTPS = [
-  {
-    label: "C++",
-    icon: <SiCpp size={ICON_SIZE} color="#149FCB" />,
-  },
   {
     label: "Vps",
     icon: <SiVultr size={ICON_SIZE} color="#38BDF8" />,
