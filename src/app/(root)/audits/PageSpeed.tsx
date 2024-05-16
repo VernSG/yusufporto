@@ -36,7 +36,7 @@ export default function PageSpeed() {
         className="primary text-center text-xl font-bold md:text-3xl"
       >
         <div className="gradient__text inline-block">
-          andreavindra.vercel.app{" "}
+          yusufsaputra.vercel.app{" "}
         </div>{" "}
         performance
       </motion.h2>
