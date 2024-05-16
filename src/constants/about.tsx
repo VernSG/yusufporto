@@ -26,6 +26,5 @@ export const FAVORITE_STACKS = [
     name: "Tailwind",
   },
   { icon: <SiReact color="#149FCB" />, name: "React" },
-  { icon: <SiNextdotjs />, name: "Next.js" },
   { icon: <SiNodedotjs color="#418A3F" />, name: "Node.js" },
 ];
