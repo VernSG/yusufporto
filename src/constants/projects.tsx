@@ -17,11 +17,11 @@ const ICON_SIZE: number = 24;
 export const TECH_STACK_GTPS = [
   {
     label: "C++",
-    icon: <SiIcons.SiCpp size={ICON_SIZE} color="#149FCB" />,
+    icon: <SiCpp size={ICON_SIZE} color="#149FCB" />,
   },
   {
     label: "Vps",
-    icon: <SiIcons.SiVultr size={ICON_SIZE} color="#38BDF8" />,
+    icon: <SiVultr size={ICON_SIZE} color="#38BDF8" />,
   },
 ];
 
