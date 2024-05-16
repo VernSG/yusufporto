@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /studio/
+
+# Host
+Host: https://yusufsaputra.vercel.app/
+
+# Sitemaps
+Sitemap: https://yusufsaputra.vercel.app/sitemap.xml

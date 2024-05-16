@@ -59,7 +59,7 @@ export const FOOTER_LINKS = [
   {
     label: "Audits",
     toolTip:
-      "Real-time performance report for andreavindra.vercel.app based on the Pagespeed API",
+      "Real-time performance report for yusufsaputra.vercel.app based on the Pagespeed API",
     url: "/audits",
     target: "",
     rel: "",

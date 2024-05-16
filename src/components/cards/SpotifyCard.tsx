@@ -16,7 +16,7 @@ export default function SpotifyCard({ display }: { display: string }) {
       href={
         data?.isPlaying
           ? data.songUrl
-          : "https://open.spotify.com/user/vwg28n9kqnigrvv34x96si8a6"
+          : "https://open.spotify.com/user/lsueq1b4orsqlp76zdngw8yb0?si=a426a6f57ace450a"
       }
       className={clsx(
         display,
