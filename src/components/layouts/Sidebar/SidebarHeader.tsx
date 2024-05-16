@@ -14,7 +14,7 @@ export default function SidebarHeader() {
     >
       <div className="flex items-center gap-4">
         <Image
-          src="https://res.cloudinary.com/dqqmzgesp/image/upload/v1697030269/personal-website/profileImage.webp"
+          src="https://res.cloudinary.com/djsdnb4td/image/upload/v1715778646/MUHAMMAD_YUSUF_SAPUTRA_ihcm9l.jpg"
           alt="Image Profile"
           className="border__color h-11 w-11 rounded-full"
           width={100}
@@ -22,8 +22,8 @@ export default function SidebarHeader() {
         />
 
         <div className="hidden flex-col lg:flex">
-          <h2 className="primary text-base font-medium md:text-lg">ndrvndr</h2>
-          <p className="secondary text-sm md:text-base">Λ7214</p>
+          <h2 className="primary text-base font-medium md:text-lg">Yusuf</h2>
+          <p className="secondary text-sm md:text-base">Saputra</p>
         </div>
       </div>
 

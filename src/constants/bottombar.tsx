@@ -10,6 +10,5 @@ export const BOTTOMBAR_ITEMS = [
   { icon: <AiOutlineHome size={ICON_SIZE} />, pathname: "/" },
   { icon: <SiAboutdotme size={ICON_SIZE} />, pathname: "/about" },
   { icon: <GoProjectSymlink size={ICON_SIZE} />, pathname: "/projects" },
-  { icon: <TbWriting size={ICON_SIZE} />, pathname: "/blog" },
   { icon: <FaRegPaperPlane size={ICON_SIZE} />, pathname: "/contact" },
 ];

@@ -12,10 +12,6 @@
   },
   "dependencies": {
     "@giscus/react": "^2.3.0",
-    "@sanity/block-content-to-react": "^3.0.0",
-    "@sanity/code-input": "^4.1.1",
-    "@sanity/image-url": "^1.0.2",
-    "@sanity/vision": "^3.18.0",
     "@tippyjs/react": "^4.2.6",
     "@types/nodemailer": "^6.4.13",
     "axios": "^1.5.1",
