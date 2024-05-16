@@ -1,6 +1,8 @@
 import {
   SiFirebase,
   SiFlask,
+  SiCpp,
+  SiVultr,
   SiMongodb,
   SiNextdotjs,
   SiPython,
