@@ -10,7 +10,7 @@ interface CareerList {
 export const CAREERS_LIST: CareerList[] = [
   {
     imageUrl:
-      "https://res.cloudinary.com/dqqmzgesp/image/upload/v1711593062/teknologi_digital_terdepan_logo.jpg",
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1715885163/748px-Bontang_City_Vector_Logo.svg_kngnqu.png",
     role: "Frontend Developer",
     companyName: "Teknologi Digital",
     location: "Bontang City",
