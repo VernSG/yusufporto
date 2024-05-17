@@ -1,6 +1,6 @@
 <div align=center>
 
-# [andreavindra.vercel.app](https://andreavindra.vercel.app/)
+# [yusufsaputra.vercel.app](https://yusufsaputra.vercel.app/)
 
 Personal website and blogs built using TypeScript, Next.js, Tailwind CSS, and Sanity as headless cms
 
@@ -81,11 +81,3 @@ To run this project, you will need to add the following environment variables to
 [Giscus](https://giscus.app/)
 
 [Nodemailer](https://nodemailer.com/)
-
-## Authors
-
-- [@ndrvndr](https://www.github.com/ndrvndr)
-
-## Feedback
-
-If you have any feedback, please reach out to me at andreavindra37@gmail.com
