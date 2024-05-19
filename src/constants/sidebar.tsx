@@ -17,6 +17,7 @@ export const SIDEBAR_ITEMS = [
     icon: <GoProjectSymlink size={ICON_SIZE} />,
     pathname: "/projects",
     label: "Projects",
+  },
   {
     icon: <TbWriting size={ICON_SIZE} />,
     pathname: "/certificate",
