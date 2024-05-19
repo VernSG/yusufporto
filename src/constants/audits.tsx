@@ -1,1 +1,1 @@
-export const TAGS = ["Home", "About", "Projects", "Blog", "Contact"];
+export const TAGS = ["Home", "About", "Projects", "Certificate", "Contact"];
