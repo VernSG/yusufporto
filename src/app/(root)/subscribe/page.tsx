@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Stay informed and receive email notifications whenever a new blog post is published. Subscribe to stay up-to-date with the latest content, delivered right to your inbox. Rest assured, we respect your privacy - no spam.",
   alternates: {
-    canonical: "https://yusufsaputra.vercel.app/design",
+    canonical: "https://yusufs.me/design",
   },
 };
 

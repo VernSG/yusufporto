@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Yusuf, a front-end developer who embarked on his learning journey in 2022, shares his insights and thoughts for comprehending various aspects of front-end development through his blog posts.",
   alternates: {
-    canonical: "https://yusufsaputra.vercel.app/about",
+    canonical: "https://yusufs.me/about",
   },
 };
 

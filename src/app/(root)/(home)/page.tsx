@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Personal website and blog by Muhammad Yusuf Saputra. Showcase of my projects, thoughts and skills on website development.",
   alternates: {
-    canonical: "https://yusufsaputra.vercel.app/",
+    canonical: "https://yusufs.me/",
   },
 };
 
