@@ -8,7 +8,7 @@ import { TbArrowUpRight } from "react-icons/tb";
 import Ping from "../elements/Ping";
 import Tooltip from "../elements/Tooltip";
 
-export default function SertifCard({
+export default function ProjectCard({
   url,
   title,
   description,
