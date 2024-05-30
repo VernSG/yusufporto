@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Get in touch with me through our contact page, where you can find links to my social media profiles and a convenient email form. Don't hesitate to reach out—I'm here to connect and ready to respond to your messages.",
   alternates: {
-    canonical: "https://yusufsaputra.vercel.app/contact",
+    canonical: "https://yusufs.me/contact",
   },
 };
 
