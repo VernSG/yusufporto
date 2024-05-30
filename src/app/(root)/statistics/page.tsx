@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Statistics | Muhammad Yusuf",
   description: "Metadata statistics of andreavindra.vercel.app blogs",
   alternates: {
-    canonical: "https://yusufsaputra.vercel.app/statistics",
+    canonical: "https://yusufs.me/statistics",
   },
 };
 
