@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Discover my portfolio of frontend development projects, a curated collection showcasing my skills and creativity in web design and development. Immerse yourself in a diverse range of web solutions and innovative designs.",
   alternates: {
-    canonical: "https://yusufsaputra.vercel.app/projects",
+    canonical: "https://yusufs.me/certificate",
   },
 };
 
