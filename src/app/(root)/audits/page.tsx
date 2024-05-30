@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Explore real-time performance reports for yusufsaputra.vercel.app, powered by the Pagespeed API",
   alternates: {
-    canonical: "https://yusufsaputra.vercel.app/audits",
+    canonical: "https://yusufs.me/audits",
   },
 };
 
