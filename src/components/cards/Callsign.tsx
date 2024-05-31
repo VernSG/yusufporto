@@ -39,7 +39,7 @@ export default function Callsign({ display }: { display: string }) {
         ) : (
           <Image
   className="h-auto w-auto"
-  src={userData?.data?.discord_user?.avatar ?? '{PROFILE_PICTURE_URL}'} // Ganti '/path/to/default/avatar' dengan path default avatar Anda
+  src={userData?.data?.discord_user?.avatar ?? PROFILE_PICTURE_URL} // Ganti '/path/to/default/avatar' dengan path default avatar Anda
  // Mengakses avatar dari objek discord_user
   alt="DISCORD_PROFILE"
   width={64}
