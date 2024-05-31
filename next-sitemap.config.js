@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://yusufsaputra.vercel.app/",
+  siteUrl: "https://yusufs.me/",
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: "*", allow: "/", disallow: "/studio/" }],
