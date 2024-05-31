@@ -4,7 +4,7 @@
 export const CV_URL = "/CV.pdf";
 
 export const PROFILE_PICTURE_URL =
-  "https://res.cloudinary.com/djsdnb4td/image/upload/v1715884966/4bc2da65-bc94-454a-9ea1-f028e2987c96_onrgmz.jpg";
+  "https://res.cloudinary.com/djsdnb4td/image/upload/v1717182532/makimaa_b60ujp.jpg";
 
 export const BLOG_API_ENDPOINT =
   process.env.NODE_ENV === "production"
