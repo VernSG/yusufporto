@@ -6,7 +6,7 @@ import Link from "next/link";
 import { fetcher } from "@/services/fetcher";
 import { SiDiscord } from "react-icons/si";
 import useSWR from "swr";
-import getUserData from "../api/discordUser"; // Import fungsi getUserData
+import getUserData from "@/app/api/discordUser"; // Import fungsi getUserData
 
 interface ApiResponse {
   data: {
