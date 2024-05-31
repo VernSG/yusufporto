@@ -15,7 +15,7 @@ interface DiscordUserData {
   discriminator: string;
 }
 
-interface ApiResponse {
+export interface ApiResponse {
   data: {
     discord_user: DiscordUserData;
     discord_status: string; // Menambahkan properti discord_status
