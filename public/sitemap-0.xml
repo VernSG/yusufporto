@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://yusufsaputra.vercel.app/about</loc><lastmod>2024-05-16T12:14:34.837Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://yusufsaputra.vercel.app</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://yusufsaputra.vercel.app/audits</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://yusufsaputra.vercel.app/contact</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://yusufsaputra.vercel.app/guestbook</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://yusufsaputra.vercel.app/design</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://yusufsaputra.vercel.app/projects</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://yusufsaputra.vercel.app/statistics</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://yusufsaputra.vercel.app/subscribe</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me/about</loc><lastmod>2024-05-16T12:14:34.837Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me/audits</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me/contact</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me/guestbook</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me/design</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me/projects</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me/statistics</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://yusufs.me/subscribe</loc><lastmod>2024-05-16T12:14:34.845Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
