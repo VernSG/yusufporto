@@ -2,6 +2,7 @@ import { ApiResponse } from "@/components/cards/Callsign"; // Pastikan Anda meng
 
 const getUserData = async (discordUserId?: string): Promise<ApiResponse> => {
   try {
+    // Memastikan discordUserId memiliki nilai sebelum digunakan
     if (!discordUserId) {
       throw new Error('Discord user ID is undefined');
     }
