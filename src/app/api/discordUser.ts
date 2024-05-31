@@ -1,9 +1,9 @@
-import { ApiResponse } from "@/components/cards/Callsign"; // Pastikan Anda mengimpor tipe ApiResponse yang benar
+import { ApiResponse } from "@/components/cards/Callsign"; // Pastikan Anda mengimpor tipe ApiResponse yang benar atau definisikan tipenya jika perlu
 
 // Definisikan konstanta discordUserId di luar fungsi
 const discordUserId = "689131590319865973";
 
-const getUserData = async (discordUserId?: string): Promise<ApiResponse> => {
+const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
   try {
     // Memastikan discordUserId memiliki nilai sebelum digunakan
     if (!discordUserId) {
@@ -12,6 +12,12 @@ const getUserData = async (discordUserId?: string): Promise<ApiResponse> => {
 
     // Mengambil data pengguna Discord dari API Lanyard
     const rawRes = await fetch(`https://api.lanyard.rest/v1/users/${discordUserId}`);
+    
+    // Memeriksa apakah respon sukses
+    if (!rawRes.ok) {
+      throw new Error(`Error fetching Discord user data: ${rawRes.statusText}`);
+    }
+
     const { data } = await rawRes.json();
 
     // Mengubah status Discord menjadi representasi yang lebih mudah dibaca
