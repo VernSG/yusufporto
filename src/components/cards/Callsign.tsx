@@ -8,7 +8,6 @@ import { fetcher } from "@/services/fetcher";
 import { SiDiscord } from "react-icons/si";
 import useSWR from "swr";
 
-import "@/styles/components/Callsign.css";
 
 interface DiscordUser {
   id: string;
