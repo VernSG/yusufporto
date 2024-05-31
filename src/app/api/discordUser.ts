@@ -1,4 +1,4 @@
-import { ApiResponse } from "@/components/card/Callsign"; // Pastikan Anda mengimpor tipe ApiResponse yang benar
+import { ApiResponse } from "@/components/cards/Callsign"; // Pastikan Anda mengimpor tipe ApiResponse yang benar
 
 const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
   try {
