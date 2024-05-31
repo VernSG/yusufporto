@@ -57,10 +57,10 @@ export default function Callsign({ display }: { display: string }) {
         </p>
         <p className="mt-1 text-xs">
           {isLoading ? (
-            <Skeleton width="80px" />
-          ) : (
-            `Status: ${userData?.discord_status}`
-          )}
+  <Skeleton width="80px" />
+) : (
+  `Status: ${userData?.data?.discord_status ?? 'Unknown'}`
+)}
         </p>
       </div>
       <div className="absolute bottom-1.5 right-1.5">
