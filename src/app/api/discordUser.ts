@@ -1,7 +1,11 @@
 import { ApiResponse } from "@/components/cards/Callsign"; // Pastikan Anda mengimpor tipe ApiResponse yang benar
 
-const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
+const getUserData = async (discordUserId?: string): Promise<ApiResponse> => {
   try {
+    if (!discordUserId) {
+      throw new Error('Discord user ID is undefined');
+    }
+
     // Mengambil data pengguna Discord dari API Lanyard
     const rawRes = await fetch(`https://api.lanyard.rest/v1/users/${discordUserId}`);
     const { data } = await rawRes.json();
