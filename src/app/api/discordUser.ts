@@ -1,5 +1,5 @@
-// Definisikan tipe ApiResponse di sini
-interface ApiResponse {
+// Definisikan tipe ApiResponse di sini dan ekspor
+export interface ApiResponse {
   data: {
     discord_user: {
       id: string;
@@ -12,6 +12,7 @@ interface ApiResponse {
   };
   statusBeautify: string;
 }
+
 
 // Definisikan konstanta discordUserId di luar fungsi
 const discordUserId = "689131590319865973";
