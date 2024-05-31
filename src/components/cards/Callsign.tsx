@@ -4,6 +4,7 @@ import { Skeleton } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { SiDiscord } from "react-icons/si";
+import { ApiResponse } from "@/app/api/discordUser";
 import getUserData from "@/app/api/discordUser"; // Import fungsi getUserData
 
 export default function Callsign({ display }: { display: string }) {
