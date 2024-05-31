@@ -1,7 +1,7 @@
 import { FOOTER_ITEMS, FOOTER_LINKS } from "@/constants/footer";
 import clsx from "clsx";
 import Link from "next/link";
-import SpotifyCard from "../cards/SpotifyCard";
+import SpotifyCard from "../cards/Callsign";
 import BreakLine from "../elements/BreakLine";
 import Tooltip from "../elements/Tooltip";
 
