@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiDiscord } from "react-icons/si";
 import { ApiResponse } from "@/app/api/discordUser";
+import {PROFILE_PICTURE_URL} from "@/contstans/index";
 import getUserData from "@/app/api/discordUser"; // Import fungsi getUserData
 
 export default function Callsign({ display }: { display: string }) {
