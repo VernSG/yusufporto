@@ -1,18 +1,4 @@
-interface DiscordUserData {
-  id: string;
-  username: string;
-  avatar: string;
-  discriminator: string;
-}
-
-interface ApiResponse {
-  data: {
-    discord_user: DiscordUserData;
-    discord_status: string;
-    active_on_discord_mobile: boolean;
-  };
-  statusBeautify: string;
-}
+import { ApiResponse } from "./types"; // Pastikan Anda mengimpor tipe ApiResponse yang benar
 
 const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
   try {
