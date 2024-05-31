@@ -12,6 +12,8 @@ import {
     SiReact,
     SiTailwindcss,
     SiTypescript,
+    SiHtml5,
+    SiCss3,
   } from "react-icons/si";
   
   const ICON_SIZE: number = 24;
@@ -26,7 +28,7 @@ import {
 export const TECH_STACK_JSX = [
     {
       label: "Javascript",
-      icon: <SiJavascript size={ICON_SIZE} color="#38BDF8" />,
+      icon: <SiReact size={ICON_SIZE} color="#38BDF8" />,
     },
   ];
 
@@ -47,6 +49,15 @@ export const TECH_STACK_GIT = [
         {
           label: "Node JS",
           icon: <SiNodedotjs size={ICON_SIZE} color="#38BDF8" />,
+        },
+  ];
+
+ export const TECH_STACK_WEB = [
+        {
+          label: "HTML5",
+          icon: <SiHtml5 size={ICON_SIZE} color="#38BDF8" />,
+          label: "CSS3",  
+          icon: <SiCss3 size={ICON_SIZE} color="39BDF8" />
         },
   ];
   
@@ -99,6 +110,16 @@ export const TECH_STACK_GIT = [
         techStack: TECH_STACK_BE,
         image:
           "https://res.cloudinary.com/djsdnb4td/image/upload/v1716118332/be_o69t8x.png",
+        imageAlt: "Dicoding Website Screenshot",
+      },
+       {
+        url: "https://www.dicoding.com/certificates/53XEOQL29ZRN",
+        name: "Belajar Dasar Pemrograman Web",
+        description:
+          "Diterbitkan Mei 2024 Kadaluarsa Mei 2027",
+        techStack: TECH_STACK_WEB,
+        image:
+          "https://res.cloudinary.com/djsdnb4td/image/upload/v1717136316/abstact_maytw7.jpg",
         imageAlt: "Dicoding Website Screenshot",
       },
   ];
