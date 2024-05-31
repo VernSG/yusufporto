@@ -1,44 +1,33 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { fetcher } from "@/services/fetcher";
 import { SiDiscord } from "react-icons/si";
-import useSWR from "swr";
-import getUserData from "@/app/api/discordUser"; // Import fungsi getUserData
-
-interface DiscordUserData {
-  id: string;
-  username: string;
-  avatar: string;
-  discriminator: string;
-}
-
-export interface ApiResponse {
-  data: {
-    discord_user: DiscordUserData;
-    discord_status: string; // Menambahkan properti discord_status
-    active_on_discord_mobile: boolean;
-  };
-  statusBeautify: string;
-}
+import { getUserData } from "@/app/api/discordUser"; // Import fungsi getUserData
 
 export default function Callsign({ display }: { display: string }) {
-  const { data, error } = useSWR<ApiResponse>("/api/discord", fetcher);
+  const [userData, setUserData] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (data) {
-      setLoading(false);
-    }
-  }, [data]);
+    const fetchData = async () => {
+      try {
+        const data = await getUserData("689131590319865973"); // Ganti dengan Discord user ID yang diinginkan
+        setUserData(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <Link
       target="_blank"
       rel="noopener noreferrer"
-      href="https://discord.com/users/689131590319865973" // Link ke profil Discord atau halaman yang relevan
+      href={`https://lanyard.rest/user/689131590319865973`} // Ganti dengan endpoint Lanyard yang sesuai
       className={`cursor-pointer relative w-fit max-w-xs m-auto p-4 items-center gap-4 border__color rounded-md lg:w-52 ${display}`}
     >
       <div className="w-16">
@@ -47,7 +36,7 @@ export default function Callsign({ display }: { display: string }) {
         ) : (
           <Image
             className="h-auto w-auto"
-            src={`https://cdn.discordapp.com/avatars/689131590319865973/${data?.data.discord_user.avatar}`}
+            src={userData.avatar_url}
             alt="DISCORD_PROFILE"
             width={64}
             height={64}
@@ -58,16 +47,16 @@ export default function Callsign({ display }: { display: string }) {
 
       <div className="flex-1">
         <p className="font-medium leading-tight">
-          {isLoading ? <Skeleton width="100px" /> : `@${data?.data.discord_user.username}`}
+          {isLoading ? <Skeleton width="100px" /> : `@${userData.username}`}
         </p>
         <p className="mt-1 text-xs">
-          {isLoading ? <Skeleton width="80px" /> : data?.statusBeautify}
+          {isLoading ? <Skeleton width="80px" /> : userData.statusBeautify}
         </p>
         <p className="mt-1 text-xs">
           {isLoading ? (
             <Skeleton width="80px" />
           ) : (
-            `Status: ${data?.data.discord_status}` // Menampilkan status Discord
+            `Status: ${userData.discord_status}`
           )}
         </p>
       </div>
