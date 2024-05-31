@@ -37,13 +37,13 @@ export default function Callsign({ display }: { display: string }) {
           <Skeleton variant="circular" width={64} height={64} sx={{ bgcolor: "grey.900" }} />
         ) : (
           <Image
-            className="h-auto w-auto"
-            src={userData?.avatar_url}
-            alt="DISCORD_PROFILE"
-            width={64}
-            height={64}
-            priority
-          />
+  className="h-auto w-auto"
+  src={userData?.data?.discord_user?.avatar} // Mengakses avatar dari objek discord_user
+  alt="DISCORD_PROFILE"
+  width={64}
+  height={64}
+  priority
+/>
         )}
       </div>
 
