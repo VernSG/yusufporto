@@ -1,4 +1,4 @@
-import SpotifyCard from "@/components/cards/SpotifyCard";
+import SpotifyCard from "@/components/cards/Callsign";
 import BreakLine from "@/components/elements/BreakLine";
 import clsx from "clsx";
 import SidebarHeader from "./SidebarHeader";
