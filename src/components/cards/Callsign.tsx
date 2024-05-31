@@ -6,13 +6,7 @@ import Link from "next/link";
 import { fetcher } from "@/services/fetcher";
 import { SiDiscord } from "react-icons/si";
 import useSWR from "swr";
-
-interface DiscordUser {
-  id: string;
-  username: string;
-  avatar: string;
-  discriminator: string;
-}
+import getUserData from "@/api/discordUser"; // Import fungsi getUserData
 
 interface ApiResponse {
   data: {
@@ -26,6 +20,12 @@ interface ApiResponse {
 export default function Callsign({ display }: { display: string }) {
   const { data, error } = useSWR<ApiResponse>("/api/discord", fetcher);
   const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
 
   useEffect(() => {
     if (data) {
