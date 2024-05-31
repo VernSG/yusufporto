@@ -5,14 +5,6 @@ import Link from "next/link";
 import { SiDiscord } from "react-icons/si";
 import getUserData from "@/app/api/discordUser"; // Import fungsi getUserData
 
-// Definisikan tipe ApiResponse di sini
-interface ApiResponse {
-  username: string;
-  avatar_url: string;
-  statusBeautify: string;
-  discord_status: string;
-}
-
 export default function Callsign({ display }: { display: string }) {
   const [userData, setUserData] = useState<ApiResponse | null>(null);
   const [isLoading, setLoading] = useState(true);
