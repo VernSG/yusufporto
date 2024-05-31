@@ -1,6 +1,6 @@
 <div align=center>
 
-# [yusufsaputra.vercel.app](https://yusufsaputra.vercel.app/)
+# [yusufs.me](https://yusufs.me)
 
 Personal website and blogs built using TypeScript, Next.js, Tailwind CSS, and Sanity as headless cms
 
