@@ -50,10 +50,10 @@ export default function Callsign({ display }: { display: string }) {
 
       <div className="flex-1">
         <p className="font-medium leading-tight">
-          {isLoading ? <Skeleton width="100px" /> : `@${userData?.username}`}
+          {isLoading ? <Skeleton width="100px" /> : `@${userData?.data?.discord_user?.username}`}
         </p>
         <p className="mt-1 text-xs">
-          {isLoading ? <Skeleton width="80px" /> : userData?.statusBeautify}
+          {isLoading ? <Skeleton width="80px" /> : userData?.statusBeautify ?? 'Status not available'}
         </p>
         <p className="mt-1 text-xs">
           {isLoading ? (
