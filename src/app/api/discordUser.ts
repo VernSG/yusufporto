@@ -1,4 +1,20 @@
-const getUserData = async (discordUserId) => {
+interface DiscordUserData {
+  id: string;
+  username: string;
+  avatar: string;
+  discriminator: string;
+}
+
+interface ApiResponse {
+  data: {
+    discord_user: DiscordUserData;
+    discord_status: string;
+    active_on_discord_mobile: boolean;
+  };
+  statusBeautify: string;
+}
+
+const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
   try {
     // Mengambil data pengguna Discord dari API Lanyard
     const rawRes = await fetch(`https://api.lanyard.rest/v1/users/${discordUserId}`);
