@@ -1,13 +1,10 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@mui/material";
-import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { fetcher } from "@/services/fetcher";
 import { SiDiscord } from "react-icons/si";
 import useSWR from "swr";
-
 
 interface DiscordUser {
   id: string;
@@ -16,17 +13,10 @@ interface DiscordUser {
   discriminator: string;
 }
 
-interface UserStatus {
-  user: DiscordUser;
-  image: string;
-  status: string;
-  onMobile: boolean;
-}
-
 interface ApiResponse {
   data: {
     discord_user: DiscordUser;
-    discord_status: string;
+    discord_status: string; // Menambahkan properti discord_status
     active_on_discord_mobile: boolean;
   };
   statusBeautify: string;
@@ -47,15 +37,7 @@ export default function Callsign({ display }: { display: string }) {
       target="_blank"
       rel="noopener noreferrer"
       href="https://discord.com/users/689131590319865973" // Link ke profil Discord atau halaman yang relevan
-      className={clsx(
-        display,
-        "cursor-pointer",
-        "relative w-fit max-w-xs",
-        "m-auto p-4",
-        "items-center gap-4",
-        "border__color rounded-md",
-        "lg:w-52",
-      )}
+      className={`cursor-pointer relative w-fit max-w-xs m-auto p-4 items-center gap-4 border__color rounded-md lg:w-52 ${display}`}
     >
       <div className="w-16">
         {isLoading ? (
@@ -78,6 +60,13 @@ export default function Callsign({ display }: { display: string }) {
         </p>
         <p className="mt-1 text-xs">
           {isLoading ? <Skeleton width="80px" /> : data?.statusBeautify}
+        </p>
+        <p className="mt-1 text-xs">
+          {isLoading ? (
+            <Skeleton width="80px" />
+          ) : (
+            `Status: ${data?.data.discord_status}` // Menampilkan status Discord
+          )}
         </p>
       </div>
       <div className="absolute bottom-1.5 right-1.5">
