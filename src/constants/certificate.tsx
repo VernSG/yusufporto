@@ -12,8 +12,8 @@ import {
     SiReact,
     SiTailwindcss,
     SiTypescript,
-    SiHtml,
-    SiCss,
+    SiHtml5,
+    SiCss3,
   } from "react-icons/si";
   
   const ICON_SIZE: number = 24;
@@ -55,9 +55,9 @@ export const TECH_STACK_GIT = [
  export const TECH_STACK_WEB = [
         {
           label: "HTML5",
-          icon: <SiHtml size={ICON_SIZE} color="#38BDF8" />,
+          icon: <SiHtml5 size={ICON_SIZE} color="#38BDF8" />,
           label: "CSS3",  
-          icon: <SiCss size={ICON_SIZE} color="39BDF8" />
+          icon: <SiCss3 size={ICON_SIZE} color="39BDF8" />,
         },
   ];
   
