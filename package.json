@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@giscus/react": "^2.3.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.0",
     "@tippyjs/react": "^4.2.6",
     "@types/nodemailer": "^6.4.13",
