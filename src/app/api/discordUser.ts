@@ -1,9 +1,12 @@
 import { ApiResponse } from "@/components/cards/Callsign"; // Pastikan Anda mengimpor tipe ApiResponse yang benar
 
+// Definisikan konstanta discordUserId di luar fungsi
+const discordUserId = "689131590319865973";
+
 const getUserData = async (discordUserId?: string): Promise<ApiResponse> => {
   try {
     // Memastikan discordUserId memiliki nilai sebelum digunakan
-    if (!689131590319865973) {
+    if (!discordUserId) {
       throw new Error('Discord user ID is undefined');
     }
 
@@ -32,6 +35,7 @@ const getUserData = async (discordUserId?: string): Promise<ApiResponse> => {
         break;
 
       default:
+        statusBeautify = "Unknown";
         break;
     }
 
@@ -43,5 +47,12 @@ const getUserData = async (discordUserId?: string): Promise<ApiResponse> => {
     throw new Error("Failed to fetch Discord user data");
   }
 };
+
+// Memanggil fungsi getUserData dengan discordUserId
+getUserData(discordUserId).then(response => {
+  console.log(response);
+}).catch(error => {
+  console.error(error);
+});
 
 export default getUserData;
