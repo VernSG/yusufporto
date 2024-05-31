@@ -1,4 +1,17 @@
-import { ApiResponse } from "@/components/cards/Callsign"; // Pastikan Anda mengimpor tipe ApiResponse yang benar atau definisikan tipenya jika perlu
+// Definisikan tipe ApiResponse di sini
+interface ApiResponse {
+  data: {
+    discord_user: {
+      id: string;
+      username: string;
+      avatar: string;
+      discriminator: string;
+    };
+    discord_status: string;
+    active_on_discord_mobile: boolean;
+  };
+  statusBeautify: string;
+}
 
 // Definisikan konstanta discordUserId di luar fungsi
 const discordUserId = "689131590319865973";
