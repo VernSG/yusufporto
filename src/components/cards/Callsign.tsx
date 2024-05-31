@@ -3,10 +3,18 @@ import { Skeleton } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { SiDiscord } from "react-icons/si";
-import { getUserData } from "@/app/api/discordUser"; // Import fungsi getUserData
+import getUserData from "@/app/api/discordUser"; // Import fungsi getUserData
+
+// Definisikan tipe ApiResponse di sini
+interface ApiResponse {
+  username: string;
+  avatar_url: string;
+  statusBeautify: string;
+  discord_status: string;
+}
 
 export default function Callsign({ display }: { display: string }) {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState<ApiResponse | null>(null);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,7 +44,7 @@ export default function Callsign({ display }: { display: string }) {
         ) : (
           <Image
             className="h-auto w-auto"
-            src={userData.avatar_url}
+            src={userData?.avatar_url}
             alt="DISCORD_PROFILE"
             width={64}
             height={64}
@@ -47,16 +55,16 @@ export default function Callsign({ display }: { display: string }) {
 
       <div className="flex-1">
         <p className="font-medium leading-tight">
-          {isLoading ? <Skeleton width="100px" /> : `@${userData.username}`}
+          {isLoading ? <Skeleton width="100px" /> : `@${userData?.username}`}
         </p>
         <p className="mt-1 text-xs">
-          {isLoading ? <Skeleton width="80px" /> : userData.statusBeautify}
+          {isLoading ? <Skeleton width="80px" /> : userData?.statusBeautify}
         </p>
         <p className="mt-1 text-xs">
           {isLoading ? (
             <Skeleton width="80px" />
           ) : (
-            `Status: ${userData.discord_status}`
+            `Status: ${userData?.discord_status}`
           )}
         </p>
       </div>
