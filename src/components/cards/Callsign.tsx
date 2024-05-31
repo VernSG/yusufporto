@@ -10,7 +10,7 @@ import getUserData from "@/app/api/discordUser.ts"; // Import fungsi getUserData
 
 interface ApiResponse {
   data: {
-    discord_user: DiscordUser;
+    discord_user: DiscordUserData;
     discord_status: string; // Menambahkan properti discord_status
     active_on_discord_mobile: boolean;
   };
