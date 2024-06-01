@@ -13,11 +13,23 @@ export interface ApiResponse {
   statusBeautify: string;
 }
 
+// Definisikan tipe untuk customStatusTexts
+interface CustomStatusTexts {
+  online?: string;
+  onlineMobile?: string;
+  offline?: string;
+  idle?: string;
+  dnd?: string;
+  unknown?: string;
+}
 
 // Definisikan konstanta discordUserId di luar fungsi
 const discordUserId = "689131590319865973";
 
-const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
+const getUserData = async (
+  discordUserId: string,
+  customStatusTexts: CustomStatusTexts = {}
+): Promise<ApiResponse> => {
   try {
     // Memastikan discordUserId memiliki nilai sebelum digunakan
     if (!discordUserId) {
@@ -38,24 +50,26 @@ const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
     let statusBeautify;
     switch (data.discord_status) {
       case "online":
-        statusBeautify = data.active_on_discord_mobile ? "Online (Mobile)" : "Online";
+        statusBeautify = data.active_on_discord_mobile
+          ? customStatusTexts.onlineMobile || "Spotify ku Galau"
+          : customStatusTexts.online || "Spotify ku Galau";
         data.discord_status = data.active_on_discord_mobile ? "online-mobile" : "online";
         break;
 
       case "offline":
-        statusBeautify = "Offline";
+        statusBeautify = customStatusTexts.offline || "Offline";
         break;
 
       case "idle":
-        statusBeautify = "Idle";
+        statusBeautify = customStatusTexts.idle || "Lagi denger Spotify";
         break;
 
       case "dnd":
-        statusBeautify = "Do not disturb!";
+        statusBeautify = customStatusTexts.dnd || "Galau Brutal!";
         break;
 
       default:
-        statusBeautify = "Unknown";
+        statusBeautify = customStatusTexts.unknown || "Unknown";
         break;
     }
 
@@ -68,8 +82,17 @@ const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
   }
 };
 
-// Memanggil fungsi getUserData dengan discordUserId
-getUserData(discordUserId).then(response => {
+// Contoh pemanggilan fungsi getUserData dengan customStatusTexts
+const customTexts = {
+  online: "User is Online",
+  onlineMobile: "User is Online on Mobile",
+  offline: "User is Offline",
+  idle: "User is Idle",
+  dnd: "User does not want to be disturbed",
+  unknown: "User status is Unknown"
+};
+
+getUserData(discordUserId, customTexts).then(response => {
   console.log(response);
 }).catch(error => {
   console.error(error);
