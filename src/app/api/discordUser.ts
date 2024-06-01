@@ -61,7 +61,7 @@ const getUserData = async (
         break;
 
       case "idle":
-        statusBeautify = customStatusTexts.idle || "Idle";
+        statusBeautify = customStatusTexts.idle || "Lagi denger Spotify";
         break;
 
       case "dnd":
