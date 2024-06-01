@@ -51,8 +51,8 @@ const getUserData = async (
     switch (data.discord_status) {
       case "online":
         statusBeautify = data.active_on_discord_mobile
-          ? customStatusTexts.onlineMobile || "Online (Mobile)"
-          : customStatusTexts.online || "Online";
+          ? customStatusTexts.onlineMobile || "Spotify ku Galau"
+          : customStatusTexts.online || "Spotify ku Galau";
         data.discord_status = data.active_on_discord_mobile ? "online-mobile" : "online";
         break;
 
@@ -65,7 +65,7 @@ const getUserData = async (
         break;
 
       case "dnd":
-        statusBeautify = customStatusTexts.dnd || "Do not disturb!";
+        statusBeautify = customStatusTexts.dnd || "Galau Brutal!";
         break;
 
       default:
