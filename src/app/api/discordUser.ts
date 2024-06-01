@@ -37,20 +37,20 @@ const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
     // Mengubah status Discord menjadi representasi yang lebih mudah dibaca
     let statusBeautify;
     switch (data.discord_status) {
-      case "online":
+      case "active":
         statusBeautify = data.active_on_discord_mobile ? "Online (Mobile)" : "Online";
         data.discord_status = data.active_on_discord_mobile ? "online-mobile" : "online";
         break;
 
-      case "offline":
+      case "not active":
         statusBeautify = "Offline";
         break;
 
-      case "idle":
+      case "i'm sleep":
         statusBeautify = "Idle";
         break;
 
-      case "dnd":
+      case "im alone":
         statusBeautify = "Do not disturb!";
         break;
 
