@@ -13,11 +13,23 @@ export interface ApiResponse {
   statusBeautify: string;
 }
 
+// Definisikan tipe untuk customStatusTexts
+interface CustomStatusTexts {
+  online?: string;
+  onlineMobile?: string;
+  offline?: string;
+  idle?: string;
+  dnd?: string;
+  unknown?: string;
+}
 
 // Definisikan konstanta discordUserId di luar fungsi
 const discordUserId = "689131590319865973";
 
-const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
+const getUserData = async (
+  discordUserId: string,
+  customStatusTexts: CustomStatusTexts = {}
+): Promise<ApiResponse> => {
   try {
     // Memastikan discordUserId memiliki nilai sebelum digunakan
     if (!discordUserId) {
@@ -37,25 +49,27 @@ const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
     // Mengubah status Discord menjadi representasi yang lebih mudah dibaca
     let statusBeautify;
     switch (data.discord_status) {
-      case "active":
-        statusBeautify = data.active_on_discord_mobile ? "Online (Mobile)" : "Online";
+      case "online":
+        statusBeautify = data.active_on_discord_mobile
+          ? customStatusTexts.onlineMobile || "Online (Mobile)"
+          : customStatusTexts.online || "Online";
         data.discord_status = data.active_on_discord_mobile ? "online-mobile" : "online";
         break;
 
-      case "not active":
-        statusBeautify = "Offline";
+      case "offline":
+        statusBeautify = customStatusTexts.offline || "Offline";
         break;
 
-      case "i'm sleep":
-        statusBeautify = "Idle";
+      case "idle":
+        statusBeautify = customStatusTexts.idle || "Idle";
         break;
 
-      case "im alone":
-        statusBeautify = "Do not disturb!";
+      case "dnd":
+        statusBeautify = customStatusTexts.dnd || "Do not disturb!";
         break;
 
       default:
-        statusBeautify = "Unknown";
+        statusBeautify = customStatusTexts.unknown || "Unknown";
         break;
     }
 
@@ -68,8 +82,17 @@ const getUserData = async (discordUserId: string): Promise<ApiResponse> => {
   }
 };
 
-// Memanggil fungsi getUserData dengan discordUserId
-getUserData(discordUserId).then(response => {
+// Contoh pemanggilan fungsi getUserData dengan customStatusTexts
+const customTexts = {
+  online: "User is Online",
+  onlineMobile: "User is Online on Mobile",
+  offline: "User is Offline",
+  idle: "User is Idle",
+  dnd: "User does not want to be disturbed",
+  unknown: "User status is Unknown"
+};
+
+getUserData(discordUserId, customTexts).then(response => {
   console.log(response);
 }).catch(error => {
   console.error(error);
