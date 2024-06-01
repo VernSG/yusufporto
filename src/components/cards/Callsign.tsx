@@ -30,7 +30,7 @@ export default function Callsign({ display }: { display: string }) {
     <Link
       target="_blank"
       rel="noopener noreferrer"
-      href={`https://lanyard.rest/user/689131590319865973`} // Ganti dengan endpoint Lanyard yang sesuai
+      href={`https://api.lanyard.rest/v1/users/689131590319865973`} // Ganti dengan endpoint Lanyard yang sesuai
       className={`cursor-pointer relative w-fit max-w-xs m-auto p-4 items-center gap-4 border__color rounded-md lg:w-52 ${display}`}
     >
       <div className="w-16">
