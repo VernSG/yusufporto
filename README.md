@@ -11,13 +11,13 @@ Personal website and blogs built using TypeScript, Next.js, Tailwind CSS, and Sa
 Clone the project
 
 ```bash
-  git clone https://github.com/ndrvndr/personal-website.git
+  git clone https://github.com/VernSG/yusufporto.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd personal-website
+  cd yusufporto
 ```
 
 Install dependencies
@@ -44,14 +44,6 @@ To run this project, you will need to add the following environment variables to
 
 `SPOTIFY_REFRESH_TOKEN`
 
-### [Sanity](https://www.sanity.io/)
-
-`NEXT_PUBLIC_SANITY_PROJECT_ID`
-
-`NEXT_PUBLIC_SANITY_DATASET`
-
-`NEXT_PUBLIC_SANITY_TOKEN`
-
 ### [Giscus](https://giscus.app/)
 
 `NEXT_PUBLIC_GISCUS_REPO`
@@ -75,8 +67,6 @@ To run this project, you will need to add the following environment variables to
 ## Documentation
 
 [Spotify Developer](https://developer.spotify.com/)
-
-[Sanity Studio](https://www.sanity.io/docs/sanity-studio)
 
 [Giscus](https://giscus.app/)
 
