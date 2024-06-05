@@ -40,7 +40,7 @@ export const PROJECTCARD_CONTENTS = [
     url: "https://youtube.com/VernSG/",
     name: "Growtopia Private Server",
     description:
-      "4 years ago, I made a video tutorial on Youtube: how to create a growtopia private server using open source code and run it using a Virtual Private Server (VPS). I was happy to get a lot of views, at that time it reached 36,000 views.",
+      "how to create a growtopia private server using open source code and run it using a Virtual Private Server (VPS).",
     techStack: TECH_STACK_GTPS,
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1715886530/IMG_20240516_054414_nzfqjf.jpg",
