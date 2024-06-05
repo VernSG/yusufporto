@@ -1,6 +1,5 @@
 import PageTitle from "@/components/elements/PageTitle";
 import type { Metadata } from "next";
-import Career from "./Career";
 import Header from "./Header";
 import Hero from "./Hero";
 import Stacks from "./Stacks";
@@ -24,7 +23,6 @@ export default function Home() {
         />
         <Header />
         <Hero />
-        <Career />
         <Stacks />
       </div>
     </>

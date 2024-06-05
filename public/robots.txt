@@ -4,7 +4,7 @@ Allow: /
 Disallow: /studio/
 
 # Host
-Host: https://yusufsaputra.vercel.app/
+Host: https://yusufs.me/
 
 # Sitemaps
-Sitemap: https://yusufsaputra.vercel.app/sitemap.xml
+Sitemap: https://yusufs.me/sitemap.xml

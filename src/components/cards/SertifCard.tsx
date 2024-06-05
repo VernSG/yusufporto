@@ -38,15 +38,17 @@ export default function ProjectCard({
         className={clsx("group cursor-pointer", "flex flex-col", "h-full")}
       >
         <div>
-          <Image
-            className="h-auto w-auto rounded-t-md"
-            width={1920}
-            height={1080}
-            src={image}
-            alt={imageAlt}
-            loading="lazy"
-            aria-label={`Live ${title} Production Screenshot`}
-          />
+        <Image
+  className="h-auto w-auto rounded-t-md"
+  width={1920}
+  height={1080}
+  src={image}
+  alt={imageAlt}
+  loading="lazy"
+  aria-label={`Live ${title} Production Screenshot`}
+  layout="responsive"
+  objectFit="cover"
+/>        
         </div>
 
         <div className="p-4">
