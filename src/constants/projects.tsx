@@ -9,6 +9,7 @@ import {
   SiReact,
   SiTailwindcss,
   SiTypescript,
+  SiNodedotjs,
 } from "react-icons/si";
 
 const ICON_SIZE: number = 24;
@@ -17,6 +18,13 @@ export const TECH_STACK_GTPS = [
   {
     label: "Vps",
     icon: <SiVultr size={ICON_SIZE} color="#38BDF8" />,
+  },
+];
+
+export const TECH_STACK_WABOT = [
+  {
+    label: "Node",
+    icon: <SiNodedotjs size={ICON_SIZE} color="#38BDF8" />,
   },
 ];
 
@@ -55,5 +63,15 @@ export const PROJECTCARD_CONTENTS = [
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1715886791/IMG_20240517_031255_diwabo.jpg",
     imageAlt: "Sizestore Website Screenshot",
+  },
+  {
+    url: "https://github.com/VernSG/whatsapp-bot.git",
+    name: "WhatsApp Bot Project",
+    description:
+      "WhatsApp bot use node js,check github for see the features.",
+    techStack: TECH_STACK_WABOT,
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1717831646/image_bludtd.png",
+    imageAlt: "Github Website Screenshot",
   },
 ];
