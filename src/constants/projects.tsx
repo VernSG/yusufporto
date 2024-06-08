@@ -28,6 +28,13 @@ export const TECH_STACK_WABOT = [
   },
 ];
 
+export const TECH_STACK_AETHER = [
+  {
+    label: "Vultr",
+    icon: <SiVultr size={ICON_SIZE} color="#38BDF8" />,
+  },
+];
+
 export const TECH_STACK_SIZE = [
   {
     label: "React.js",
@@ -73,5 +80,15 @@ export const PROJECTCARD_CONTENTS = [
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1717831646/image_bludtd.png",
     imageAlt: "Github Website Screenshot",
+  },
+  {
+    url: "https://github.com/VernSG/",
+    name: "AetherEye Bypass",
+    description:
+      "Pubg Mobile Bypass.",
+    techStack: TECH_STACK_AETHER,
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1717835955/ae_e1985f.png",
+    imageAlt: "Discord Screenshot",
   },
 ];
