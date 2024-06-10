@@ -100,7 +100,7 @@ export const PROJECTCARD_CONTENTS = [
     imageAlt: "Discord Screenshot",
   },
   {
-    url: "https://res.cloudinary.com/djsdnb4td/image/upload/v1718028162/manhwa_w4sn9q.png",
+    url: "https://manhwapedia.site",
     name: "Manhwapedia",
     description:
       "Character Manhwa and Manga Desk Website",
