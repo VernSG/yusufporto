@@ -6,6 +6,7 @@ import {
   SiNextdotjs,
   SiPython,
   SiPytorch,
+  SiJavascript,
   SiReact,
   SiTailwindcss,
   SiTypescript,
@@ -26,6 +27,13 @@ export const TECH_STACK_AETHER = [
     icon: <SiVultr size={ICON_SIZE} color="#38BDF8" />,
   },
 ];
+
+export const TECH_STACK_JS = [
+  {
+    label: "Javascript",
+    icon: <SiJavascript size={ICON_SIZE} color="#38BDF8" />,
+  },
+]
 
 export const TECH_STACK_SIZE = [
   {
@@ -72,5 +80,15 @@ export const PROJECTCARD_CONTENTS = [
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1717835955/ae_e1985f.png",
     imageAlt: "Discord Screenshot",
+  },
+  {
+    url: "https://res.cloudinary.com/djsdnb4td/image/upload/v1718028162/manhwa_w4sn9q.png",
+    name: "Manhwapedia",
+    description:
+      "Character Manhwa and Manga Desk Website",
+    techStack: TECH_STACK_JS,
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1718028162/manhwa_w4sn9q.png",
+    imageAlt: "Web Screenshot",
   },
 ];
