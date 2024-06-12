@@ -8,7 +8,7 @@ import { DEFAULT_METADATA } from "@/constants/metadata";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yusufsaputra.vercel.app/"),
+  metadataBase: new URL("https://yusufs.me"),
   title: DEFAULT_METADATA.creator,
   robots: DEFAULT_METADATA.robots,
   keywords: DEFAULT_METADATA.keyword,
