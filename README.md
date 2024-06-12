@@ -9,11 +9,11 @@ github bang andre : https://github.com/ndrvndr
 <div>
 yang saya ubah:
   
-spotify activity ke discord activity
-  
-blog sanity saya ubah menjadi certificate (ga bisa buka sanity studionya😭)
+``spotify activity ke discord activity``
 
-sedikit otak atik hero,about,project,dll
+``blog sanity saya ubah menjadi certificate (ga bisa buka sanity studionya😭)``
+
+``sedikit otak atik hero,about,project,dll``
 
 Website ini menggunakan
 
