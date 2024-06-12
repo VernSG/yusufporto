@@ -31,7 +31,7 @@ Sekiranya pengen menambahkan fitur bisa di pr's aja ya,terimakasih🙏
 Clone the project
 
 ```bash
-  git clone https://github.com/ndrvndr/personal-website.git
+  git clone https://github.com/vernsg/yusufporto.git
 ```
 
 Go to the project directory
