@@ -85,18 +85,4 @@ export const FOOTER_LINKS = [
     target: "",
     rel: "",
   },
-  {
-    label: "Subscribe",
-    toolTip: "Get an email whenever i post a blog, no spam",
-    url: "/subscribe",
-    target: "",
-    rel: "",
-  },
-  {
-    label: "RSS",
-    toolTip: "Add yusufsaputra.site blog to your feeds",
-    url: "/rss.xml",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
 ];

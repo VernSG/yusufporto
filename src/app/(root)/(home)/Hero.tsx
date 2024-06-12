@@ -3,22 +3,23 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { SiGmail } from 'react-icons/si';
-
 import { BiSolidDownvote } from "react-icons/bi";
 import clsx from 'clsx';
 import Ping from '@/components/elements/Ping';
 import BreakLine from '@/components/elements/BreakLine'; 
 
-
 export default function Hero() {
-  const [displayText, setDisplayText] = useState('Front-End Web Developer');
+  const [displayText, setDisplayText] = useState({
+    mainText: 'Learn Full Stack Web Developer',
+    subText: 'Keep Learning!'
+  });
 
   useEffect(() => {
     const intervalId = setTimeout(() => {
       setDisplayText(prevText =>
-        prevText === 'Front-End Web Developer'
-          ? 'I build website'
-          : 'Front-End Web Developer'
+        prevText.mainText === 'Learn Full Stack Web Developer'
+          ? { mainText: 'I like anime, manhwa, and novels', subText: 'Watching One Piece' }
+          : { mainText: 'Learn Full Stack Web Developer', subText: 'Keep Learning!' }
       );
     }, 2000);
 
@@ -42,11 +43,12 @@ export default function Hero() {
       </h1>
 
       <ul className="secondary mb-4 list-disc space-y-1 pl-4 text-sm md:text-lg">
-        <li>{displayText}</li>
+        <li>{displayText.mainText}</li>
+        <li>{displayText.subText}</li>
       </ul>
 
       <p className="secondary mb-4 text-sm leading-relaxed md:text-lg">
-        Learning Javascript
+        not the best. but believe i could do something.
       </p>
 
       <div className="mb-4 flex items-center gap-2">
@@ -58,39 +60,41 @@ export default function Hero() {
         href={"./cv.pdf"}
         target="_blank"
         rel="noopener noreferrer"
-        className={clsx(
+        passHref>
+        <a className={clsx(
           "secondary cursor-pointer",
           "mb-8 pl-0.5",
           "flex items-center gap-3",
           "text-sm font-bold md:text-lg",
           "transition-all duration-300",
-        )}
-      >
-        <div
-          className={clsx(
-            "overflow-hidden",
-            "border-b-2 border-solid",
-            "border-secondary-light dark:border-secondary-dark",
-          )}
-        >
-          <BiSolidDownvote className="animate-rain-arrow" />
-        </div>
-        Download CV
+        )}>
+          <div
+            className={clsx(
+              "overflow-hidden",
+              "border-b-2 border-solid",
+              "border-secondary-light dark:border-secondary-dark",
+            )}
+          >
+            <BiSolidDownvote className="animate-rain-arrow" />
+          </div>
+          Download CV
+        </a>
       </Link>
-      <motion.section />
 
       <Link
         href="/contact"
         aria-label="Contact Me"
-        className={clsx(
+        passHref>
+        <a className={clsx(
           'primary border__gradient',
           'flex items-center gap-3',
           'w-fit rounded-md p-3',
           'text-sm font-bold md:text-lg',
           'lg:mb-[39px]'
         )}>
-        <SiGmail />
-        Contact Me
+          <SiGmail />
+          Contact Me
+        </a>
       </Link>
       <BreakLine />
     </motion.section>
