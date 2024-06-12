@@ -18,6 +18,7 @@ export default function Hero() {
       setDisplayText(prevText =>
         prevText === 'Learn Full Stack Web Developer'
           ? 'I like anime,manhwa and novel'
+          ? 'Not the best but aiming to be better.'
           : 'Learn Full Stack Web Developer'
       );
     }, 2000);
