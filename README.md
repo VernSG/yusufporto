@@ -8,13 +8,17 @@ github bang andre : https://github.com/ndrvndr
 </div>
 <div>
 yang saya ubah:
-- spotify activity ke discord activity
-- blog sanity saya ubah menjadi certificate (ga bisa buka sanity studionya😭)
-- sedikit otak atik hero,about,project,dll
+spotify activity ke discord activity
+  
+blog sanity saya ubah menjadi certificate (ga bisa buka sanity studionya😭)
+
+sedikit otak atik hero,about,project,dll
 
 Website ini menggunakan
 `Next JS`
+
 `Typescript`
+
 `Tailwind CSS`
 
 Sekiranya pengen menambahkan fitur bisa di pr's aja ya,terimakasih🙏
