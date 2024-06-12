@@ -18,7 +18,7 @@ export default function Hero() {
     const intervalId = setTimeout(() => {
       setDisplayText(prevText =>
         prevText.mainText === 'Learn Full Stack Web Developer'
-          ? { mainText: 'I like anime, manhwa, and novels', subText: 'Keep Exploring!' }
+          ? { mainText: 'I like anime, manhwa, and novels', subText: 'Watching One Piece' }
           : { mainText: 'Learn Full Stack Web Developer', subText: 'Keep Learning!' }
       );
     }, 2000);
@@ -48,7 +48,7 @@ export default function Hero() {
       </ul>
 
       <p className="secondary mb-4 text-sm leading-relaxed md:text-lg">
-        Learning Javascript
+        not the best. but believe i could do something.
       </p>
 
       <div className="mb-4 flex items-center gap-2">
