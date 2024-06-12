@@ -31,7 +31,7 @@ export const THEME_COLORS = [
   },
   {
     title: "Gradient",
-    subTitle: "#B3ffab to #12fff7",
-    colorClassName: "linear-gradient(to right, #B3ffab, #12fff7)",
+    subTitle: #4b79a1" to #283e51",
+    colorClassName: "linear-gradient(to right, #4b79a1, #283e51)",
   },
 ];
