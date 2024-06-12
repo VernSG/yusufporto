@@ -19,7 +19,7 @@ export default function Home() {
       <div className="px-8 pb-5 pt-8">
         <PageTitle
           title="Home"
-          description="Introduction and Professional Career Journey."
+          description="introduction to myself"
         />
         <Header />
         <Hero />
