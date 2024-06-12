@@ -1,5 +1,5 @@
 "use client";
-import { PROFILE_PICTURE_URL } from "@/constants";
+import { PROFILE_PICTURE_URL } from "https://res.cloudinary.com/djsdnb4td/image/upload/v1718190192/anime_brqpf9.jpg";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
