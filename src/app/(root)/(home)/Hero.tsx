@@ -19,6 +19,7 @@ export default function Hero() {
         prevText === 'Learn Full Stack Web Developer'
           ? 'I like anime,manhwa and novel'
           : 'Watching One Piece!'
+          : 'Learn Full Stack Web Developer'
       );
     }, 2000);
 
