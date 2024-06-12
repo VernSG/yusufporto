@@ -3,12 +3,10 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { SiGmail } from 'react-icons/si';
-
 import { BiSolidDownvote } from "react-icons/bi";
 import clsx from 'clsx';
 import Ping from '@/components/elements/Ping';
 import BreakLine from '@/components/elements/BreakLine'; 
-
 
 export default function Hero() {
   const [displayText, setDisplayText] = useState({
@@ -27,7 +25,7 @@ export default function Hero() {
 
     return () => clearTimeout(intervalId);
   }, [displayText]);
-  
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
@@ -45,7 +43,8 @@ export default function Hero() {
       </h1>
 
       <ul className="secondary mb-4 list-disc space-y-1 pl-4 text-sm md:text-lg">
-        <li>{displayText}</li>
+        <li>{displayText.mainText}</li>
+        <li>{displayText.subText}</li>
       </ul>
 
       <p className="secondary mb-4 text-sm leading-relaxed md:text-lg">
@@ -61,39 +60,41 @@ export default function Hero() {
         href={"./cv.pdf"}
         target="_blank"
         rel="noopener noreferrer"
-        className={clsx(
+        passHref>
+        <a className={clsx(
           "secondary cursor-pointer",
           "mb-8 pl-0.5",
           "flex items-center gap-3",
           "text-sm font-bold md:text-lg",
           "transition-all duration-300",
-        )}
-      >
-        <div
-          className={clsx(
-            "overflow-hidden",
-            "border-b-2 border-solid",
-            "border-secondary-light dark:border-secondary-dark",
-          )}
-        >
-          <BiSolidDownvote className="animate-rain-arrow" />
-        </div>
-        Download CV
+        )}>
+          <div
+            className={clsx(
+              "overflow-hidden",
+              "border-b-2 border-solid",
+              "border-secondary-light dark:border-secondary-dark",
+            )}
+          >
+            <BiSolidDownvote className="animate-rain-arrow" />
+          </div>
+          Download CV
+        </a>
       </Link>
-      <motion.section />
 
       <Link
         href="/contact"
         aria-label="Contact Me"
-        className={clsx(
+        passHref>
+        <a className={clsx(
           'primary border__gradient',
           'flex items-center gap-3',
           'w-fit rounded-md p-3',
           'text-sm font-bold md:text-lg',
           'lg:mb-[39px]'
         )}>
-        <SiGmail />
-        Contact Me
+          <SiGmail />
+          Contact Me
+        </a>
       </Link>
       <BreakLine />
     </motion.section>
