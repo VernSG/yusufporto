@@ -12,7 +12,7 @@ export default function Header() {
       className="mb-8 flex items-center gap-4 md:hidden"
     >
       <Image
-        src={PROFILE_PICTURE_URL}
+        src={ PROFILE_PICTURE_URL }
         alt="Image Profile"
         className="border__color h-11 w-11 rounded-full"
         width={100}
