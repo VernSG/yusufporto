@@ -11,21 +11,23 @@ import BreakLine from '@/components/elements/BreakLine';
 
 
 export default function Hero() {
-  const [displayText, setDisplayText] = useState('Learn Full Stack Web Developer');
+  const [displayText, setDisplayText] = useState({
+    mainText: 'Learn Full Stack Web Developer',
+    subText: 'Keep Learning!'
+  });
 
   useEffect(() => {
     const intervalId = setTimeout(() => {
       setDisplayText(prevText =>
-        prevText === 'Learn Full Stack Web Developer'
-          ? 'I like anime,manhwa and novel'
-          ? 'Not the best but aiming to be better.'
-          : 'Learn Full Stack Web Developer'
+        prevText.mainText === 'Learn Full Stack Web Developer'
+          ? { mainText: 'I like anime, manhwa, and novels', subText: 'Keep Exploring!' }
+          : { mainText: 'Learn Full Stack Web Developer', subText: 'Keep Learning!' }
       );
     }, 2000);
 
     return () => clearTimeout(intervalId);
   }, [displayText]);
-
+  
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
