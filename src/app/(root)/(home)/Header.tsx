@@ -12,7 +12,7 @@ export default function Header() {
       className="mb-8 flex items-center gap-4 md:hidden"
     >
       <Image
-        src={ PROFILE_PICTURE_URL }
+        src="https://res.cloudinary.com/djsdnb4td/image/upload/v1718190192/anime_brqpf9.jpg"
         alt="Image Profile"
         className="border__color h-11 w-11 rounded-full"
         width={100}
