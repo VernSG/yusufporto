@@ -11,14 +11,14 @@ import BreakLine from '@/components/elements/BreakLine';
 
 
 export default function Hero() {
-  const [displayText, setDisplayText] = useState('Front-End Web Developer');
+  const [displayText, setDisplayText] = useState('Learn Full Stack Web Developer');
 
   useEffect(() => {
     const intervalId = setTimeout(() => {
       setDisplayText(prevText =>
-        prevText === 'Front-End Web Developer'
-          ? 'I build website'
-          : 'Front-End Web Developer'
+        prevText === 'Learn Full Stack Web Developer'
+          ? 'I like anime,manhwa and novel'
+          : 'Watching One Piece!'
       );
     }, 2000);
 
