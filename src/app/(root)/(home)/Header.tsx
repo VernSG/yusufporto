@@ -1,5 +1,5 @@
 "use client";
-import { PROFILE_PICTURE_URL } from "../favicon.ico";
+import { PROFILE_PICTURE_URL } from "@/app/favicon.ico";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
