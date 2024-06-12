@@ -1,3 +1,4 @@
+//footer
 import { FOOTER_ITEMS, FOOTER_LINKS } from "@/constants/footer";
 import clsx from "clsx";
 import Link from "next/link";
@@ -70,7 +71,7 @@ export default function Footer() {
       </ul>
 
       <p className="mt-8 text-center text-sm">
-        copyright &copy; Muhammad Yusuf Saputra 2024
+        copyright &copy; Muhammad Yusuf 2024
       </p>
     </footer>
   );

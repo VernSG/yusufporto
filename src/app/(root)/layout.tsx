@@ -1,6 +1,7 @@
 import Layouts from "@/components/layouts";
 import Providers from "@/components/layouts/Providers";
 import type { Metadata } from "next";
+import Head from "next/head";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import { DEFAULT_METADATA } from "@/constants/metadata";
@@ -43,7 +44,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang={DEFAULT_METADATA.locale}>
+      <Head>
+        <title>{DEFAULT_METADATA.creator}</title>
+        <meta name="description" content={DEFAULT_METADATA.description ?? 'Default description'} />
+        <meta name="keywords" content={DEFAULT_METADATA.keyword ?? 'default, keyword'} />
+        <meta name="robots" content={DEFAULT_METADATA.robots ?? 'index, follow'} />
+        <meta name="creator" content={DEFAULT_METADATA.creator ?? 'Default Creator'} />
+        <meta name="author" content={DEFAULT_METADATA.creator ?? 'Default Author'} />
+        <meta name="author" content={DEFAULT_METADATA.url ?? 'https://default.url'} />
+      </Head>
       <body className={inter.className}>
         <Providers>
           <Layouts>{children}</Layouts>

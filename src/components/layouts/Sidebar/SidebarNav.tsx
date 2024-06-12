@@ -17,7 +17,7 @@ export default function SidebarNav() {
 
           return (
             <li key={index}>
-              <Link href={item.pathname}>
+              <Link href={item.pathname} legacyBehavior>
                 <div
                   className={clsx(
                     isActivePage
