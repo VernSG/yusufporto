@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-linear": "linear-gradient(to right, #834d9b, #d04ed6);",
+        "gradient-linear": "linear-gradient(to right, #c2e59c, #64b3f4);",
       },
       colors: {
         // darkmode
@@ -19,8 +19,8 @@ const config: Config = {
         "primary-light": "#1F2937",
         "secondary-light": "#374151",
         // gradient
-        "primary-gradient": "#834D9B",
-        "secondary-gradient": "#D04ED6",
+        "primary-gradient": "#C2E59C",
+        "secondary-gradient": "#64B3F4",
       },
       keyframes: {
         wave: {
