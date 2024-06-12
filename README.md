@@ -5,7 +5,8 @@
 Halo pak dosen kita semua,perkenalkan saya Muhammad yusuf saputra (yusuf),izin share showcase project punya bang andre yang saya ubah sedikit🙏(sudah izin) .
 
 github bang andre : https://github.com/ndrvndr
-
+</div>
+<div>
 yang saya ubah:
 - spotify activity ke discord activity
 - blog sanity saya ubah menjadi certificate (ga bisa buka sanity studionya😭)
