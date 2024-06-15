@@ -47,6 +47,8 @@ export default function ProjectCard({
             alt={imageAlt}
             loading="lazy"
             aria-label={`Live ${title} Production Screenshot`}
+            layout="responsive"
+            objectFit="cover"
           />
         </div>
       </Link>
