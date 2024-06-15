@@ -18,6 +18,8 @@ yang saya ubah:
 
 ``sedikit otak atik hero,about,project,dll``
 
+``gradient change dan menambahkan library music``
+
 Website ini menggunakan
 
 `Next JS`
