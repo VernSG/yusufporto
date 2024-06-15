@@ -36,7 +36,8 @@ export default function ProjectCard({
         rel="noopener noreferrer"
         aria-label={`Visit ${title} live production demo`}
         className={clsx("group cursor-pointer", "flex flex-col", "h-full")}
-        legacyBehavior>
+        legacyBehavior
+      >
         <div>
           <Image
             className="h-auto w-auto rounded-t-md"
@@ -48,39 +49,39 @@ export default function ProjectCard({
             aria-label={`Live ${title} Production Screenshot`}
           />
         </div>
-
-        <div className="p-4">
-          <div className="flex items-center gap-2">
-            <Ping />
-
-            <h1 className="flex items-center gap-1 font-bold md:text-lg">
-              {title}
-              <span
-                className={clsx(
-                  "transition-all duration-200",
-                  "lg:group-hover:-translate-y-1 lg:group-hover:translate-x-1",
-                )}
-              >
-                <TbArrowUpRight />
-              </span>
-            </h1>
-          </div>
-
-          <p className="secondary my-4 text-sm leading-relaxed md:h-[91px]">
-            {description}
-          </p>
-
-          <ul className="flex flex-wrap gap-4">
-            {techStack.map((tech, index) => (
-              <li className="text-2xl" key={index}>
-                <Tooltip placement="top" label={tech.label}>
-                  {tech.icon}
-                </Tooltip>
-              </li>
-            ))}
-          </ul>
-        </div>
       </Link>
+
+      <div className="p-4">
+        <div className="flex items-center gap-2">
+          <Ping />
+
+          <h1 className="flex items-center gap-1 font-bold md:text-lg">
+            {title}
+            <span
+              className={clsx(
+                "transition-all duration-200",
+                "lg:group-hover:-translate-y-1 lg:group-hover:translate-x-1",
+              )}
+            >
+              <TbArrowUpRight />
+            </span>
+          </h1>
+        </div>
+
+        <p className="secondary my-4 text-sm leading-relaxed md:h-[91px]">
+          {description}
+        </p>
+
+        <ul className="flex flex-wrap gap-4">
+          {techStack.map((tech, index) => (
+            <li className="text-2xl" key={index}>
+              <Tooltip placement="top" label={tech.label}>
+                {tech.icon}
+              </Tooltip>
+            </li>
+          ))}
+        </ul>
+      </div>
     </motion.li>
   );
 }
