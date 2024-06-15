@@ -20,6 +20,8 @@ yang saya ubah:
 
 ``gradient change dan menambahkan library music``
 
+``saya juga fix beberapa error multiple child <Link 😅``
+
 Website ini menggunakan
 
 `Next JS`
