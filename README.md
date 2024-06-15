@@ -2,7 +2,7 @@
 
 # [yusufs.me](https://yusufs.me/)
 
-Halo pak dosen kita semua,perkenalkan saya Muhammad yusuf saputra (yusuf),izin share showcase project punya bang andre yang saya ubah sedikit🙏(sudah izin) .
+Halo pak dosen kita semua,perkenalkan saya Muhammad yusuf saputra (yusuf) lulusan madrasah aliyah negeri bontang,izin share showcase project punya bang andre yang saya ubah sedikit🙏(sudah izin) .
 
 github bang andre : https://github.com/ndrvndr
 </div>
