@@ -36,7 +36,7 @@ export default function ProjectCard({
         rel="noopener noreferrer"
         aria-label={`Visit ${title} live production demo`}
         className={clsx("group cursor-pointer", "flex flex-col", "h-full")}
-      >
+        legacyBehavior>
         <div>
         <Image
   className="h-auto w-auto rounded-t-md"

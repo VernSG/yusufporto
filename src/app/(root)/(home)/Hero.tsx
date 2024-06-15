@@ -60,41 +60,39 @@ export default function Hero() {
         href={"./cv.pdf"}
         target="_blank"
         rel="noopener noreferrer"
-        passHref>
-        <a className={clsx(
+        passHref
+        className={clsx(
           "secondary cursor-pointer",
           "mb-8 pl-0.5",
           "flex items-center gap-3",
           "text-sm font-bold md:text-lg",
           "transition-all duration-300",
         )}>
-          <div
-            className={clsx(
-              "overflow-hidden",
-              "border-b-2 border-solid",
-              "border-secondary-light dark:border-secondary-dark",
-            )}
-          >
-            <BiSolidDownvote className="animate-rain-arrow" />
-          </div>
-          Download CV
-        </a>
+
+        <div
+          className={clsx(
+            "overflow-hidden",
+            "border-b-2 border-solid",
+            "border-secondary-light dark:border-secondary-dark",
+          )}
+        >
+          <BiSolidDownvote className="animate-rain-arrow" />
+        </div>Download CV
       </Link>
 
       <Link
         href="/contact"
         aria-label="Contact Me"
-        passHref>
-        <a className={clsx(
+        passHref
+        className={clsx(
           'primary border__gradient',
           'flex items-center gap-3',
           'w-fit rounded-md p-3',
           'text-sm font-bold md:text-lg',
           'lg:mb-[39px]'
         )}>
-          <SiGmail />
-          Contact Me
-        </a>
+
+        <SiGmail />Contact Me
       </Link>
       <BreakLine />
     </motion.section>

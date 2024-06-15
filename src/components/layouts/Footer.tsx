@@ -25,7 +25,7 @@ export default function Footer() {
               aria-label={`Go to ${link.label} page`}
               target={link.target}
               rel={link.rel}
-            >
+              legacyBehavior>
               <Tooltip placement="top" label={link.toolTip}>
                 <div>
                   {link.label}
@@ -62,7 +62,7 @@ export default function Footer() {
               target={target}
               rel={rel}
               className={`${target === "_blank" && "cursor-pointer"}`}
-            >
+              legacyBehavior>
               {icon}
             </Link>
           </li>

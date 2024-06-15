@@ -3,6 +3,7 @@ import { FaRegPaperPlane } from "react-icons/fa";
 import { GoProjectSymlink } from "react-icons/go";
 import { SiAboutdotme } from "react-icons/si";
 import { TbWriting } from "react-icons/tb";
+import { CiMusicNote1 } from "react-icons/ci";
 
 const ICON_SIZE: number = 24;
 
@@ -17,6 +18,11 @@ export const SIDEBAR_ITEMS = [
     icon: <GoProjectSymlink size={ICON_SIZE} />,
     pathname: "/projects",
     label: "Projects",
+  },
+  {
+    icon: <CiMusicNote1 size={ICON_SIZE} />,
+    pathname: "/music",
+    label: "Music",
   },
   {
     icon: <TbWriting size={ICON_SIZE} />,

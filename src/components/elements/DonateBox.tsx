@@ -10,7 +10,7 @@ export default function DonateBox({ classname }: { classname: string }) {
         target="_blank"
         rel="noopener noreferrer"
         className="cursor-pointer"
-      >
+        legacyBehavior>
         <Image
           src="https://res.cloudinary.com/dqqmzgesp/image/upload/v1697204928/personal-website/donateGif.gif"
           alt="donate box gif"
