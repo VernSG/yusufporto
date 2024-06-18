@@ -2,7 +2,7 @@ export const MUSICCARD_CONTENTS = [
     {
       name: "Yaosobi - Tabun",
       description:
-        "tells of someone's feelings of regret and doubt about the decisions they've made in life, as well as a curiosity about how their life would have changed if they had chosen a different path. The song reflects on wasted time and choices made, with the hope of finding deeper meaning and purpose in life.",
+        "tells of someone's feelings of regret and doubt about the decisions they've made in life.",
       image:
         "https://res.cloudinary.com/djsdnb4td/image/upload/v1718730338/yaosobi_szycza.jpg",
       imageAlt: "Yaosobi",
@@ -11,7 +11,7 @@ export const MUSICCARD_CONTENTS = [
     {
       name: "Yuika - Sukidakara",
       description:
-        "depicts deep feelings of love and a strong desire to possess someone. In its lyrics, there is a passage that portrays someone expressing the wish to protect their beloved from the evils of the world:",
+        "depicts deep feelings of love and a strong desire to possess someone.",
       image:
         "https://res.cloudinary.com/djsdnb4td/image/upload/v1718730527/Yuika_-_Suki_Dakara_Lyrics_Translation_wuzsp5.jpg",
       imageAlt: "Yaosobi",
