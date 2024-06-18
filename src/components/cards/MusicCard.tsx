@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import * as React from "react";
-import { FaPlay, FaPause, FaBackward, FaForward } from "react-icons/fa"; // Import icon components
+import { FaPlay, FaPause, FaBackward, FaForward, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import Ping from "../elements/Ping";
 
 export default function MusicCard({
@@ -14,11 +14,11 @@ export default function MusicCard({
   image,
   imageAlt,
   audioSrc,
-  stopPrevious,
-}: MusicCardProps & { audioSrc: string; stopPrevious?: boolean }) {
+}: MusicCardProps & { audioSrc: string }) {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [currentTime, setCurrentTime] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
+  const [volume, setVolume] = React.useState(0.5); // Default volume is 50%
   const audioRef = React.useRef<HTMLAudioElement>(null);
 
   React.useEffect(() => {
@@ -46,21 +46,11 @@ export default function MusicCard({
   }, []);
 
   const togglePlay = () => {
-    const audioElement = audioRef.current;
-
-    if (audioElement) {
+    if (audioRef.current) {
       if (isPlaying) {
-        audioElement.pause();
+        audioRef.current.pause();
       } else {
-        if (stopPrevious) {
-          const allAudioElements = document.querySelectorAll('audio');
-          allAudioElements.forEach(element => {
-            if (element !== audioElement) {
-              element.pause();
-            }
-          });
-        }
-        audioElement.play();
+        audioRef.current.play();
       }
       setIsPlaying(!isPlaying);
     }
@@ -75,6 +65,13 @@ export default function MusicCard({
   const handleSeek = (value: number) => {
     if (audioRef.current) {
       audioRef.current.currentTime = value;
+    }
+  };
+
+  const handleVolumeChange = (value: number) => {
+    if (audioRef.current) {
+      audioRef.current.volume = value;
+      setVolume(value);
     }
   };
 
@@ -98,21 +95,22 @@ export default function MusicCard({
         "lg:hover:scale-[1.03]",
       )}
     >
-      <Link href={url} passHref>
-        <a
-          aria-label={`Visit ${title} live production demo`}
-          className={clsx("group cursor-pointer", "flex flex-col", "h-full")}
-        >
-          <div className="relative h-72">
-            <Image
-              src={image}
-              alt={imageAlt}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-t-md"
-            />
-          </div>
-        </a>
+      <Link
+        href={url}
+        rel="noopener noreferrer"
+        aria-label={`Visit ${title} live production demo`}
+        className={clsx("group cursor-pointer", "flex flex-col", "h-full")}
+        legacyBehavior
+      >
+        <div className="relative h-72">
+          <Image
+            src={image}
+            alt={imageAlt}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-t-md"
+          />
+        </div>
       </Link>
 
       <div className="p-4">
@@ -141,12 +139,24 @@ export default function MusicCard({
           {description}
         </p>
 
-        <div className="flex items-center justify-center gap-4 mt-4">
-          <FaBackward
-            onClick={() => handleSkip(-10)}
-            className="cursor-pointer text-gray-400 hover:text-gray-600"
-          />
-          <div className="flex items-center w-full">
+        <div className="flex items-center gap-4 mt-4">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => handleSkip(-10)}
+              className="text-gray-400 hover:text-gray-600 focus:outline-none"
+            >
+              <FaBackward />
+            </button>
+            <button
+              onClick={() => handleSkip(10)}
+              className="text-gray-400 hover:text-gray-600 focus:outline-none"
+            >
+              <FaForward />
+            </button>
+            <span>{formatTime(currentTime)}</span>
+          </div>
+
+          <div className="flex-grow">
             <input
               type="range"
               min={0}
@@ -161,10 +171,29 @@ export default function MusicCard({
               <span>{formatTime(duration)}</span>
             </div>
           </div>
-          <FaForward
-            onClick={() => handleSkip(10)}
-            className="cursor-pointer text-gray-400 hover:text-gray-600"
-          />
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => handleVolumeChange(0)}
+              className="text-gray-400 hover:text-gray-600 focus:outline-none"
+            >
+              {volume === 0 ? (
+                <FaVolumeMute />
+              ) : (
+                <FaVolumeUp />
+              )}
+            </button>
+            <input
+              type="range"
+              min={0}
+              max={1}
+              step={0.01}
+              value={volume}
+              onChange={(e) => handleVolumeChange(Number(e.target.value))}
+              className="slider"
+              style={{ width: "80px" }}
+            />
+          </div>
         </div>
         <audio ref={audioRef} src={audioSrc} />
       </div>
@@ -176,7 +205,6 @@ interface MusicCardProps {
   url: string;
   title: string;
   description: string;
-  image: string;
+  image: string | StaticImageData;
   imageAlt: string;
-  stopPrevious?: boolean;
 }
