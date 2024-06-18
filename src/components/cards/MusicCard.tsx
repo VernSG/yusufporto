@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { FaPlay, FaPause, FaBackward, FaForward } from "react-icons/fa"; // Import icon components
