@@ -81,8 +81,7 @@ export default function MusicCard({
   const formatTime = (time: number): string => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    const formatted = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    return formatted;
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   };
 
   return (
@@ -99,26 +98,21 @@ export default function MusicCard({
         "lg:hover:scale-[1.03]",
       )}
     >
-      <Link
-        href={url}
-        rel="noopener noreferrer"
-        aria-label={`Visit ${title} live production demo`}
-        className={clsx("group cursor-pointer", "flex flex-col", "h-full")}
-        legacyBehavior
-      >
-        <div>
-          <Image
-            className="h-auto w-auto rounded-t-md"
-            width={1920}
-            height={1080}
-            src={image}
-            alt={imageAlt}
-            loading="lazy"
-            aria-label={`Live ${title} Production Screenshot`}
-            layout="responsive"
-            objectFit="cover"
-          />
-        </div>
+      <Link href={url} passHref>
+        <a
+          aria-label={`Visit ${title} live production demo`}
+          className={clsx("group cursor-pointer", "flex flex-col", "h-full")}
+        >
+          <div className="relative h-72">
+            <Image
+              src={image}
+              alt={imageAlt}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-t-md"
+            />
+          </div>
+        </a>
       </Link>
 
       <div className="p-4">
@@ -127,16 +121,17 @@ export default function MusicCard({
 
           <h1 className="flex items-center gap-1 font-bold md:text-lg">
             {title}
-            <span
-              className={clsx(
-                "transition-all duration-200",
-                "lg:group-hover:-translate-y-1 lg:group-hover:translate-x-1",
-              )}
-            >
+            <span className="transition-all duration-200 lg:group-hover:-translate-y-1 lg:group-hover:translate-x-1">
               {isPlaying ? (
-                <FaPause onClick={togglePlay} className="cursor-pointer text-blue-500 hover:text-blue-600" />
+                <FaPause
+                  onClick={togglePlay}
+                  className="cursor-pointer text-blue-500 hover:text-blue-600"
+                />
               ) : (
-                <FaPlay onClick={togglePlay} className="cursor-pointer text-blue-500 hover:text-blue-600" />
+                <FaPlay
+                  onClick={togglePlay}
+                  className="cursor-pointer text-blue-500 hover:text-blue-600"
+                />
               )}
             </span>
           </h1>
@@ -147,7 +142,10 @@ export default function MusicCard({
         </p>
 
         <div className="flex items-center justify-center gap-4 mt-4">
-          <FaBackward onClick={() => handleSkip(-10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
+          <FaBackward
+            onClick={() => handleSkip(-10)}
+            className="cursor-pointer text-gray-400 hover:text-gray-600"
+          />
           <div className="flex items-center w-full">
             <input
               type="range"
@@ -163,7 +161,10 @@ export default function MusicCard({
               <span>{formatTime(duration)}</span>
             </div>
           </div>
-          <FaForward onClick={() => handleSkip(10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
+          <FaForward
+            onClick={() => handleSkip(10)}
+            className="cursor-pointer text-gray-400 hover:text-gray-600"
+          />
         </div>
         <audio ref={audioRef} src={audioSrc} />
       </div>
@@ -175,7 +176,7 @@ interface MusicCardProps {
   url: string;
   title: string;
   description: string;
-  image: string | StaticImageData;
+  image: string;
   imageAlt: string;
   stopPrevious?: boolean;
 }
