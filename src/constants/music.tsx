@@ -4,7 +4,7 @@ export const MUSICCARD_CONTENTS = [
       description:
         "tells of someone's feelings of regret and doubt about the decisions they've made in life.",
       image:
-        "https://res.cloudinary.com/djsdnb4td/image/upload/v1718730338/yaosobi_szycza.jpg",
+        "https://res.cloudinary.com/djsdnb4td/image/upload/v1718735784/Yoasobi_-_Tabun_tbbji8.png",
       imageAlt: "Yaosobi",
       audioSrc: "https://res.cloudinary.com/djsdnb4td/video/upload/v1718730176/videoplayback_1_cwni0y.mp4", // URL audio untuk Music 1
     },
