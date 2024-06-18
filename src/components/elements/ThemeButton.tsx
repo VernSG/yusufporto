@@ -1,5 +1,7 @@
 "use client";
 import clsx from "clsx";
+import { MdLightMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
 import { useTheme } from "next-themes";
 import * as React from "react";
 
@@ -23,13 +25,13 @@ export default function ThemeButton() {
       {mounted ? (
         <>
           {theme === "light" ? (
-            <span className="text-2xl">🌕</span>
+            <span className="text-2xl"><MdLightMode /></span>
           ) : (
-            <span className="text-2xl">🌤️</span>
+            <span className="text-2xl"><MdDarkMode /></span>
           )}
         </>
       ) : (
-        <span className="text-2xl">🌤️</span>
+        <span className="text-2xl"><MdDarkMode /></span>
       )}
     </button>
   );
