@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import * as React from "react";
-import { FaPlay, FaPause, FaBackward, FaForward, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import Ping from "../elements/Ping";
 
 export default function MusicCard({
@@ -53,12 +53,6 @@ export default function MusicCard({
         audioRef.current.play();
       }
       setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleSkip = (amount: number) => {
-    if (audioRef.current) {
-      audioRef.current.currentTime += amount;
     }
   };
 
@@ -141,18 +135,6 @@ export default function MusicCard({
 
         <div className="flex items-center gap-4 mt-4">
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => handleSkip(-10)}
-              className="text-gray-400 hover:text-gray-600 focus:outline-none"
-            >
-              <FaBackward />
-            </button>
-            <button
-              onClick={() => handleSkip(10)}
-              className="text-gray-400 hover:text-gray-600 focus:outline-none"
-            >
-              <FaForward />
-            </button>
             <span>{formatTime(currentTime)}</span>
           </div>
 
@@ -191,7 +173,7 @@ export default function MusicCard({
               value={volume}
               onChange={(e) => handleVolumeChange(Number(e.target.value))}
               className="slider"
-              style={{ width: "80px" }}
+              style={{ width: "100%" }}
             />
           </div>
         </div>
