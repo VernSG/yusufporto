@@ -1,7 +1,6 @@
-"use client";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { FaPlay, FaPause, FaBackward, FaForward } from "react-icons/fa"; // Import icon components
@@ -55,7 +54,9 @@ export default function MusicCard({
         if (stopPrevious) {
           const allAudioElements = document.querySelectorAll('audio');
           allAudioElements.forEach(element => {
-            element.pause();
+            if (element !== audioElement) {
+              element.pause();
+            }
           });
         }
         audioElement.play();
@@ -144,12 +145,9 @@ export default function MusicCard({
           {description}
         </p>
 
-        <div className="flex items-center gap-4 mt-4">
-          <div className="flex items-center gap-2">
-            <FaBackward onClick={() => handleSkip(-10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
-            <FaForward onClick={() => handleSkip(10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
-          </div>
-          <div className="flex flex-col w-full">
+        <div className="flex items-center justify-center gap-4 mt-4">
+          <FaBackward onClick={() => handleSkip(-10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
+          <div className="flex items-center w-full">
             <input
               type="range"
               min={0}
@@ -164,8 +162,9 @@ export default function MusicCard({
               <span>{formatTime(duration)}</span>
             </div>
           </div>
-          <audio ref={audioRef} src={audioSrc} />
+          <FaForward onClick={() => handleSkip(10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
         </div>
+        <audio ref={audioRef} src={audioSrc} />
       </div>
     </motion.li>
   );
