@@ -14,7 +14,8 @@ export default function MusicCard({
   image,
   imageAlt,
   audioSrc,
-}: MusicCardProps & { audioSrc: string }) {
+  stopPrevious,
+}: MusicCardProps & { audioSrc: string; stopPrevious?: boolean }) {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [currentTime, setCurrentTime] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
@@ -46,11 +47,17 @@ export default function MusicCard({
 
   const togglePlay = () => {
     const audioElement = audioRef.current;
-    
+
     if (audioElement) {
       if (isPlaying) {
         audioElement.pause();
       } else {
+        if (stopPrevious) {
+          const allAudioElements = document.querySelectorAll('audio');
+          allAudioElements.forEach(element => {
+            element.pause();
+          });
+        }
         audioElement.play();
       }
       setIsPlaying(!isPlaying);
@@ -139,7 +146,10 @@ export default function MusicCard({
 
         <div className="flex items-center gap-4 mt-4">
           <div className="flex items-center gap-2">
-            <span>{formatTime(currentTime)}</span>
+            <FaBackward onClick={() => handleSkip(-10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
+            <FaForward onClick={() => handleSkip(10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
+          </div>
+          <div className="flex flex-col w-full">
             <input
               type="range"
               min={0}
@@ -149,11 +159,10 @@ export default function MusicCard({
               className="slider"
               style={{ width: "100%" }}
             />
-            <span>{formatTime(duration)}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <FaBackward onClick={() => handleSkip(-10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
-            <FaForward onClick={() => handleSkip(10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
+            <div className="flex justify-between">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
           </div>
           <audio ref={audioRef} src={audioSrc} />
         </div>
@@ -168,4 +177,5 @@ interface MusicCardProps {
   description: string;
   image: string | StaticImageData;
   imageAlt: string;
+  stopPrevious?: boolean;
 }
