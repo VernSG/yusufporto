@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import * as React from "react";
-import { TbArrowUpRight } from "react-icons/tb";
+import { FaPlay, FaPause, FaBackward, FaForward } from "react-icons/fa"; // Import icon components
 import Ping from "../elements/Ping";
 
 export default function MusicCard({
@@ -17,6 +17,7 @@ export default function MusicCard({
 }: MusicCardProps & { audioSrc: string }) {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [currentTime, setCurrentTime] = React.useState(0);
+  const [duration, setDuration] = React.useState(0);
   const audioRef = React.useRef<HTMLAudioElement>(null);
 
   React.useEffect(() => {
@@ -28,19 +29,29 @@ export default function MusicCard({
       }
     };
 
+    const handleLoadedMetadata = () => {
+      if (audioElement) {
+        setDuration(audioElement.duration);
+      }
+    };
+
     audioElement?.addEventListener("timeupdate", handleTimeUpdate);
+    audioElement?.addEventListener("loadedmetadata", handleLoadedMetadata);
 
     return () => {
       audioElement?.removeEventListener("timeupdate", handleTimeUpdate);
+      audioElement?.removeEventListener("loadedmetadata", handleLoadedMetadata);
     };
   }, []);
 
   const togglePlay = () => {
-    if (audioRef.current) {
+    const audioElement = audioRef.current;
+    
+    if (audioElement) {
       if (isPlaying) {
-        audioRef.current.pause();
+        audioElement.pause();
       } else {
-        audioRef.current.play();
+        audioElement.play();
       }
       setIsPlaying(!isPlaying);
     }
@@ -49,6 +60,12 @@ export default function MusicCard({
   const handleSkip = (amount: number) => {
     if (audioRef.current) {
       audioRef.current.currentTime += amount;
+    }
+  };
+
+  const handleSeek = (value: number) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = value;
     }
   };
 
@@ -81,17 +98,17 @@ export default function MusicCard({
         legacyBehavior
       >
         <div>
-        <Image
-  className="h-auto w-auto rounded-t-md"
-  width={1920}
-  height={1080}
-  src={image}
-  alt={imageAlt}
-  loading="lazy"
-  aria-label={`Live ${title} Production Screenshot`}
-  layout="responsive"
-  objectFit="cover"
-/>
+          <Image
+            className="h-auto w-auto rounded-t-md"
+            width={1920}
+            height={1080}
+            src={image}
+            alt={imageAlt}
+            loading="lazy"
+            aria-label={`Live ${title} Production Screenshot`}
+            layout="responsive"
+            objectFit="cover"
+          />
         </div>
       </Link>
 
@@ -107,7 +124,11 @@ export default function MusicCard({
                 "lg:group-hover:-translate-y-1 lg:group-hover:translate-x-1",
               )}
             >
-              <TbArrowUpRight />
+              {isPlaying ? (
+                <FaPause onClick={togglePlay} className="cursor-pointer text-blue-500 hover:text-blue-600" />
+              ) : (
+                <FaPlay onClick={togglePlay} className="cursor-pointer text-blue-500 hover:text-blue-600" />
+              )}
             </span>
           </h1>
         </div>
@@ -117,26 +138,22 @@ export default function MusicCard({
         </p>
 
         <div className="flex items-center gap-4 mt-4">
-          <button
-            onClick={togglePlay}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
-            {isPlaying ? "Pause Music" : "Play Music"}
-          </button>
           <div className="flex items-center gap-2">
             <span>{formatTime(currentTime)}</span>
-            <button
-              onClick={() => handleSkip(-10)}
-              className="text-gray-400 hover:text-gray-600 focus:outline-none"
-            >
-              -10s
-            </button>
-            <button
-              onClick={() => handleSkip(10)}
-              className="text-gray-400 hover:text-gray-600 focus:outline-none"
-            >
-              +10s
-            </button>
+            <input
+              type="range"
+              min={0}
+              max={duration}
+              value={currentTime}
+              onChange={(e) => handleSeek(Number(e.target.value))}
+              className="slider"
+              style={{ width: "100%" }}
+            />
+            <span>{formatTime(duration)}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <FaBackward onClick={() => handleSkip(-10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
+            <FaForward onClick={() => handleSkip(10)} className="cursor-pointer text-gray-400 hover:text-gray-600" />
           </div>
           <audio ref={audioRef} src={audioSrc} />
         </div>
