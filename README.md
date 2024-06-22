@@ -18,13 +18,13 @@ Sekiranya pengen menambahkan fitur bisa di pr's aja ya,terimakasih🙏
 Clone the project
 
 ```bash
-  git clone https://github.com/vernsg/yusufporto.git
+  git clone https://github.com/VernSG/yusufporto.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd personal-website
+  cd yusufporto
 ```
 
 Install dependencies
