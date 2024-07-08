@@ -47,25 +47,25 @@ export default function RootLayout({
     <html lang={DEFAULT_METADATA.locale}>
       <Head>
         <title>{DEFAULT_METADATA.creator}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta name="robots" content={metadata.robots} />
-        <meta name="creator" content={metadata.creator} />
-        <meta name="author" content={metadata.authors.name} />
-        <meta name="author" content={metadata.authors.url} />
-        <meta property="og:url" content={metadata.openGraph.url.toString()} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-        <meta property="og:locale" content={metadata.openGraph.locale} />
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:creator" content={metadata.twitter.creator} />
-        <meta name="twitter:site" content={metadata.twitter.site} />
-        <meta name="twitter:title" content={metadata.twitter.title} />
-        <meta name="twitter:description" content={metadata.twitter.description} />
-        <meta name="twitter:image" content={metadata.twitter.images[0].url} />
+        <meta name="description" content={DEFAULT_METADATA.description} />
+        <meta name="keywords" content={DEFAULT_METADATA.keywords} />
+        <meta name="robots" content={DEFAULT_METADATA.robots} />
+        <meta name="creator" content={DEFAULT_METADATA.creator} />
+        <meta name="author" content={DEFAULT_METADATA.creator} />
+        <meta name="author" content={DEFAULT_METADATA.url} />
+        <meta property="og:url" content={DEFAULT_METADATA.openGraph.url.toString()} />
+        <meta property="og:type" content={DEFAULT_METADATA.openGraph.type} />
+        <meta property="og:site_name" content={DEFAULT_METADATA.openGraph.siteName} />
+        <meta property="og:description" content={DEFAULT_METADATA.openGraph.description} />
+        <meta property="og:title" content={DEFAULT_METADATA.openGraph.title} />
+        <meta property="og:image" content={DEFAULT_METADATA.openGraph.images[0].url} />
+        <meta property="og:locale" content={DEFAULT_METADATA.openGraph.locale} />
+        <meta name="twitter:card" content={DEFAULT_METADATA.twitter.card} />
+        <meta name="twitter:creator" content={DEFAULT_METADATA.twitter.creator} />
+        <meta name="twitter:site" content={DEFAULT_METADATA.twitter.site} />
+        <meta name="twitter:title" content={DEFAULT_METADATA.twitter.title} />
+        <meta name="twitter:description" content={DEFAULT_METADATA.twitter.description} />
+        <meta name="twitter:image" content={DEFAULT_METADATA.twitter.images[0].url} />
       </Head>
       <body className={inter.className}>
         <Providers>
