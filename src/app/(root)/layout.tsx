@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang={DEFAULT_METADATA.locale}>
       <Head>
-        <title>{metadata.title}</title>
+        <title>{DEFAULT_METADATA.creator}</title>
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={metadata.keywords} />
         <meta name="robots" content={metadata.robots} />
