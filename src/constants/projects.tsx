@@ -22,12 +22,12 @@ export const TECH_STACK_GTPS = [
   },
 ];
 
-export const TECH_STACK_WABOT = [
+export const TECH_STACK_GRQ = [
   {
-    label: "Node",
-    icon: <SiNodedotjs size={ICON_SIZE} color="#38BDF8" />,
+    label: "Python",
+    icon: <SiPython size={ICON_SIZE} color="#38BDF8" />,
   },
-];
+  ];
 
 export const TECH_STACK_AETHER = [
   {
@@ -76,18 +76,8 @@ export const PROJECTCARD_CONTENTS = [
       "this is my e-commerce website project made with react js, tailwind css and firebase as database.",
     techStack: TECH_STACK_SIZE,
     image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1715886791/IMG_20240517_031255_diwabo.jpg",
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1720419126/ss_an_pku26m.png",
     imageAlt: "Sizestore Website Screenshot",
-  },
-  {
-    url: "https://github.com/VernSG/whatsapp-bot.git",
-    name: "WhatsApp Bot Project",
-    description:
-      "WhatsApp bot use node js,check github for see the features.",
-    techStack: TECH_STACK_WABOT,
-    image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1717831646/image_bludtd.png",
-    imageAlt: "Github Website Screenshot",
   },
   {
     url: "https://github.com/VernSG/",
@@ -96,8 +86,18 @@ export const PROJECTCARD_CONTENTS = [
       "Pubg Mobile Bypass.",
     techStack: TECH_STACK_AETHER,
     image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1717835955/ae_e1985f.png",
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1720418808/aether_acm4b7.png",
     imageAlt: "Discord Screenshot",
+  },
+  {
+    url: "https://github.com/VernSG/bot-groq.git",
+    name: "Groq Discord Bot",
+    description:
+      "discord bot integrated by groq ai",
+    techStack: TECH_STACK_GRQ,
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1720418736/groqqqq_r1jurt.png",
+    imageAlt: "Bot Screenshot",
   },
   {
     url: "https://manhwapedia.site",
