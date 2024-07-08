@@ -2,7 +2,7 @@ import Layouts from "@/components/layouts";
 import Providers from "@/components/layouts/Providers";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Head from "next/head"; // Impor Head dari next/head
+import Head from "next/head"; // Import Head from next/head
 import "../globals.css";
 import { DEFAULT_METADATA } from "@/constants/metadata";
 
@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(DEFAULT_METADATA.url),
-  title: DEFAULT_METADATA.creator,
+  title: DEFAULT_METADATA.creator, // Pastikan DEFAULT_METADATA.creator memiliki tipe yang tepat
   robots: DEFAULT_METADATA.robots,
   keywords: DEFAULT_METADATA.keyword,
   description: DEFAULT_METADATA.description,
