@@ -48,7 +48,7 @@ export default function RootLayout({
       <Head>
         <title>{DEFAULT_METADATA.creator}</title>
         <meta name="description" content={DEFAULT_METADATA.description} />
-        <meta name="keywords" content={DEFAULT_METADATA.keywords} />
+        <meta name="keywords" content={DEFAULT_METADATA.keyword} />
         <meta name="robots" content={DEFAULT_METADATA.robots} />
         <meta name="creator" content={DEFAULT_METADATA.creator} />
         <meta name="author" content={DEFAULT_METADATA.creator} />
