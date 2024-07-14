@@ -1,3 +1,4 @@
+//footer
 import { FOOTER_ITEMS, FOOTER_LINKS } from "@/constants/footer";
 import clsx from "clsx";
 import Link from "next/link";
