@@ -1,9 +1,8 @@
-import fs from 'fs';
 import path from 'path';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default function handler(req, res) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const filePath = path.resolve('public', 'sitemap.xml');
-  const sitemap = fs.readFileSync(filePath, 'utf8');
   res.setHeader('Content-Type', 'application/xml');
-  res.status(200).send(sitemap);
+  res.status(200).sendFile(filePath);
 }
