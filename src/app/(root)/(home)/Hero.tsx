@@ -18,8 +18,6 @@ export default function Hero() {
     const intervalId = setTimeout(() => {
       setDisplayText(prevText =>
         prevText.mainText === 'Learn Full Stack Web Developer'
-          ? { mainText: 'I like anime, manhwa, and novels', subText: 'Watching One Piece' }
-          : { mainText: 'Learn Full Stack Web Developer', subText: 'Keep Learning!' }
       );
     }, 2000);
 
