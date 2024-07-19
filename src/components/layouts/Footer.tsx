@@ -71,7 +71,7 @@ export default function Footer() {
       </ul>
 
       <p className="mt-8 text-center text-sm">
-        copyright &copy; Andre Avindra 2023
+        copyright &copy; Muhammad Yusuf 2024
       </p>
     </footer>
   );
