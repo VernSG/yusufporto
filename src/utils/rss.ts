@@ -5,7 +5,7 @@ import RSS from "rss";
 export default async function generateRssFeed(allBlogs: BlogItem[]) {
   const SITE_URL =
     process.env.NODE_ENV === "production"
-      ? "https://yusufsaputra.vercel.app/"
+      ? "https://yusufs.me/"
       : "http://localhost:3000";
 
   const FEED_OPTIONS = {
