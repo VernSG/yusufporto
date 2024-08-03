@@ -27,12 +27,9 @@ export default function SocialMediaCard({
           "md:text-base",
           "lg:hover:scale-[1.08]",
         )}
-        legacyBehavior
       >
-        <div className="flex items-center gap-2">
-          {icon}
-          <span>{label}</span>
-        </div>
+        {icon}
+        {label}
       </Link>
     </li>
   );
