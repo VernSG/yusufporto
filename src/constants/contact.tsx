@@ -23,7 +23,7 @@ export const CONTACT_ITEMS = [
   },
   {
     icon: <FiInstagram size={ICON_SIZE} />,
-    url: "https://www.instagram.com/yusufff.rttex/",
+    url: "https://www.instagram.com/yusufff.rttex",
     label: "Instagram",
     backgroundColor: "linear-gradient(to right, #f9ce34, #ee2a7b, #6228d7)",
   },
