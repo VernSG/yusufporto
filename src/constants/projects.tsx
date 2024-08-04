@@ -22,6 +22,13 @@ export const TECH_STACK_GTPS = [
   },
 ];
 
+export const TECH_STACK_RYO = [
+  {
+    label: "Node JS",
+    icon: <SiNodedotjs size={ICON_SIZE} color="#38BDF8" />,
+  },
+];
+
 export const TECH_STACK_GRQ = [
   {
     label: "Python",
@@ -59,6 +66,16 @@ export const TECH_STACK_SIZE = [
 ];
 
 export const PROJECTCARD_CONTENTS = [
+  {
+    url: "https://github.com/VernSG/Ryo-Bot.git",
+    name: "Ryo Yamada Bot",
+    description:
+      "Bot discord with /anime commands added global slash command.",
+    techStack: TECH_STACK_RYO,
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1722755925/21f1f7ef-eeb1-4dd4-9be6-0d7851c0d7e8.png",
+    imageAlt: "Ryo Bot",
+  },
   {
     url: "https://youtube.com/VernSG/",
     name: "Growtopia Private Server",
