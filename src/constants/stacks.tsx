@@ -26,9 +26,9 @@ const ICON_SIZE: number = 24;
 
 export const STACKS: stacksProps = {
   JavaScript: <SiJavascript size={ICON_SIZE} color="#FDDC01" />,
-  MongoDB: <SiMongodb size={ICON_SIZE} color="" />
-  Php: <SiPhp size={ICON_SIZE} color="" />
-  Nginx: <SiNginx size={ICON_SIZE} color="" />
+  MongoDB: <SiMongodb size={ICON_SIZE} color="" />,
+  Php: <SiPhp size={ICON_SIZE} color="" />,
+  Nginx: <SiNginx size={ICON_SIZE} color="" />,
   "React.js": <SiReact size={ICON_SIZE} color="#149FCB" />,
   TailwindCSS: <SiTailwindcss size={ICON_SIZE} color="#38BDF8" />,
   Vite: <SiVite size={ICON_SIZE} color="#689EFE" />,
