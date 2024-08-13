@@ -12,7 +12,6 @@ import {
   SiCss3,
   SiNodedotjs,
   SiDaisyui,
-  SiShadcnui,
   SiPrisma,
   SiReact,
   SiSass,
