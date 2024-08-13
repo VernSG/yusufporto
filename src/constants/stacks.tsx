@@ -1,6 +1,5 @@
 import { BiLogoPostgresql } from "react-icons/bi";
 import {
-  SiCss3,
   SiExpress,
   SiFirebase,
   SiMongodb,
