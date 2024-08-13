@@ -10,7 +10,10 @@ import {
   SiGithub,
   SiHtml5,
   SiJavascript,
+  SiCss3,
   SiNodedotjs,
+  SiDaisyui,
+  SiShadcnui,
   SiPrisma,
   SiReact,
   SiSass,
@@ -40,4 +43,6 @@ export const STACKS: stacksProps = {
   Prisma: <SiPrisma size={ICON_SIZE} color="#2C3648" />,
   "Node JS": <SiNodedotjs size={ICON_SIZE} color="#418A3F" />,
   Github: <SiGithub size={ICON_SIZE} />,
+  ShadcnUI: <SiShadcnui size={ICON_SIZE} />,
+  DaisyUI: <SiDaisyui size={ICON_SIZE} />,
 };
