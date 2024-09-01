@@ -11,6 +11,7 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiNodedotjs,
+  SiPhp,
 } from "react-icons/si";
 
 const ICON_SIZE: number = 24;
@@ -26,6 +27,13 @@ export const TECH_STACK_RYO = [
   {
     label: "Node JS",
     icon: <SiNodedotjs size={ICON_SIZE} color="#38BDF8" />,
+  },
+];
+
+export const TECH_STACK_PHP = [
+  {
+    label: "php",
+    icon: <SiPhp size={ICON_SIZE} color="#38BDF8" />,
   },
 ];
 
@@ -75,6 +83,16 @@ export const PROJECTCARD_CONTENTS = [
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1722755925/21f1f7ef-eeb1-4dd4-9be6-0d7851c0d7e8.png",
     imageAlt: "Ryo Bot",
+  },
+  {
+    url: "https://github.com/VernSG/ryo-store.git",
+    name: "Aplikasi manajemen kasir",
+    description:
+      "Aplikasi manajemen kasir dan landing pages dengan php dan tailwind css.",
+    techStack: TECH_STACK_PHP,
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1725172709/ssan_ppq1tk.jpg",
+    imageAlt: "GTPS TUTORIAL Screenshot",
   },
   {
     url: "https://youtube.com/VernSG/",
