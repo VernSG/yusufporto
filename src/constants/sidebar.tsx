@@ -4,6 +4,8 @@ import { GoProject } from "react-icons/go";
 import { SiAboutdotme } from "react-icons/si";
 import { GrCertificate } from "react-icons/gr";
 import { CiMusicNote1 } from "react-icons/ci";
+import { CiChat1 } from "react-icons/ci";
+import { BiSolidDashboard } from "react-icons/bi";
 
 const ICON_SIZE: number = 24;
 
@@ -20,14 +22,14 @@ export const SIDEBAR_ITEMS = [
     label: "Projects",
   },
   {
-    icon: <CiMusicNote1 size={ICON_SIZE} />,
-    pathname: "/music",
-    label: "Music",
+    icon: <BiSolidDashboard size={ICON_SIZE} />,
+    pathname: "/dashboard",
+    label: "Dashboard",
   },
   {
-    icon: <GrCertificate size={ICON_SIZE} />,
-    pathname: "/certificate",
-    label: "Certificate",
+    icon: <CiChat1 size={ICON_SIZE} />,
+    pathname: "/guestbook",
+    label: "Chat",
   },
   {
     icon: <FaRegPaperPlane size={ICON_SIZE} />,

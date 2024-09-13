@@ -2,6 +2,8 @@ import { AiOutlineHome } from "react-icons/ai";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { GoProject } from "react-icons/go";
 import { SiAboutdotme } from "react-icons/si";
+import { CiChat1 } from "react-icons/ci";
+import { BiSolidDashboard } from "react-icons/bi";
 import { GrCertificate } from "react-icons/gr";
 import { CiMusicNote1 } from "react-icons/ci";
 
@@ -11,7 +13,7 @@ export const BOTTOMBAR_ITEMS = [
   { icon: <AiOutlineHome size={ICON_SIZE} />, pathname: "/" },
   { icon: <SiAboutdotme size={ICON_SIZE} />, pathname: "/about" },
   { icon: <GoProject size={ICON_SIZE} />, pathname: "/projects" },
-  { icon: <CiMusicNote1 size={ICON_SIZE} />, pathname: "/music" },
-  { icon: <GrCertificate size={ICON_SIZE} />, pathname: "/certificate" },
+  { icon: <BiSolidDashboard size={ICON_SIZE} />, pathname: "/dashbooard" },
+  { icon: <CiChat1 size={ICON_SIZE} />, pathname: "/guestbook" },
   { icon: <FaRegPaperPlane size={ICON_SIZE} />, pathname: "/contact" },
 ];
