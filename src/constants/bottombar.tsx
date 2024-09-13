@@ -13,7 +13,7 @@ export const BOTTOMBAR_ITEMS = [
   { icon: <AiOutlineHome size={ICON_SIZE} />, pathname: "/" },
   { icon: <SiAboutdotme size={ICON_SIZE} />, pathname: "/about" },
   { icon: <GoProject size={ICON_SIZE} />, pathname: "/projects" },
-  { icon: <BiSolidDashboard size={ICON_SIZE} />, pathname: "/dashbooard" },
+  { icon: <BiSolidDashboard size={ICON_SIZE} />, pathname: "/dashboard" },
   { icon: <CiChat1 size={ICON_SIZE} />, pathname: "/guestbook" },
   { icon: <FaRegPaperPlane size={ICON_SIZE} />, pathname: "/contact" },
 ];
