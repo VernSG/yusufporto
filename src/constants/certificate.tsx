@@ -13,6 +13,7 @@ import {
     SiTypescript,
     SiHtml5,
     SiCss3,
+    SiGit
   } from "react-icons/si";
   
   const ICON_SIZE: number = 24;
