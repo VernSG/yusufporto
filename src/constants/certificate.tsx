@@ -62,7 +62,7 @@ export const TECH_STACK_GIT = [
       icon: <SiHtml5 size={ICON_SIZE} color="" />,
     }
     {
-      label: "Tailwind CSS"
+      label: "Tailwind CSS",
       icon: <SiTailwindcss size={ICON_SIZE} color="" />,
     }
 ];
