@@ -17,6 +17,8 @@ import {
   SiSass,
   SiTailwindcss,
   SiVite,
+  SiFlowbite,
+  SiMysql
 } from "react-icons/si";
 
 type stacksProps = {
@@ -27,6 +29,8 @@ const ICON_SIZE: number = 24;
 
 export const STACKS: stacksProps = {
   JavaScript: <SiJavascript size={ICON_SIZE} color="#FDDC01" />,
+  FlowBite: <SiFlowbite size={ICON_SIZE} color="" />,
+  MySql: <SiMysql size={ICON_SIZE} color="" />,
   MongoDB: <SiMongodb size={ICON_SIZE} color="" />,
   Php: <SiPhp size={ICON_SIZE} color="" />,
   Nginx: <SiNginx size={ICON_SIZE} color="" />,

@@ -52,6 +52,14 @@ export const TECH_STACK_GIT = [
         },
   ];
 
+  export const TECH_STACK_LOMBA = [
+    {
+      label: "React JS",
+      icon: <SiReact size={ICON_SIZE} color="#38BDF8" />,
+      icon: <SiJavascript size={ICON_SIZE} color="" />
+    },
+];
+
  export const TECH_STACK_WEB = [
         {
           label: "HTML5",
@@ -64,6 +72,16 @@ export const TECH_STACK_GIT = [
   ];
   
   export const PROJECTCARD_CONTENTS = [
+    {
+      url: "",
+      name: "Website landing pages competition participation",
+      description:
+        "Top 10 lomba web landing pages FESIFO2024",
+      techStack: TECH_STACK_LOMBA,
+      image:
+        "https://res.cloudinary.com/djsdnb4td/image/upload/v1726273904/IMG-20240914-WA0002_kcgxlr.jpg",
+      imageAlt: "Javascript",
+    },
     {
       url: "https://www.dicoding.com/certificates/0LZ0269LNX65",
       name: "Introduction to Programming using Javascript",
