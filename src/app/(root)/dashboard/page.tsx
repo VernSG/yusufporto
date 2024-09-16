@@ -6,7 +6,9 @@ import { GITHUB_ACCOUNTS } from "@/constants/github";
 import GithubCalendar from "./github-calendar";
 import GithubOverview from "./github-overview";
 import PageTitle from "@/components/elements/PageTitle";
+import WakatimeOverview from "./wakatime-overview-item";
 import { ClockIcon } from "lucide-react";
+import WakatimeActive from "./wakatime-active";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -17,6 +19,13 @@ export const metadata: Metadata = {
 };
 
 const DashboardsPage = async () => {
+  const readStatsResponse = await getReadStats();
+  const allTimeSinceTodayResponse = await getALLTimeSinceToday();
+
+  const wakatime = {
+    ...readStatsResponse.data,
+    all_time_since_today: allTimeSinceTodayResponse.data,
+  };
 
   const github = await fetchGithubData(
     GITHUB_ACCOUNTS[0].username,
@@ -27,11 +36,14 @@ const DashboardsPage = async () => {
     <>
     <div className="p-6">
         <PageTitle title="Dashboard" description="This is my personal dashboard, built with Next.js API routes deployed as serverless functionsn." />
-      <div className="space-y-3">
+        <div className="space-y-3">
         <h4 className="flex gap-3 items-center font-normal">
           <ClockIcon height={24} width={24} />
           Weekly Statistic
         </h4>
+        <p>My WakaTime last 7 days stats.</p>
+        <WakatimeOverview data={wakatime} />
+        <WakatimeActive data={wakatime} />
       </div>
       <div className="space-y-3 mt-6">
         < h4 className="flex gap-3 items-center font-normal">
