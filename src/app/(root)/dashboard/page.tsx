@@ -5,6 +5,7 @@ import { fetchGithubData } from "@/services/github";
 import { GITHUB_ACCOUNTS } from "@/constants/github";
 import GithubCalendar from "./github-calendar";
 import GithubOverview from "./github-overview";
+import { getALLTimeSinceToday, getReadStats } from "@/services/wakatime";
 import PageTitle from "@/components/elements/PageTitle";
 import WakatimeOverview from "./wakatime-overview-item";
 import { ClockIcon } from "lucide-react";
