@@ -86,7 +86,7 @@ const WakatimeActive = ({ data }: WakatimeActiveProps) => {
           )}
         >
           <div className="h-full w-full rounded-lg bg-background p-2">
-            <p className="absolute -top-3 left-3 bg-background px-2 dark:bg-dark">
+            <p className="mb-2 text-lg font-semibold">
               {item?.title}
             </p>
 
