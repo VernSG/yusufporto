@@ -89,7 +89,7 @@ export const PROJECTCARD_CONTENTS = [
     techstack: TECH_STACK_HIRAKANJI,
     image: "https://res.cloudinary.com/djsdnb4td/image/upload/v1727288070/hirakanji_flmj7m.png",
     imageAlt: "Hirakanji png",
-  }
+  },
   {
     url: "https://github.com/VernSG/Ryo-Bot.git",
     name: "Ryo Yamada Bot",
