@@ -55,7 +55,7 @@ export const TECH_STACK_REACT = [
   {
     label: "React",
     icon: <SiReact size={ICON_SIZE} color="#38BDF8" />,
-  }
+  },
 ]
 
 export const TECH_STACK_JS = [
