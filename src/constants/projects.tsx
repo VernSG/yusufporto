@@ -85,10 +85,11 @@ export const PROJECTCARD_CONTENTS = [
     url: "https://github.com/indonesianoss/hirakanji-react",
     name: "Hirakanji",
     description:
-    "Hirakanji react integrated with Gemini AI",
-    techstack: TECH_STACK_HIRAKANJI,
-    image: "https://res.cloudinary.com/djsdnb4td/image/upload/v1727288070/hirakanji_flmj7m.png",
-    imageAlt: "Hirakanji png",
+      "Hirakanji react integrated with Gemini AI.",
+    techStack: TECH_STACK_REACT,
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1727288070/hirakanji_flmj7m.png",
+    imageAlt: "Ryo Bot",
   },
   {
     url: "https://github.com/VernSG/Ryo-Bot.git",
