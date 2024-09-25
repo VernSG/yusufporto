@@ -2,15 +2,12 @@
 
 # [yusufs.me](https://yusufs.me/)
 
-Website ini menggunakan
-
 `Next JS`
 
 `Typescript`
 
 `Tailwind CSS`
 
-Sekiranya pengen menambahkan fitur bisa di pr's aja ya,terimakasih🙏
 </div>
 
 ## Run Locally
@@ -52,6 +49,14 @@ To run this project, you will need to add the following environment variables to
 `NEXT_PUBLIC_GISCUS_CATEGORY`
 
 `NEXT_PUBLIC_GISCUS_CATEGORY_ID`
+
+### [Github](https://github.com/)
+
+GH_READ_USER_TOKEN_PERSONAL
+
+### [Wakatime](https://wakatime.com/)
+
+WAKATIME_API_KEY
 
 ### [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started)
 

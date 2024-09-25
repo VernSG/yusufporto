@@ -14,7 +14,7 @@ export default function SidebarHeader() {
     >
       <div className="flex items-center gap-4">
         <Image
-          src="https://res.cloudinary.com/djsdnb4td/image/upload/v1715884966/4bc2da65-bc94-454a-9ea1-f028e2987c96_onrgmz.jpg"
+          src="https://res.cloudinary.com/djsdnb4td/image/upload/v1726242676/Ryo_Yamada_1_vflkls.jpg"
           alt="Image Profile"
           className="border__color h-11 w-11 rounded-full"
           width={100}

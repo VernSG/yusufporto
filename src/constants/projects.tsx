@@ -51,6 +51,13 @@ export const TECH_STACK_AETHER = [
   },
 ];
 
+export const TECH_STACK_REACT = [
+  {
+    label: "React",
+    icon: <SiReact size={ICON_SIZE} color="#38BDF8" />,
+  }
+]
+
 export const TECH_STACK_JS = [
   {
     label: "Javascript",
@@ -74,6 +81,15 @@ export const TECH_STACK_SIZE = [
 ];
 
 export const PROJECTCARD_CONTENTS = [
+  {
+    url: "https://github.com/indonesianoss/hirakanji-react",
+    name: "Hirakanji",
+    description:
+    "Hirakanji react integrated with Gemini AI",
+    techstack: TECH_STACK_HIRAKANJI,
+    image: "https://res.cloudinary.com/djsdnb4td/image/upload/v1727288070/hirakanji_flmj7m.png",
+    imageAlt: "Hirakanji png",
+  }
   {
     url: "https://github.com/VernSG/Ryo-Bot.git",
     name: "Ryo Yamada Bot",
