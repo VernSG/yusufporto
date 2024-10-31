@@ -65,23 +65,9 @@ export const FOOTER_LINKS = [
     rel: "",
   },
   {
-    label: "Music",
-    toolTip: "",
-    url: "/music",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
     label: "Certificate",
     toolTip: "All list of my certificate",
     url: "/certificate",
-    target: "",
-    rel: "",
-  },
-  {
-    label: "Invites Bot",
-    toolTip: "Invite My Discord Bot",
-    url: "/invites",
     target: "",
     rel: "",
   },

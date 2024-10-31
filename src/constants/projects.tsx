@@ -23,6 +23,13 @@ export const TECH_STACK_GTPS = [
   },
 ];
 
+export const TECH_STACK_WEBBOT = [
+  {
+    label: "Ryo Support Web",
+    icon: <SiNextdotjs size={ICON_SIZE} color="" />
+  }
+]
+
 export const TECH_STACK_RYO = [
   {
     label: "Node JS",
@@ -82,13 +89,13 @@ export const TECH_STACK_SIZE = [
 
 export const PROJECTCARD_CONTENTS = [
   {
-    url: "https://github.com/indonesianoss/hirakanji-react",
-    name: "Hirakanji",
+    url: "https://github.com/VernSG/kessoku-support.git",
+    name: "Kessoku support web",
     description:
-      "Hirakanji react integrated with Gemini AI.",
-    techStack: TECH_STACK_REACT,
+      "Kessoku support bot website integrated with MDX.",
+    techStack: TECH_STACK_WEBBOT,
     image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1727288070/hirakanji_flmj7m.png",
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1730351607/iniadalahss_kauydu.png",
     imageAlt: "Ryo Bot",
   },
   {
@@ -98,18 +105,8 @@ export const PROJECTCARD_CONTENTS = [
       "Bot discord with /anime commands added global slash command.",
     techStack: TECH_STACK_RYO,
     image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1722755925/21f1f7ef-eeb1-4dd4-9be6-0d7851c0d7e8.png",
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1730351797/iniss_wine1c.png",
     imageAlt: "Ryo Bot",
-  },
-  {
-    url: "https://github.com/VernSG/ryo-store.git",
-    name: "Aplikasi manajemen kasir",
-    description:
-      "Aplikasi manajemen kasir dan landing pages dengan php dan tailwind css.",
-    techStack: TECH_STACK_PHP,
-    image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1725172709/ssan_ppq1tk.jpg",
-    imageAlt: "GTPS TUTORIAL Screenshot",
   },
   {
     url: "https://youtube.com/VernSG/",
@@ -130,16 +127,6 @@ export const PROJECTCARD_CONTENTS = [
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1720419126/ss_an_pku26m.png",
     imageAlt: "Sizestore Website Screenshot",
-  },
-  {
-    url: "https://github.com/VernSG/",
-    name: "AetherEye Bypass",
-    description:
-      "Pubg Mobile Bypass.",
-    techStack: TECH_STACK_AETHER,
-    image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1720418808/aether_acm4b7.png",
-    imageAlt: "Discord Screenshot",
   },
   {
     url: "https://github.com/VernSG/bot-groq.git",
