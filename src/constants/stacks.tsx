@@ -1,4 +1,3 @@
-import { BiLogoPostgresql } from "react-icons/bi";
 import {
   SiExpress,
   SiFirebase,
@@ -11,16 +10,14 @@ import {
   SiJavascript,
   SiCss3,
   SiNodedotjs,
-  SiDaisyui,
-  SiPrisma,
   SiNextdotjs,
-  SiShadcnui,
   SiReact,
   SiSass,
   SiTailwindcss,
   SiVite,
   SiMysql
 } from "react-icons/si";
+import { SiShadcnui } from "react-icons/si";
 
 type stacksProps = {
   [key: string]: JSX.Element;
@@ -32,6 +29,7 @@ export const STACKS: stacksProps = {
   JavaScript: <SiJavascript size={ICON_SIZE} color="#FDDC01" />,
   MySql: <SiMysql size={ICON_SIZE} color="" />,
   MongoDB: <SiMongodb size={ICON_SIZE} color="" />,
+  Express: <SiExpress size={ICON_SIZE} />,
   Php: <SiPhp size={ICON_SIZE} color="" />,
   Shadcnui: <SiShadcnui size={ICON_SIZE} color="" />,
   "Next.js": <SiNextdotjs size={ICON_SIZE} color="" />,
