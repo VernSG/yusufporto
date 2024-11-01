@@ -73,3 +73,10 @@ WAKATIME_API_KEY
 [Giscus](https://giscus.app/)
 
 [Nodemailer](https://nodemailer.com/)
+
+
+## Inspiration of this project
+
+[andre](https://github.com/ndrvndr)
+
+[xyzuan](https://github.com/xyzuan)
