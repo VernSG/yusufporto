@@ -40,7 +40,7 @@ export default function ProjectCard({
       >
         <div>
           <Image
-            className="h-auto w-auto rounded-t-md"
+            className="h-full w-full rounded-t-md object-cover"
             width={1920}
             height={1080}
             src={image}
