@@ -1,3 +1,4 @@
+import Image from "next/image"; // Pastikan import Image dari next/image
 import { getBlogPosts, getPost } from "@/data/blog";
 import { DATA } from "@/data/data";
 import { formatDate } from "@/lib/formatDate";
@@ -65,43 +66,55 @@ export default async function Blog({
   }
 
   return (
-    <section id="blog" className="p-8">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${DATA.url}${post.metadata.image}`
-              : `${DATA.url}/og?title=${post.metadata.title}`,
-            url: `${DATA.url}/blog/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: DATA.name,
-            },
-          }),
-        }}
-      />
-      <h1 className="title max-w-[650px] text-2xl font-medium tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="mb-8 mt-2 flex max-w-[650px] items-center justify-between text-sm">
-        <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+    <section id="blog" className="flex justify-center p-8">
+      <div className="max-w-screen-md">
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: post.metadata.title,
+              datePublished: post.metadata.publishedAt,
+              dateModified: post.metadata.publishedAt,
+              description: post.metadata.summary,
+              image: post.metadata.image
+                ? `${DATA.url}${post.metadata.image}`
+                : `${DATA.url}/og?title=${post.metadata.title}`,
+              url: `${DATA.url}/blog/${post.slug}`,
+              author: {
+                "@type": "Person",
+                name: DATA.name,
+              },
+            }),
+          }}
+        />
+        {post.metadata.image && (
+          <div className="mb-8">
+            <Image
+              src={post.metadata.image}
+              alt={post.metadata.title}
+              width={1200}
+              height={600}
+              className="rounded-xl shadow-lg"
+              priority
+            />
+          </div>
+        )}
+        <h1 className="mb-4 text-center text-3xl font-bold tracking-tighter">
+          {post.metadata.title}
+        </h1>
+        <div className="mb-8 text-center text-sm text-neutral-600 dark:text-neutral-400">
+          <Suspense fallback={<p className="h-5" />}>
             {formatDate(post.metadata.publishedAt)}
-          </p>
-        </Suspense>
+          </Suspense>
+        </div>
+        <article
+          className="prose dark:prose-invert mx-auto"
+          dangerouslySetInnerHTML={{ __html: post.source }}
+        ></article>
       </div>
-      <article
-        className="prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: post.source }}
-      ></article>
     </section>
   );
 }

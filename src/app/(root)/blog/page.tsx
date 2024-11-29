@@ -1,8 +1,8 @@
-import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "../../../data/blog";
 import Link from "next/link";
 import PageTitle from "@/components/elements/PageTitle";
 import type { Metadata } from "next";
+import BlogCard from "@/components/cards/BlogCard";
 
 export const metadata: Metadata = {
   title: "Blog | Muhammad Yusuf",
@@ -13,8 +13,6 @@ export const metadata: Metadata = {
   },
 };
 
-const BLUR_FADE_DELAY = 0.04;
-
 export default async function BlogPage() {
   const posts = await getBlogPosts();
 
@@ -24,30 +22,24 @@ export default async function BlogPage() {
         title="Blog"
         description="Share thoughts and tutorials on web development."
       />
-      {posts
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
-        })
-        .map((post, id) => (
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
-            <Link
-              className="mb-4 flex flex-col space-y-1"
-              href={`/blog/${post.slug}`}
-            >
-              <div className="flex w-full flex-col">
-                <p className="tracking-tight">{post.metadata.title}</p>
-                <p className="text-muted-foreground h-6 text-xs">
-                  {post.metadata.publishedAt}
-                </p>
-              </div>
-            </Link>
-          </BlurFade>
-        ))}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts
+          .sort(
+            (a, b) =>
+              new Date(a.metadata.publishedAt).getTime() -
+              new Date(b.metadata.publishedAt).getTime(),
+          )
+          .map((post) => (
+            <BlogCard
+              key={post.slug}
+              title={post.metadata.title}
+              image={post.metadata.image}
+              publishedAt={post.metadata.publishedAt}
+              summary={post.metadata.summary}
+              slug={post.slug}
+            />
+          ))}
+      </div>
     </section>
   );
 }
