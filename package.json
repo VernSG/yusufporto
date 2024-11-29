@@ -49,6 +49,7 @@
     "rss": "^1.2.2",
     "sanity": "^3.18.0",
     "sharp": "^0.32.6",
+    "shiki": "^1.24.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "5.2",
     "swr": "^2.2.4",
