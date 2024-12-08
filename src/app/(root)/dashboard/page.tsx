@@ -10,6 +10,7 @@ import PageTitle from "@/components/elements/PageTitle";
 import WakatimeOverview from "./wakatime-overview";
 import { ClockIcon } from "lucide-react";
 import WakatimeActive from "./wakatime-active";
+import Repos from "./repos.";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -30,44 +31,46 @@ const DashboardsPage = async () => {
 
   const github = await fetchGithubData(
     GITHUB_ACCOUNTS[0].username,
-    GITHUB_ACCOUNTS[0].token
+    GITHUB_ACCOUNTS[0].token,
   );
 
   return (
     <>
-    <div className="p-6">
-        <PageTitle title="Dashboard" description="This is my personal dashboard, built with Next.js API routes deployed as serverless functionsn." />
+      <div className="p-6">
+        <PageTitle
+          title="Dashboard"
+          description="This is my personal dashboard, built with Next.js API routes deployed as serverless functionsn."
+        />
         <div className="space-y-3">
-        <h4 className="flex gap-3 items-center font-normal">
-          <ClockIcon height={24} width={24} />
-          Weekly Statistic
-        </h4>
-        <p>My WakaTime last 7 days stats.</p>
-        <WakatimeOverview data={wakatime} />
-        <WakatimeActive data={wakatime} />
-      </div>
-      <div className="space-y-3 mt-6">
-        < h4 className="flex gap-3 items-center font-normal">
-          <GitHubLogoIcon height={24} width={24} />
-          Contributions
-        </ h4>
-        <div className="flex justify-between">
-          < p>
-            My contributions from last year on github.
-          </ p>
-          <Link href={`https://github.com/${GITHUB_ACCOUNTS[0].username}`}>
-            < p>{`@${GITHUB_ACCOUNTS[0].username}`}</ p>
-          </Link>
+          <h4 className="flex items-center gap-3 font-normal">
+            <ClockIcon height={24} width={24} />
+            Weekly Statistic
+          </h4>
+          <p>My WakaTime last 7 days stats.</p>
+          <WakatimeOverview data={wakatime} />
+          <WakatimeActive data={wakatime} />
         </div>
-        <GithubOverview
-          data={github?.data?.contributionsCollection?.contributionCalendar}
-        />
-        <GithubCalendar
-          data={github?.data?.contributionsCollection?.contributionCalendar}
-        />
+        <div className="mt-6 space-y-3">
+          <h4 className="flex items-center gap-3 font-normal">
+            <GitHubLogoIcon height={24} width={24} />
+            Contributions
+          </h4>
+          <div className="flex justify-between">
+            <p>My contributions from last year on github.</p>
+            <Link href={`https://github.com/${GITHUB_ACCOUNTS[0].username}`}>
+              <p>{`@${GITHUB_ACCOUNTS[0].username}`}</p>
+            </Link>
+          </div>
+          <GithubOverview
+            data={github?.data?.contributionsCollection?.contributionCalendar}
+          />
+          <GithubCalendar
+            data={github?.data?.contributionsCollection?.contributionCalendar}
+          />
+          <Repos />
+        </div>
       </div>
-      </div>
-      </>
+    </>
   );
 };
 

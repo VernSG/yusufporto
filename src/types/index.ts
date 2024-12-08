@@ -13,6 +13,13 @@ export interface BlogItem {
   image: string;
   content: any;
 }
+export interface Repository {
+  id: number;
+  name: string;
+  html_url: string;
+  description: string | null;
+  language: string | null;
+}
 
 export interface Headings {
   level: number;
