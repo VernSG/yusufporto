@@ -42,3 +42,38 @@ export interface SpotifyData {
   };
   currently_playing_type: string;
 }
+
+export interface ApiResponse {
+  data: {
+    discord_user: {
+      id: string;
+      username: string;
+      avatar: string;
+      discriminator: string;
+    };
+    discord_status: string;
+    active_on_discord_mobile: boolean;
+    activities: Activity[];
+  };
+  statusBeautify: string;
+}
+
+export interface Activity {
+  id: string;
+  name: string;
+  type: number;
+  details?: string;
+  state?: string;
+  application_id?: string;
+  timestamps?: {
+    start?: number;
+    end?: number;
+  };
+  assets?: {
+    large_image?: string;
+    large_text?: string;
+    small_image?: string;
+    small_text?: string;
+  };
+  buttons?: string[];
+}

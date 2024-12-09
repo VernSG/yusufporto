@@ -1,19 +1,5 @@
-// Definisikan tipe ApiResponse di sini dan ekspor
-export interface ApiResponse {
-  data: {
-    discord_user: {
-      id: string;
-      username: string;
-      avatar: string;
-      discriminator: string;
-    };
-    discord_status: string;
-    active_on_discord_mobile: boolean;
-  };
-  statusBeautify: string;
-}
+import { ApiResponse } from "@/types";
 
-// Definisikan tipe untuk customStatusTexts
 interface CustomStatusTexts {
   online?: string;
   onlineMobile?: string;
@@ -23,37 +9,36 @@ interface CustomStatusTexts {
   unknown?: string;
 }
 
-// Definisikan konstanta discordUserId di luar fungsi
-const discordUserId = "689131590319865973";
+const { DISCORD_USER_ID: discordUserId } = process.env;
 
 const getUserData = async (
-  discordUserId: string,
-  customStatusTexts: CustomStatusTexts = {}
+  discordUserId: string | undefined,
+  customStatusTexts: CustomStatusTexts = {},
 ): Promise<ApiResponse> => {
   try {
-    // Memastikan discordUserId memiliki nilai sebelum digunakan
     if (!discordUserId) {
-      throw new Error('Discord user ID is undefined');
+      throw new Error("Discord user ID is undefined");
     }
 
-    // Mengambil data pengguna Discord dari API Lanyard
-    const rawRes = await fetch(`https://api.lanyard.rest/v1/users/${discordUserId}`);
-    
-    // Memeriksa apakah respon sukses
+    const rawRes = await fetch(
+      `https://api.lanyard.rest/v1/users/${discordUserId}`,
+    );
+
     if (!rawRes.ok) {
       throw new Error(`Error fetching Discord user data: ${rawRes.statusText}`);
     }
 
     const { data } = await rawRes.json();
 
-    // Mengubah status Discord menjadi representasi yang lebih mudah dibaca
     let statusBeautify;
     switch (data.discord_status) {
       case "online":
         statusBeautify = data.active_on_discord_mobile
-          ? customStatusTexts.onlineMobile || "Spotify ku Galau"
-          : customStatusTexts.online || "Spotify ku Galau";
-        data.discord_status = data.active_on_discord_mobile ? "online-mobile" : "online";
+          ? customStatusTexts.onlineMobile || "Online"
+          : customStatusTexts.online || "Online";
+        data.discord_status = data.active_on_discord_mobile
+          ? "online-mobile"
+          : "online";
         break;
 
       case "offline":
@@ -61,11 +46,11 @@ const getUserData = async (
         break;
 
       case "idle":
-        statusBeautify = customStatusTexts.idle || "Lagi denger Spotify";
+        statusBeautify = customStatusTexts.idle || "Idle";
         break;
 
       case "dnd":
-        statusBeautify = customStatusTexts.dnd || "Galau Brutal!";
+        statusBeautify = customStatusTexts.dnd || "Do Not Disturb";
         break;
 
       default:
@@ -73,29 +58,40 @@ const getUserData = async (
         break;
     }
 
-    // Mengembalikan data pengguna Discord beserta status yang sudah diubah
-    return { data, statusBeautify };
+    const activities = data.activities.map((activity: any) => ({
+      id: activity.id,
+      name: activity.name,
+      type: activity.type,
+      details: activity.details,
+      state: activity.state,
+      application_id: activity.application_id,
+      timestamps: activity.timestamps,
+      assets: activity.assets,
+      buttons: activity.buttons?.map((button: any) => button.label),
+    }));
+
+    return { data: { ...data, activities }, statusBeautify };
   } catch (error) {
-    // Menghandle kesalahan jika terjadi
     console.error("Error fetching Discord user data:", error);
     throw new Error("Failed to fetch Discord user data");
   }
 };
 
-// Contoh pemanggilan fungsi getUserData dengan customStatusTexts
 const customTexts = {
   online: "User is Online",
   onlineMobile: "User is Online on Mobile",
   offline: "User is Offline",
   idle: "User is Idle",
   dnd: "User does not want to be disturbed",
-  unknown: "User status is Unknown"
+  unknown: "User status is Unknown",
 };
 
-getUserData(discordUserId, customTexts).then(response => {
-  console.log(response);
-}).catch(error => {
-  console.error(error);
-});
+getUserData(discordUserId, customTexts)
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 export default getUserData;

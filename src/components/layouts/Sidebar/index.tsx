@@ -1,8 +1,8 @@
-import SpotifyCard from "@/components/cards/Callsign";
 import BreakLine from "@/components/elements/BreakLine";
 import clsx from "clsx";
 import SidebarHeader from "./SidebarHeader";
 import SidebarNav from "./SidebarNav";
+import Callsign from "@/components/cards/Callsign";
 
 export default function Sidebar() {
   return (
@@ -18,7 +18,7 @@ export default function Sidebar() {
       <BreakLine decoration="border-dashed" />
       <SidebarNav />
       <BreakLine classname="md:hidden lg:block" />
-      <SpotifyCard display="md:hidden lg:flex" />
+      <Callsign display="md:hidden lg:flex" />
     </div>
   );
 }
