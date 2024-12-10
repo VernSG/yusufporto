@@ -23,20 +23,8 @@ export const CONTACT_ITEMS = [
   },
   {
     icon: <FiInstagram size={ICON_SIZE} />,
-    url: "https://www.instagram.com/yusufff.rttex",
+    url: "https://www.instagram.com/thevoid.yamada",
     label: "Instagram",
     backgroundColor: "linear-gradient(to right, #f9ce34, #ee2a7b, #6228d7)",
-  },
-  {
-    icon: <FiTwitter size={ICON_SIZE} />,
-    url: "https://twitter.com/",
-    label: "Twitter",
-    backgroundColor: "#262626",
-  },
-  {
-    icon: <FiFacebook size={ICON_SIZE} />,
-    url: "https://www.facebook.com/",
-    label: "Facebook",
-    backgroundColor: "#0966FE",
   },
 ];
