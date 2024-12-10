@@ -11,9 +11,11 @@ export default function Callsign({ display }: { display: string }) {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    let interval: NodeJS.Timeout;
+
     const fetchData = async () => {
       try {
-        const data = await getUserData("689131590319865973"); //paste ur id here :V
+        const data = await getUserData("689131590319865973"); // paste user id here
         setUserData(data);
         setLoading(false);
       } catch (error) {
@@ -22,6 +24,8 @@ export default function Callsign({ display }: { display: string }) {
     };
 
     fetchData();
+    interval = setInterval(fetchData, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
