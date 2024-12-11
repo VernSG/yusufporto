@@ -6,6 +6,9 @@ export const CV_URL = "/CV.pdf";
 export const PROFILE_PICTURE_URL =
   "https://res.cloudinary.com/djsdnb4td/image/upload/v1726242676/Ryo_Yamada_1_vflkls.jpg";
 
+export const DISOCRD_PROFILE =
+  "https://res.cloudinary.com/djsdnb4td/image/upload/v1733302383/follow_z8vs4u.jpg";
+
 export const BLOG_API_ENDPOINT =
   process.env.NODE_ENV === "production"
     ? "https://yusufsaputra.vercel.app/api/blog"

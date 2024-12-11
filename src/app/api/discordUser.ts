@@ -11,6 +11,7 @@ interface CustomStatusTexts {
 
 const { DISCORD_USER_ID: discordUserId } = process.env;
 
+// Fungsi untuk mendapatkan data user dari Lanyard API
 const getUserData = async (
   discordUserId: string | undefined,
   customStatusTexts: CustomStatusTexts = {},
@@ -30,11 +31,17 @@ const getUserData = async (
 
     const { data } = await rawRes.json();
 
-    let statusBeautify;
+    // Format avatar URL
+    const avatarUrl = data.discord_user.avatar
+      ? `https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png`
+      : `https://cdn.discordapp.com/embed/avatars/0.png`;
+
+    // Tentukan status berdasarkan `discord_status`
+    let statusBeautify: string;
     switch (data.discord_status) {
       case "online":
         statusBeautify = data.active_on_discord_mobile
-          ? customStatusTexts.onlineMobile || "Online"
+          ? customStatusTexts.onlineMobile || "Online on Mobile"
           : customStatusTexts.online || "Online";
         data.discord_status = data.active_on_discord_mobile
           ? "online-mobile"
@@ -58,6 +65,7 @@ const getUserData = async (
         break;
     }
 
+    // Map aktivitas menjadi lebih terstruktur
     const activities = data.activities.map((activity: any) => ({
       id: activity.id,
       name: activity.name,
@@ -70,14 +78,22 @@ const getUserData = async (
       buttons: activity.buttons?.map((button: any) => button.label),
     }));
 
-    return { data: { ...data, activities }, statusBeautify };
+    return {
+      data: {
+        ...data,
+        avatar_url: avatarUrl, // Tambahkan avatar URL
+        activities,
+      },
+      statusBeautify,
+    };
   } catch (error) {
     console.error("Error fetching Discord user data:", error);
     throw new Error("Failed to fetch Discord user data");
   }
 };
 
-const customTexts = {
+// Teks default untuk status
+const customTexts: CustomStatusTexts = {
   online: "User is Online",
   onlineMobile: "User is Online on Mobile",
   offline: "User is Offline",
@@ -86,12 +102,13 @@ const customTexts = {
   unknown: "User status is Unknown",
 };
 
+// Panggil fungsi dan tangani respons
 getUserData(discordUserId, customTexts)
   .then((response) => {
-    console.log(response);
+    console.log(response); // Cetak respons API
   })
   .catch((error) => {
-    console.error(error);
+    console.error(error); // Tangani error
   });
 
 export default getUserData;
