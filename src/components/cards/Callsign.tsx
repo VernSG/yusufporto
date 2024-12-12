@@ -30,7 +30,11 @@ export default function Callsign({ display }: { display: string }) {
 
   // function for get avatar
   const getAvatarUrl = (): string => {
-    return userData?.data.avatarUrl ?? DISOCRD_PROFILE;
+    const discordUser = userData?.data.discord_user;
+    if (discordUser) {
+      return `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
+    }
+    return DISOCRD_PROFILE; // fallback URL jika data user tidak ditemukan
   };
 
   return (
