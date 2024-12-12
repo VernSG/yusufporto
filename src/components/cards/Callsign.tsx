@@ -83,7 +83,7 @@ export default function Callsign({ display }: { display: string }) {
           userData?.data.activities.map((activity) => (
             <div
               key={activity.id}
-              className="flex flex-col items-start rounded-md p-2 text-xs text-gray-600 dark:text-gray-300"
+              className="flex flex-col items-center rounded-md p-2 text-xs text-gray-600 dark:text-gray-300"
             >
               <p>
                 <strong>Activity:</strong> {activity.name}
