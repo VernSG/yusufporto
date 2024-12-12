@@ -28,6 +28,11 @@ export default function Callsign({ display }: { display: string }) {
     return () => clearInterval(interval);
   }, []);
 
+  // function for get avatar
+  const getAvatarUrl = (): string => {
+    return userData?.data.avatarUrl ?? DISOCRD_PROFILE;
+  };
+
   return (
     <a
       target="_blank"
@@ -41,8 +46,8 @@ export default function Callsign({ display }: { display: string }) {
         ) : (
           <Image
             className="h-10 w-10 rounded-full"
-            src={DISOCRD_PROFILE}
-            alt="DISCORD_PROFILE"
+            src={getAvatarUrl()}
+            alt={`${userData?.data.discord_user.username}'s Avatar`}
             width={40}
             height={40}
             priority
@@ -56,13 +61,6 @@ export default function Callsign({ display }: { display: string }) {
             <div className="h-3 w-16 rounded bg-gray-200 dark:bg-gray-600"></div>
           ) : (
             `@${userData?.data.discord_user.username}`
-          )}
-        </p>
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          {isLoading ? (
-            <div className="h-2 w-12 rounded bg-gray-200 dark:bg-gray-600"></div>
-          ) : (
-            userData?.statusBeautify ?? "Status not available"
           )}
         </p>
         <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
