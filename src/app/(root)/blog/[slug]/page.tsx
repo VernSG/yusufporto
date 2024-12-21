@@ -1,4 +1,4 @@
-import Image from "next/image"; // Pastikan import Image dari next/image
+import Image from "next/image";
 import { getBlogPosts, getPost } from "@/data/blog";
 import { DATA } from "@/data/data";
 import { formatDate } from "@/lib/formatDate";
@@ -14,19 +14,23 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 }): Promise<Metadata | undefined> {
   let post = await getPost(params.slug);
 
-  let {
+  if (!post) {
+    notFound();
+  }
+
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
     image,
   } = post.metadata;
-  let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
+  const ogImage = image
+    ? `${DATA.url}${image}`
+    : `${DATA.url}/og?title=${title}`;
 
   return {
     title,
@@ -37,11 +41,7 @@ export async function generateMetadata({
       type: "article",
       publishedTime,
       url: `${DATA.url}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
@@ -52,22 +52,18 @@ export async function generateMetadata({
   };
 }
 
-export default async function Blog({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}) {
+export default async function Blog({ params }: { params: { slug: string } }) {
   let post = await getPost(params.slug);
 
   if (!post) {
     notFound();
   }
 
+  const { title, summary, publishedAt, tags, image, source } = post.metadata;
   return (
-    <section id="blog" className="flex justify-center p-8">
-      <div className="max-w-screen-md">
+    <section id="blog" className="p-6">
+      <div className="mx-auto max-w-screen-lg">
+        {/* JSON-LD Metadata */}
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -75,13 +71,13 @@ export default async function Blog({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BlogPosting",
-              headline: post.metadata.title,
-              datePublished: post.metadata.publishedAt,
-              dateModified: post.metadata.publishedAt,
-              description: post.metadata.summary,
-              image: post.metadata.image
-                ? `${DATA.url}${post.metadata.image}`
-                : `${DATA.url}/og?title=${post.metadata.title}`,
+              headline: title,
+              datePublished: publishedAt,
+              dateModified: publishedAt,
+              description: summary,
+              image: image
+                ? `${DATA.url}${image}`
+                : `${DATA.url}/og?title=${title}`,
               url: `${DATA.url}/blog/${post.slug}`,
               author: {
                 "@type": "Person",
@@ -90,30 +86,45 @@ export default async function Blog({
             }),
           }}
         />
-        {post.metadata.image && (
-          <div className="mb-8">
+        {/* Gambar Utama */}
+        {image && (
+          <div className="mb-8 overflow-hidden rounded-lg shadow-md">
             <Image
-              src={post.metadata.image}
-              alt={post.metadata.title}
-              width={1200}
-              height={600}
-              className="rounded-xl shadow-lg"
+              src={image}
+              alt={title}
+              width={800}
+              height={450}
+              className="w-full rounded-lg"
               priority
             />
           </div>
         )}
-        <h1 className="mb-4 text-center text-3xl font-bold tracking-tighter">
-          {post.metadata.title}
-        </h1>
-        <div className="mb-8 text-center text-sm text-neutral-600 dark:text-neutral-400">
-          <Suspense fallback={<p className="h-5" />}>
-            {formatDate(post.metadata.publishedAt)}
+        {/* Judul Artikel */}
+        <h1 className="mb-6 text-center text-4xl font-bold">{title}</h1>
+        {/* Tanggal */}
+        <div className="mb-10 text-center text-sm text-gray-500">
+          <Suspense fallback={<p>Loading...</p>}>
+            {formatDate(publishedAt)}
           </Suspense>
         </div>
+        {/* Konten Artikel */}
         <article
-          className="prose dark:prose-invert mx-auto"
+          className="prose prose-lg dark:prose-invert mx-auto"
           dangerouslySetInnerHTML={{ __html: post.source }}
-        ></article>
+        />
+        {/* Tags */}
+        {tags && tags.length > 0 && (
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            {tags.map((tag: any) => (
+              <span
+                key={tag}
+                className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-200"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
