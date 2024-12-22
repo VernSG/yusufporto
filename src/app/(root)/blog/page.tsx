@@ -2,7 +2,6 @@
 import { getBlogPosts } from "../../../data/blog";
 import PageTitle from "@/components/elements/PageTitle";
 import type { Metadata } from "next";
-import BlogCard from "@/components/cards/BlogCard";
 import Search from "./Search"; // Import the Search component
 
 export const metadata: Metadata = {

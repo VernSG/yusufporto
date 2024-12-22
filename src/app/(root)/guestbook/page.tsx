@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Guestbook() {
   return (
-    <div className="container mx-auto p-8">
+    <div className="p-8">
       <PageTitle
         title="Guestbook"
         description="Leave whatever you like to say on the AMA discussion"
