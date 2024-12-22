@@ -5,6 +5,7 @@ import { formatDate } from "@/lib/formatDate";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import Comment from "@/components/elements/Comment";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -113,7 +114,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
           dangerouslySetInnerHTML={{ __html: post.source }}
         />
         {/* Tags */}
-        {tags && tags.length > 0 && (
+        {/* {tags && tags.length > 0 && (
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             {tags.map((tag: any) => (
               <span
@@ -124,8 +125,9 @@ export default async function Blog({ params }: { params: { slug: string } }) {
               </span>
             ))}
           </div>
-        )}
+        )} */}
       </div>
+      <Comment />
     </section>
   );
 }
