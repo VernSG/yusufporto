@@ -6,13 +6,17 @@ import { CiChat1 } from "react-icons/ci";
 import { BiSolidDashboard } from "react-icons/bi";
 import { GrCertificate } from "react-icons/gr";
 import { CiMusicNote1 } from "react-icons/ci";
+import { FaBlog } from "react-icons/fa";
 
 const ICON_SIZE: number = 24;
 
 export const BOTTOMBAR_ITEMS = [
   { icon: <AiOutlineHome size={ICON_SIZE} />, pathname: "/" },
   { icon: <SiAboutdotme size={ICON_SIZE} />, pathname: "/about" },
-  { icon: <GoProject size={ICON_SIZE} />, pathname: "/projects" },
+  {
+    icon: <FaBlog size={ICON_SIZE} />,
+    pathname: "/blog",
+  },
   { icon: <BiSolidDashboard size={ICON_SIZE} />, pathname: "/dashboard" },
   { icon: <CiChat1 size={ICON_SIZE} />, pathname: "/guestbook" },
   { icon: <FaRegPaperPlane size={ICON_SIZE} />, pathname: "/contact" },
