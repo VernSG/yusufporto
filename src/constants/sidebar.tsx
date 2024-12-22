@@ -3,6 +3,7 @@ import { FaRegPaperPlane } from "react-icons/fa";
 import { GoProject } from "react-icons/go";
 import { SiAboutdotme } from "react-icons/si";
 import { GrCertificate } from "react-icons/gr";
+import { FaBlog } from "react-icons/fa";
 import { CiMusicNote1 } from "react-icons/ci";
 import { CiChat1 } from "react-icons/ci";
 import { BiSolidDashboard } from "react-icons/bi";
@@ -17,9 +18,9 @@ export const SIDEBAR_ITEMS = [
     label: "About",
   },
   {
-    icon: <GoProject size={ICON_SIZE} />,
-    pathname: "/projects",
-    label: "Projects",
+    icon: <FaBlog size={ICON_SIZE} />,
+    pathname: "/blog",
+    label: "Blog",
   },
   {
     icon: <BiSolidDashboard size={ICON_SIZE} />,

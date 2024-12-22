@@ -109,7 +109,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
         </div>
         {/* Konten Artikel */}
         <article
-          className="prose prose-lg dark:prose-invert mx-auto"
+          className="prose prose-lg mx-auto dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: post.source }}
         />
         {/* Tags */}

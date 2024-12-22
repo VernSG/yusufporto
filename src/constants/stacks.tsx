@@ -15,8 +15,10 @@ import {
   SiSass,
   SiTailwindcss,
   SiVite,
-  SiMysql
+  SiMysql,
 } from "react-icons/si";
+
+import { FaLaravel } from "react-icons/fa";
 
 type stacksProps = {
   [key: string]: JSX.Element;
@@ -28,6 +30,7 @@ export const STACKS: stacksProps = {
   JavaScript: <SiJavascript size={ICON_SIZE} color="#FDDC01" />,
   MySql: <SiMysql size={ICON_SIZE} color="" />,
   MongoDB: <SiMongodb size={ICON_SIZE} color="" />,
+  Laravel11: <FaLaravel size={ICON_SIZE} color="" />,
   Express: <SiExpress size={ICON_SIZE} />,
   Php: <SiPhp size={ICON_SIZE} color="" />,
   "Next.js": <SiNextdotjs size={ICON_SIZE} color="" />,

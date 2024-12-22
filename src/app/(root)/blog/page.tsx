@@ -1,7 +1,9 @@
+// Server-side component for BlogPage with metadata
 import { getBlogPosts } from "../../../data/blog";
 import PageTitle from "@/components/elements/PageTitle";
 import type { Metadata } from "next";
 import BlogCard from "@/components/cards/BlogCard";
+import Search from "./Search"; // Import the Search component
 
 export const metadata: Metadata = {
   title: "Blog | Muhammad Yusuf",
@@ -22,29 +24,8 @@ export default async function BlogPage() {
         description="Share thoughts and tutorials on web development."
       />
       <div className="container mx-auto">
-        {" "}
-        {/* Container untuk membatasi lebar */}
-        <div className="-mx-4 flex flex-wrap">
-          {" "}
-          {/* Flex container untuk card */}
-          {posts
-            .sort(
-              (a, b) =>
-                new Date(b.metadata.publishedAt).getTime() - // Urutan terbaru
-                new Date(a.metadata.publishedAt).getTime(),
-            )
-            .map((post) => (
-              <BlogCard
-                key={post.slug}
-                title={post.metadata.title}
-                image={post.metadata.image}
-                publishedAt={post.metadata.publishedAt}
-                summary={post.metadata.summary}
-                slug={post.slug}
-                tags={post.metadata.tags} // Pastikan tags juga di-pass
-              />
-            ))}
-        </div>
+        {/* Search component to filter posts */}
+        <Search posts={posts} />
       </div>
     </section>
   );
