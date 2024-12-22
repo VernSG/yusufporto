@@ -36,7 +36,7 @@ const DashboardsPage = async () => {
 
   return (
     <>
-      <div className="p-6">
+      <div className="container mx-auto">
         <PageTitle
           title="Dashboard"
           description="This is my personal dashboard, built with Next.js API routes deployed as serverless functionsn."
