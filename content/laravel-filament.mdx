@@ -1,0 +1,204 @@
+---
+title: "Membuat CRUD Dashboard Mudah Menggunakan Laravel Filament"
+image: "/filament.png"
+publishedAt: "2024-12-25"
+summary: "Panduan lengkap membuat CRUD dashboard dengan mudah menggunakan Laravel Filament."
+slug: "filament"
+tags: ["laravel", "web development", "filament", "crud"]
+---
+
+Laravel Filament adalah salah satu library yang sangat membantu dalam membuat CRUD dashboard dengan cepat dan mudah. Artikel ini akan membahas langkah-langkah untuk membuat CRUD dashboard menggunakan Laravel Filament, mulai dari instalasi hingga konfigurasi.
+
+## Langkah 1: Instal Laravel
+
+Pertama-tama, buatlah proyek Laravel baru dengan perintah berikut:
+
+```bash
+composer create-project laravel/laravel example-app
+```
+
+## Langkah 2: Setup Database
+
+Konfigurasikan database di file `.env`. Pada contoh ini, kita menggunakan SQLite:
+
+```env
+DB_CONNECTION=sqlite
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+DB_DATABASE=path/to/database.sqlite
+# DB_USERNAME=root
+# DB_PASSWORD=
+```
+
+Setelah itu, buat file database SQLite:
+
+```bash
+touch database/database.sqlite
+```
+
+## Langkah 3: Migrasi Schema
+
+Jalankan migrasi untuk membuat struktur tabel dasar:
+
+```bash
+php artisan migrate
+```
+
+## Langkah 4: Jalankan Proyek Laravel
+
+Jalankan server lokal untuk memastikan proyek Laravel berjalan dengan baik:
+
+```bash
+php artisan serve
+```
+
+## Langkah 5: Instal Filament
+
+Tambahkan Filament ke dalam proyek dengan perintah berikut:
+
+```bash
+composer require filament/filament
+```
+
+## Langkah 6: Instal Admin Panel
+
+Instalasi panel admin Filament dilakukan dengan perintah:
+
+```bash
+php artisan filament:install --panels
+```
+
+## Langkah 7: Buat User Admin
+
+Tambahkan user admin untuk mengakses panel Filament:
+
+```bash
+php artisan make:filament-user
+```
+
+## Langkah 8: Akses Admin Panel
+
+Buka panel admin Filament di browser melalui URL berikut:
+
+```
+http://127.0.0.1:8000/admin/login
+```
+
+## Langkah 9: Buat Model Players
+
+Buat model `Player` dengan migrasi:
+
+```bash
+php artisan make:model Player -m
+```
+
+## Langkah 10: Ubah Schema Tabel Players
+
+Edit file migrasi di `database/migrations` untuk menambahkan schema berikut:
+
+```php
+Schema::create('players', function (Blueprint $table) {
+    $table->id();
+    $table->string('nim')->unique();
+    $table->string('nama');
+    $table->enum('kelas', ['MIPA', 'IPS']);
+    $table->timestamps();
+});
+```
+
+## Langkah 11: Lindungi Model Player
+
+Tambahkan properti `fillable` di model `Player` agar dapat diisi secara massal:
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Player extends Model
+{
+    protected $fillable = ['nim', 'nama', 'kelas'];
+}
+```
+
+## Langkah 12: Migrasi Schema
+
+Jalankan migrasi untuk membuat tabel `players`:
+
+```bash
+php artisan migrate
+```
+
+## Langkah 13: Buat Resource Filament
+
+Buat resource Filament untuk model `Player`:
+
+```bash
+php artisan make:filament-resource PlayerResource
+```
+
+## Langkah 14: Tambahkan Schema Form untuk Menambah Data
+
+Edit file `app/Filament/Resources/PlayerResource.php` untuk menambahkan schema form:
+
+```php
+return $form
+    ->schema([
+        Card::make()
+            ->schema([
+                TextInput::make('nim')->required(),
+                TextInput::make('nama')->required(),
+                Select::make('kelas')
+                    ->options([
+                        'MIPA' => 'MIPA',
+                        'IPS' => 'IPS'
+                    ]),
+            ])
+            ->columns(2),
+    ]);
+```
+
+## Langkah 15: Tambahkan Kolom Tabel untuk Menampilkan Data
+
+Tambahkan konfigurasi tabel di file `app/Filament/Resources/PlayerResource.php`:
+
+```php
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            TextColumn::make('nim')->sortable()->searchable(),
+            TextColumn::make('nama')->sortable()->searchable(),
+            TextColumn::make('kelas')->sortable()->searchable(),
+        ])
+        ->filters([
+            // Tambahkan filter jika diperlukan
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\BulkActionGroup::make([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]),
+        ]);
+}
+```
+
+## Langkah 16: Tambahkan Validasi untuk Kolom Unik
+
+Untuk menghindari duplikasi, tambahkan validasi unik di form:
+
+```php
+return $form
+    ->schema([
+        Card::make()
+            ->schema([
+                TextInput::make('nim')->required()->unique(ignorable: fn($record) => $record),
+            ])
+    ]);
+```
+
+Dengan mengikuti langkah-langkah di atas, Anda dapat dengan mudah membuat CRUD dashboard menggunakan Laravel Filament. Selamat mencoba!
