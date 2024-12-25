@@ -6,6 +6,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import Comment from "@/components/elements/Comment";
+import Link from "next/link";
+import DonateBox from "@/components/elements/DonateBox";
+import BreakLine from "@/components/elements/BreakLine";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -127,6 +130,8 @@ export default async function Blog({ params }: { params: { slug: string } }) {
           </div>
         )}
       </div>
+      <DonateBox classname="w-64" />
+      <BreakLine />
       <Comment />
     </section>
   );
