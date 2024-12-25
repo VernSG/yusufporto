@@ -67,7 +67,7 @@ const DashboardsPage = async () => {
           <GithubCalendar
             data={github?.data?.contributionsCollection?.contributionCalendar}
           />
-          <Repos />
+          {/* <Repos /> */}
         </div>
       </div>
     </>
