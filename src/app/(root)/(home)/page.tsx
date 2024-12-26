@@ -7,7 +7,7 @@ import Stacks from "./Stacks";
 export const metadata: Metadata = {
   title: "Muhammad Yusuf Saputra - Portofolio dan Blog",
   description:
-    "Saya Muhammad Yusuf Saputra, seorang web developer yang berdedikasi pada pengembangan website modern & berkualitas. Pelajari lebih lanjut tentang proyek, keterampilan, dan pemikiran saya di sini.",
+    "Muhammad Yusuf Saputra, seorang web developer yang berdedikasi pada pengembangan website modern & berkualitas. Pelajari lebih lanjut tentang proyek, keterampilan, dan pemikiran saya di sini.",
   alternates: {
     canonical: "https://yusufs.me/",
   },
