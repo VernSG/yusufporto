@@ -1,0 +1,241 @@
+---
+title: "Membuat Google Authentication dengan Laravel Socialite"
+image: "/filament.png"
+publishedAt: "2025-01-07"
+summary: "Langkah-langkah membuat fitur Google Authentication di Laravel menggunakan Socialite untuk memudahkan proses login pengguna."
+slug: "google-auth-laravel-socialite"
+tags: ["laravel", "authentication", "socialite", "google auth"]
+---
+
+Laravel Socialite adalah library yang mempermudah integrasi login menggunakan berbagai penyedia layanan pihak ketiga, seperti Google, Facebook, dan lainnya. Artikel ini akan membahas langkah-langkah membuat fitur Google Authentication di Laravel.
+
+## Langkah 1: Instalasi Laravel
+
+Buat proyek Laravel baru menggunakan Composer:
+
+```
+composer create-project laravel/laravel google-auth
+```
+
+## Langkah 2: Instalasi Socialite
+
+Tambahkan Socialite ke proyek Laravel Anda:
+
+```
+composer require laravel/socialite
+```
+
+## Langkah 3: Konfigurasi Google API
+
+1. **Buka Google Cloud Console**
+   [Akses Google Cloud Console](https://console.cloud.google.com/)
+
+2. **Buat Proyek Baru**
+
+- Klik "Create Project" dan beri nama proyek Anda.
+
+3. **Aktifkan OAuth Consent Screen**
+
+- Buka menu APIs & Services > OAuth consent screen.
+- Pilih "External" dan isi detail aplikasi seperti nama, email, dan lainnya.
+
+4. **Buat Credentials**
+
+- Buka menu APIs & Services > Credentials dan pilih "Create Credentials > OAuth 2.0 Client IDs".
+- Pilih "Web Application" dan tambahkan Authorized redirect URIs seperti:
+
+```
+http://localhost:8000/auth/google/callback
+```
+
+5.**Simpan Client ID dan Client Secret**
+
+## Langkah 4: Konfigurasi Laravel
+
+Tambahkan kredensial Google ke file .env:
+
+```
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GOOGLE_REDIRECT_URI=http://localhost:8000/auth/google/callback
+```
+
+Edit file **config/services.php**:
+
+```
+'google' => [
+    'client_id' => env('GOOGLE_CLIENT_ID'),
+    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+    'redirect' => env('GOOGLE_REDIRECT_URI'),
+],
+```
+
+## Langkah 5: Buat Controller untuk Google Auth
+
+Buat controller **GoogleController**:
+
+```
+php artisan make:controller GoogleController
+```
+
+Isi controller itu dengan code berikut:
+
+```
+<?php
+
+namespace App\Http\Controllers;
+
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
+class GoogleController extends Controller
+{
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        $googleUser = Socialite::driver('google')->stateless()->user();
+
+        $user = User::updateOrCreate(
+            ['email' => $googleUser->email],
+            [
+                'name' => $googleUser->name,
+                'google_id' => $googleUser->id,
+                'password' => bcrypt('password'),
+            ]
+        );
+
+        Auth::login($user);
+
+        return redirect()->route('home');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
+}
+```
+
+## Langkah 6: Tambahkan Route
+
+Edit file **routes/web.php**:
+
+```
+use App\Http\Controllers\GoogleController;
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
+    Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+    Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::post('/logout', [GoogleController::class, 'logout'])->name('logout');
+});
+```
+
+## Langkah 7: Tambahkan Kolom google_id pada Tabel Users
+
+Tambahkan migrasi baru untuk kolom **google_id**:
+
+```
+php artisan make:migration add_google_id_to_users_table --table=users
+```
+
+Edit migrasi file:
+
+```
+public function up()
+{
+    Schema::table('users', function (Blueprint $table) {
+        $table->string('google_id')->nullable()->unique();
+    });
+}
+```
+
+Migrasikan:
+
+```
+php artisan migrate
+```
+
+## Langkah 8: Buat Tampilan Login dan Dashboard
+
+- **Tampilan Login**
+  Buat file **resources/views/auth/login.blade.php**:
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Login</h2>
+                <a href="{{ route('google.login') }}" class="btn btn-danger w-100">Login with Google</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+- **Tampilan Dashboard**
+  Buat file **resources/views/dashboard.blade.php**:
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Welcome, {{ auth()->user()->name }}</h2>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
+</body>
+</html>
+```
+
+## Langkah 9: Uji Aplikasi
+
+1. Jalankan server lokal:
+
+```
+php artisan serve
+```
+
+2.Buka URL berikut di browser:
+
+- Login: **http://127.0.0.1:8000/login**
+- Dashboard: **http://127.0.0.1:8000/dashboard**
+
+  3.Pastikan login dan logout berjalan dengan baik.

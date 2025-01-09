@@ -198,11 +198,15 @@ table {
 .prose h1,
 .prose h2,
 .prose h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .prose p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   margin-bottom: 1.25rem;
   line-height: 1.8;
 }
