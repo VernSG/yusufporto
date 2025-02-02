@@ -13,7 +13,7 @@ export default function SidebarNav() {
         {SIDEBAR_ITEMS.map((item, index) => {
           const isActivePage =
             pathname === item.pathname ||
-            (item.pathname === "/certificate" && pathname.startsWith("/certificate/"));
+            (item.pathname === "/blog" && pathname.startsWith("/blog/"));
 
           return (
             <li key={index}>

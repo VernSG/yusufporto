@@ -7,6 +7,7 @@ import { FaBlog } from "react-icons/fa";
 import { CiMusicNote1 } from "react-icons/ci";
 import { CiChat1 } from "react-icons/ci";
 import { BiSolidDashboard } from "react-icons/bi";
+import { AiFillProject } from "react-icons/ai";
 
 const ICON_SIZE: number = 24;
 
@@ -21,6 +22,11 @@ export const SIDEBAR_ITEMS = [
     icon: <FaBlog size={ICON_SIZE} />,
     pathname: "/blog",
     label: "Blog",
+  },
+  {
+    icon: <AiFillProject size={ICON_SIZE} />,
+    pathname: "/products",
+    label: "Product",
   },
   {
     icon: <BiSolidDashboard size={ICON_SIZE} />,
