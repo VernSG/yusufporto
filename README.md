@@ -52,11 +52,11 @@ To run this project, you will need to add the following environment variables to
 
 ### [Github](https://github.com/)
 
-GH_READ_USER_TOKEN_PERSONAL
+`GH_READ_USER_TOKEN_PERSONAL`
 
 ### [Wakatime](https://wakatime.com/)
 
-WAKATIME_API_KEY
+`WAKATIME_API_KEY`
 
 ### [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started)
 
@@ -74,9 +74,9 @@ WAKATIME_API_KEY
 
 [Nodemailer](https://nodemailer.com/)
 
-
 ## Inspiration of this project
 
 [andre](https://github.com/ndrvndr)
 
 [xyzuan](https://github.com/xyzuan)
+t
