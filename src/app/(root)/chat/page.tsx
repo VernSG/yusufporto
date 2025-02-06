@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function ChatPage() {
   const [input, setInput] = useState("");
@@ -104,7 +106,11 @@ export default function ChatPage() {
                 : "self-start bg-gray-300 text-gray-900"
             }`}
           >
-            {msg.content}
+            <div className="markdown-content">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {msg.content}
+              </ReactMarkdown>
+            </div>
           </div>
         ))}
 
