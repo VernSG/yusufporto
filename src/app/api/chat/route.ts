@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
     const { messages } = await req.json();
     console.log("✅ Received messages:", messages);
 
-    const response = await fetch("https://api.zpi.my.id/v1/ai/gpt-4-turbo", {
+    const response = await fetch("https://api.zpi.my.id/v1/ai/gpt-4o", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     const data = await response.json();
     console.log("✅ API Response Data:", data);
 
-    return NextResponse.json(data.data.choices); 
+    return NextResponse.json(data.data.choices);
   } catch (error) {
     console.error("❌ Internal Server Error:", error);
     return NextResponse.json(

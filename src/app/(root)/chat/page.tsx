@@ -12,7 +12,8 @@ export default function ChatPage() {
     },
   ]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [isTyping, setIsTyping] = useState(false); // Untuk efek bot mengetik
+  const [isTyping, setIsTyping] = useState(false);
+  const [isCooldown, setIsCooldown] = useState(false);
   const [commands] = useState([
     { command: "/about-yusuf", description: "Penjelasan tentang Yusuf" },
     { command: "/help", description: "Dapatkan bantuan tentang fitur AI" },
@@ -20,7 +21,6 @@ export default function ChatPage() {
   ]);
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
 
-  // Auto-scroll ke bawah setiap kali pesan baru ditambahkan
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -29,7 +29,6 @@ export default function ChatPage() {
     const value = e.target.value;
     setInput(value);
 
-    // Tampilkan suggestions jika input diawali dengan "/"
     if (value.startsWith("/")) {
       setShowSuggestions(true);
     } else {
@@ -39,17 +38,17 @@ export default function ChatPage() {
 
   const handleKeyDown = (e: any) => {
     if (e.key === "Enter" && input.trim()) {
-      sendMessage(); // Kirim pesan saat Enter ditekan
+      sendMessage();
     }
   };
 
   const selectCommand = (command: any) => {
-    setInput(command); // Masukkan command yang dipilih ke input
-    setShowSuggestions(false); // Sembunyikan dropdown
+    setInput(command);
+    setShowSuggestions(false);
   };
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || isCooldown) return;
 
     const newMessage = { role: "user", content: input };
     setMessages((prev) => [...prev, newMessage]);
@@ -57,7 +56,12 @@ export default function ChatPage() {
     setInput("");
     setShowSuggestions(false);
 
-    setIsTyping(true); // Bot mulai mengetik
+    setIsTyping(true);
+    setIsCooldown(true);
+
+    setTimeout(() => {
+      setIsCooldown(false);
+    }, 3000);
 
     let botResponse = "";
 
@@ -68,7 +72,6 @@ export default function ChatPage() {
       botResponse =
         "Daftar command yang tersedia: /about-yusuf, /help, /clear.";
     } else if (input.toLowerCase() === "/clear") {
-      // Clear semua pesan
       setMessages([]);
       setIsTyping(false);
       return;
@@ -85,15 +88,14 @@ export default function ChatPage() {
       });
 
       const data = await res.json();
-      console.log("✅ Received API Response:", data); // Debugging
+      console.log("✅ Received API Response:", data);
       botResponse = data.content || "No response from AI";
     }
 
-    // Simulasikan waktu mengetik
     setTimeout(() => {
       setMessages((prev) => [...prev, { role: "bot", content: botResponse }]);
-      setIsTyping(false); // Selesai mengetik
-    }, 1500); // Animasi mengetik selama 1,5 detik
+      setIsTyping(false);
+    }, 1500);
   };
 
   return (
@@ -132,29 +134,42 @@ export default function ChatPage() {
           value={input}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          placeholder="Tulis pesan atau gunakan command seperti /about-yusuf"
+          placeholder={
+            isCooldown
+              ? "Tunggu sebentar sebelum mengirim pesan..."
+              : "Tulis pesan atau gunakan command seperti /about-yusuf"
+          }
           className="w-full rounded border border-gray-300 px-4 py-2 text-sm shadow-sm outline-none focus:ring-2 focus:ring-indigo-500"
+          disabled={isCooldown}
         />
         <button
           onClick={sendMessage}
-          className="ml-2 rounded-full bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-400"
+          className={`ml-2 rounded-full px-4 py-2 text-sm font-medium text-white shadow-md ${
+            isCooldown
+              ? "cursor-not-allowed bg-gray-400"
+              : "bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-400"
+          }`}
+          disabled={isCooldown}
         >
           Kirim
         </button>
       </div>
 
       {showSuggestions && (
-        <ul className="absolute bottom-20 left-4 z-10 w-full max-w-md rounded-lg bg-white shadow-md">
-          {commands.map((cmd, index) => (
-            <li
-              key={index}
-              onClick={() => selectCommand(cmd.command)}
-              className="cursor-pointer px-4 py-2 hover:bg-gray-200"
-            >
-              <strong>{cmd.command}</strong>: {cmd.description}
-            </li>
-          ))}
-        </ul>
+        <div className="absolute bottom-full mb-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
+          {commands
+            .filter((cmd) => cmd.command.startsWith(input))
+            .map((cmd, index) => (
+              <div
+                key={index}
+                onClick={() => selectCommand(cmd.command)}
+                className="cursor-pointer px-4 py-2 hover:bg-gray-100"
+              >
+                <p className="font-semibold text-gray-700">{cmd.command}</p>
+                <p className="text-xs text-gray-500">{cmd.description}</p>
+              </div>
+            ))}
+        </div>
       )}
     </div>
   );
