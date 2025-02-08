@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     const data = await response.json();
     console.log("✅ API Response Data:", data);
 
-    return NextResponse.json(data.data.choices); // Ambil hanya `choices`
+    return NextResponse.json(data.data.choices); 
   } catch (error) {
     console.error("❌ Internal Server Error:", error);
     return NextResponse.json(
