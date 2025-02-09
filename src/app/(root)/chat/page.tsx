@@ -35,6 +35,9 @@ export default function ChatPage() {
     } else {
       setShowSuggestions(false);
     }
+
+    console.log("Input:", value);
+    console.log("showSuggestions:", showSuggestions);
   };
 
   const handleKeyDown = (e: any) => {
@@ -130,7 +133,7 @@ export default function ChatPage() {
           <div ref={messagesEndRef}></div>
         </div>
 
-        <div className="relative flex items-center border-t border-gray-300 bg-white p-4">
+        <div className="relative flex w-full items-center border-t border-gray-300 bg-white p-4">
           <input
             type="text"
             value={input}
@@ -158,9 +161,11 @@ export default function ChatPage() {
         </div>
 
         {showSuggestions && (
-          <div className="absolute bottom-full mb-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
+          <div className="absolute  top-full z-10 mb-8 mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
             {commands
-              .filter((cmd) => cmd.command.startsWith(input))
+              .filter((cmd) =>
+                cmd.command.toLowerCase().startsWith(input.toLowerCase()),
+              )
               .map((cmd, index) => (
                 <div
                   key={index}
