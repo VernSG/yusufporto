@@ -33,7 +33,7 @@ export default function Bottombar() {
               "grid place-items-center",
             )}
             aria-label={`Go to ${item.pathname}`}
-            legacyBehavior>
+          >
             <span className={isActivePage ? "text-primary-light" : "primary"}>
               {item.icon}
             </span>
