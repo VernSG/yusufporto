@@ -4,7 +4,7 @@
 export const CV_URL = "/CV.pdf";
 
 export const PROFILE_PICTURE_URL =
-  "https://res.cloudinary.com/djsdnb4td/image/upload/v1734840193/ryou_cw1d48.webp";
+  "https://res.cloudinary.com/djsdnb4td/image/upload/v1741970815/52680417-41c4-4fdb-84e2-d796338c102a_q5ocvl.jpg";
 
 export const DISOCRD_PROFILE =
   "https://res.cloudinary.com/djsdnb4td/image/upload/v1733302383/follow_z8vs4u.jpg";
