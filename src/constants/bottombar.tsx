@@ -17,7 +17,7 @@ export const BOTTOMBAR_ITEMS = [
     icon: <FaBlog size={ICON_SIZE} />,
     pathname: "/blog",
   },
-  { icon: <AiOutlineProject size={ICON_SIZE} />, pathname: "/products" },
+  { icon: <AiOutlineProject size={ICON_SIZE} />, pathname: "/projects" },
   { icon: <BiSolidDashboard size={ICON_SIZE} />, pathname: "/dashboard" },
   { icon: <CiChat1 size={ICON_SIZE} />, pathname: "/guestbook" },
   { icon: <FaRegPaperPlane size={ICON_SIZE} />, pathname: "/contact" },
