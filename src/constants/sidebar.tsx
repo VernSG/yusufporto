@@ -1,10 +1,7 @@
 import { AiOutlineHome } from "react-icons/ai";
 import { FaRegPaperPlane } from "react-icons/fa";
-import { GoProject } from "react-icons/go";
 import { SiAboutdotme } from "react-icons/si";
-import { GrCertificate } from "react-icons/gr";
 import { FaBlog } from "react-icons/fa";
-import { CiMusicNote1 } from "react-icons/ci";
 import { CiChat1 } from "react-icons/ci";
 import { BiSolidDashboard } from "react-icons/bi";
 import { AiFillProject } from "react-icons/ai";
@@ -25,8 +22,8 @@ export const SIDEBAR_ITEMS = [
   },
   {
     icon: <AiFillProject size={ICON_SIZE} />,
-    pathname: "/products",
-    label: "Product",
+    pathname: "/projects",
+    label: "Project",
   },
   {
     icon: <BiSolidDashboard size={ICON_SIZE} />,
