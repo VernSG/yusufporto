@@ -41,7 +41,7 @@ export const PROJECTCARD_CONTENTS = [
     description: "Landing page size store with React.js and Tailwind CSS",
     techStack: TECH_STACK_SIZE,
     image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1742080072/daily_vlog_1_dl5akk.png",
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1742243652/daily_vlog_yrzeav.png",
     imageAlt: "SizeStore Landing Page",
   },
   // {
