@@ -51,5 +51,6 @@ export const PROJECTCARD_CONTENTS = [
     description: "POS OGE CASE with PHP and MYSQL",
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1742390806/daily_vlog_2_de3sjv.png",
+    imageAlt: "POS OGE CASE",
   },
 ];
