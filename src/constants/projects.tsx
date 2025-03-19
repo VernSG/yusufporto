@@ -44,12 +44,12 @@ export const PROJECTCARD_CONTENTS = [
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1742243652/daily_vlog_yrzeav.png",
     imageAlt: "SizeStore Landing Page",
   },
-  // {
-  //   url: "",
-  //   name: "POS OGE CASE",
-  //   description: "POS OGE CASE with PHP and MYSQL",
-  //   techStack: TECH_STACK_OGE,
-  //   image:
-  //     "https://res.cloudinary.com/djsdnb4td/image/upload/v1718028162/manhwa_w4sn9q.png",
-  // },
+  {
+    url: "",
+    techStack: TECH_STACK_OGE,
+    name: "POS OGE CASE",
+    description: "POS OGE CASE with PHP and MYSQL",
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1742390806/daily_vlog_2_de3sjv.png",
+  },
 ];
