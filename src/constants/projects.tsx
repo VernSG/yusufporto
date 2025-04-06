@@ -59,6 +59,7 @@ export const PROJECTCARD_CONTENTS = [
     description: "Read Manga, Manhwa and Manhua with Next.js and Tailwind CSS",
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1743945192/6802C4FF-2DBE-46D5-866B-F57DD33A0026_peoomp.png",
+    imageAlt: "MangaVerse",
   },
   {
     url: "https://sizestore.site",
