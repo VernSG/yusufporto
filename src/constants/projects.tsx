@@ -4,6 +4,8 @@ import {
   SiTailwindcss,
   SiPhp,
   SiMysql,
+  SiNextdotjs,
+  SiPrisma,
 } from "react-icons/si";
 
 const ICON_SIZE: number = 24;
@@ -34,7 +36,30 @@ export const TECH_STACK_OGE = [
   },
 ];
 
+export const TECH_STACK_ANIME = [
+  {
+    label: "Next JS",
+    icon: <SiNextdotjs size={ICON_SIZE} color="" />,
+  },
+  {
+    label: "Tailwind CSS",
+    icon: <SiTailwindcss size={ICON_SIZE} color="#38BDF8" />,
+  },
+  {
+    label: "Prisma",
+    icon: <SiPrisma size={ICON_SIZE} color="" />,
+  },
+];
+
 export const PROJECTCARD_CONTENTS = [
+  {
+    url: "https://mangaverse-gamma.vercel.app",
+    techStack: TECH_STACK_ANIME,
+    name: "MangaVerse",
+    description: "Read Manga, Manhwa and Manhua with Next.js and Tailwind CSS",
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1743945192/6802C4FF-2DBE-46D5-866B-F57DD33A0026_peoomp.png",
+  },
   {
     url: "https://sizestore.site",
     name: "SizeStore Landing Page",
