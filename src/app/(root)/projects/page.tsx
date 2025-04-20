@@ -17,7 +17,7 @@ export default function Projects() {
     <div className="p-8">
       <PageTitle
         title="Projects"
-        description="Showcase of my works on frontend development."
+        description="Showcase of my works on Web development."
       />
 
       <section className="lg:mb-20">
