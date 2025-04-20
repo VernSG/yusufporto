@@ -68,13 +68,12 @@ export const TECH_STACK_ANIME = [
 
 export const PROJECTCARD_CONTENTS = [
   {
-    url: "https://irmanime.vercel.app",
+    url: "https://irma-management-system.vercel.app",
     techStack: TECH_STACK_IRMA,
     name: "Irma Management System",
     description:
       "Management System for Irma Miftahul Huda with Next.js and Tailwind CSS",
-    image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1745144189/906578BC-6D24-4578-AE53-BF3467471B15_xekn39.png",
+    image: "/irma.webp",
     imageAlt: "Irma Anime",
   },
   {
