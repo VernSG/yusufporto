@@ -53,10 +53,10 @@ export const TECH_STACK_BE = [
 ];
 
 export const TECH_STACK_LOMBA = [
-  {
-    label: "React JS",
-    icon: <SiReact size={ICON_SIZE} color="#38BDF8" />,
-  },
+  // {
+  //   label: "React JS",
+  //   icon: <SiReact size={ICON_SIZE} color="#38BDF8" />,
+  // },
   {
     label: "Html5",
     icon: <SiHtml5 size={ICON_SIZE} color="" />,
@@ -78,6 +78,20 @@ export const TECH_STACK_WEB = [
   },
 ];
 
+export const TECH_STACK_BTH = [
+  {
+    label: "HTML5",
+    icon: <SiHtml5 size={ICON_SIZE} color="#38BDF8" />,
+  },
+  {
+    label: "CSS",
+    icon: <SiCss3 size={ICON_SIZE} color="39BDF8" />,
+  },
+  {
+    label: "Javascript",
+    icon: <SiJavascript size={ICON_SIZE} color="#38BDF8" />,
+  },
+];
 export const PROJECTCARD_CONTENTS = [
   {
     url: "",
@@ -86,6 +100,16 @@ export const PROJECTCARD_CONTENTS = [
     techStack: TECH_STACK_LOMBA,
     image:
       "https://res.cloudinary.com/djsdnb4td/image/upload/v1726273904/IMG-20240914-WA0002_kcgxlr.jpg",
+    imageAlt: "Javascript",
+  },
+  {
+    url: "",
+    name: "Speaker – TechTalk #6: AI Prompting",
+    description:
+      "Demonstrated a mobile-friendly landing page for a boba MSME and shared insights on AI and automation for digital marketing.",
+    techStack: TECH_STACK_BTH,
+    image:
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1746227720/TechTalk_6_Muhammad_Yusuf_Saputra_eccyms.png",
     imageAlt: "Javascript",
   },
   {
