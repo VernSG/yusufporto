@@ -8,6 +8,8 @@ import {
   SiPrisma,
 } from "react-icons/si";
 
+import { FaLaravel, FaVuejs } from "react-icons/fa";
+
 const ICON_SIZE: number = 24;
 
 export const TECH_STACK_SIZE = [
@@ -23,6 +25,17 @@ export const TECH_STACK_SIZE = [
     label: "Firebase",
     icon: <SiFirebase size={ICON_SIZE} color="#016949" />,
   },
+];
+
+export const TECH_STACK_RAPOR = [
+{
+  label: "Laravel",
+  icon: <FaLaravel />,
+},
+{
+  label: "Vue",
+icon: <FaVuejs />,
+},
 ];
 
 export const TECH_STACK_IRMA = [
@@ -68,6 +81,15 @@ export const TECH_STACK_ANIME = [
 
 export const PROJECTCARD_CONTENTS = [
   {
+    url: "",
+    techStack: TECH_STACK_RAPOR,
+    name: "Rapor Kesehatan",
+    description:
+      "Fullstack web with inertia js",
+    image: "/image.png",
+    imageAlt: " Anime",
+  },
+  {
     url: "https://irma-management-system.vercel.app",
     techStack: TECH_STACK_IRMA,
     name: "Irma Management System",
@@ -77,7 +99,7 @@ export const PROJECTCARD_CONTENTS = [
     imageAlt: "Irma Anime",
   },
   {
-    url: "https://mangaverse-gamma.vercel.app",
+    url: "https://mangaverse.my.id",
     techStack: TECH_STACK_ANIME,
     name: "MangaVerse",
     description: "Read Manga, Manhwa and Manhua with Next.js and Tailwind CSS",
