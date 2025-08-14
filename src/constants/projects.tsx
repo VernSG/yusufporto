@@ -27,16 +27,27 @@ export const TECH_STACK_SIZE = [
   },
 ];
 
-export const TECH_STACK_RAPOR = [
-{
-  label: "Laravel",
-  icon: <FaLaravel />,
-},
-{
-  label: "Vue",
-icon: <FaVuejs />,
-},
+export const TECH_STACK_BTH = [
+  {
+    label: "Laravel",
+    icon: <FaLaravel />,
+  },
+  {
+    label: "Vue",
+    icon: <FaVuejs />,
+  },
 ];
+
+// export const TECH_STACK_RAPOR = [
+//   {
+//     label: "Laravel",
+//     icon: <FaLaravel />,
+//   },
+//   {
+//     label: "Vue",
+//     icon: <FaVuejs />,
+//   },
+// ];
 
 export const TECH_STACK_IRMA = [
   {
@@ -82,11 +93,11 @@ export const TECH_STACK_ANIME = [
 export const PROJECTCARD_CONTENTS = [
   {
     url: "",
-    techStack: TECH_STACK_RAPOR,
-    name: "Rapor Kesehatan",
+    techStack: TECH_STACK_BTH,
+    name: "BONTANG IDEATION",
     description:
-      "Fullstack web with inertia js",
-    image: "/image.png",
+      " Ideation is a digital platform for integrated participant registration, competition management, judging, and awarding in ideation contests.",
+    image: "/ideation.png",
     imageAlt: " Anime",
   },
   {
