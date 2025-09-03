@@ -15,6 +15,7 @@ import {
   SiSass,
   SiTailwindcss,
   SiVite,
+SiRedis,
   SiMysql,
 } from "react-icons/si";
 
@@ -29,8 +30,9 @@ const ICON_SIZE: number = 24;
 export const STACKS: stacksProps = {
   JavaScript: <SiJavascript size={ICON_SIZE} color="#FDDC01" />,
   MySql: <SiMysql size={ICON_SIZE} color="" />,
+	Redis:<SiRedis size={ICON_SIZE} color="" />,
   MongoDB: <SiMongodb size={ICON_SIZE} color="" />,
-  Laravel11: <FaLaravel size={ICON_SIZE} color="" />,
+  Laravel: <FaLaravel size={ICON_SIZE} color="" />,
   Express: <SiExpress size={ICON_SIZE} />,
   Php: <SiPhp size={ICON_SIZE} color="" />,
   "Next.js": <SiNextdotjs size={ICON_SIZE} color="" />,
