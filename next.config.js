@@ -7,7 +7,6 @@ const nextConfig = {
       "cdn.discordapp.com",
       "asset.cloudinary.com",
     ],
-  },
-};
+  };
 
 module.exports = nextConfig;
