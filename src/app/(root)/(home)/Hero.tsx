@@ -5,6 +5,8 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { SiGmail } from "react-icons/si";
+import { BiSolidDownvote } from "react-icons/bi";
+
 
 export default function Hero() {
   return (
@@ -43,6 +45,30 @@ export default function Hero() {
           Available for hire
         </p>
       </div>
+
+            <Link
+        href={"/resume.pdf"}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={clsx(
+          "secondary cursor-pointer",
+          "mb-8 pl-0.5",
+          "flex items-center gap-3",
+          "text-sm font-bold md:text-lg",
+          "transition-all duration-300",
+        )}
+      >
+        <div
+          className={clsx(
+            "overflow-hidden",
+            "border-b-2 border-solid",
+            "border-secondary-light dark:border-secondary-dark",
+          )}
+        >
+          <BiSolidDownvote className="animate-rain-arrow" />
+        </div>
+        Download CV
+      </Link>
 
       <Link
         href="/contact"
