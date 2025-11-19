@@ -1,3 +1,4 @@
+
 ---
 title: "Query Builder vs Eloquent ORM: Kapan Harus Menggunakan Masing-Masing?"
 image: "/eloquent-query.png"
@@ -325,18 +326,6 @@ $hasActivePosts = DB::table('posts')
     ->where('published', 1)
     ->exists(); // Better than count() > 0
 ```
-
-### 3. Decision Matrix
-
-| Kriteria            | Query Builder | Eloquent   |
-| ------------------- | ------------- | ---------- |
-| **Performance**     | ⭐⭐⭐⭐⭐    | ⭐⭐⭐     |
-| **Readability**     | ⭐⭐⭐        | ⭐⭐⭐⭐⭐ |
-| **Maintainability** | ⭐⭐⭐        | ⭐⭐⭐⭐⭐ |
-| **Complex Queries** | ⭐⭐⭐⭐⭐    | ⭐⭐       |
-| **Relationships**   | ⭐⭐          | ⭐⭐⭐⭐⭐ |
-| **Learning Curve**  | ⭐⭐⭐⭐      | ⭐⭐⭐     |
-| **Bulk Operations** | ⭐⭐⭐⭐⭐    | ⭐⭐       |
 
 ## Kesimpulan
 
