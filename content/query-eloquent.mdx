@@ -1,0 +1,390 @@
+---
+title: "Query Builder vs Eloquent ORM: Kapan Harus Menggunakan Masing-Masing?"
+image: "/eloquent-query.png"
+publishedAt: "2025-11-20"
+summary: "Perbandingan mendalam antara Query Builder dan Eloquent ORM di Laravel dari segi performance, readability, dan best practices untuk pengembangan aplikasi yang optimal."
+slug: "query-builder-vs-eloquent-orm-best-practices"
+tags: ["laravel", "eloquent", "query builder"]
+---
+
+Dalam pengembangan aplikasi Laravel, kita sering dihadapkan pada pilihan antara menggunakan Query Builder atau Eloquent ORM untuk berinteraksi dengan database. Kedua pendekatan ini memiliki kelebihan dan kekurangan masing-masing. Artikel ini akan membahas kapan sebaiknya menggunakan masing-masing approach berdasarkan best practices.
+
+## Apa itu Query Builder dan Eloquent?
+
+### Query Builder
+
+Query Builder adalah fluent interface untuk membuat dan menjalankan database query. Ini memberikan cara yang lebih aman dan ekspresif untuk berinteraksi dengan database dibandingkan dengan raw SQL.
+
+```php
+use Illuminate\Support\Facades\DB;
+
+$users = DB::table('users')
+    ->where('active', 1)
+    ->where('age', '>', 18)
+    ->select('name', 'email')
+    ->get();
+```
+
+### Eloquent ORM
+
+Eloquent adalah Object-Relational Mapping (ORM) yang memungkinkan kita berinteraksi dengan database menggunakan model dan objek PHP yang ekspresif.
+
+```php
+use App\Models\User;
+
+$users = User::where('active', 1)
+    ->where('age', '>', 18)
+    ->select('name', 'email')
+    ->get();
+```
+
+## Perbandingan Performance
+
+### Query Builder - Lebih Cepat dan Efisien
+
+Query Builder memiliki overhead yang lebih rendah karena tidak perlu melalui proses hydration objek model.
+
+```php
+// Benchmark: ~2ms untuk 1000 records
+$posts = DB::table('posts')
+    ->join('users', 'posts.user_id', '=', 'users.id')
+    ->select('posts.title', 'users.name')
+    ->where('posts.published', 1)
+    ->get();
+```
+
+### Eloquent - Lebih Lambat tapi Lebih Fleksibel
+
+Eloquent membutuhkan waktu lebih untuk hydration objek, tapi memberikan fitur yang lebih kaya.
+
+```php
+// Benchmark: ~5ms untuk 1000 records
+$posts = Post::with('user:id,name')
+    ->where('published', 1)
+    ->get(['title', 'user_id']);
+```
+
+## Kapan Menggunakan Query Builder?
+
+### 1. Query Kompleks dengan Join Multiple Table
+
+```php
+$report = DB::table('orders')
+    ->join('users', 'orders.user_id', '=', 'users.id')
+    ->join('products', 'orders.product_id', '=', 'products.id')
+    ->join('categories', 'products.category_id', '=', 'categories.id')
+    ->select([
+        'categories.name as category',
+        DB::raw('COUNT(*) as total_orders'),
+        DB::raw('SUM(orders.amount) as total_revenue'),
+        DB::raw('AVG(orders.amount) as avg_order_value')
+    ])
+    ->whereYear('orders.created_at', 2024)
+    ->groupBy('categories.id', 'categories.name')
+    ->having('total_orders', '>', 10)
+    ->orderBy('total_revenue', 'desc')
+    ->get();
+```
+
+### 2. Operasi Bulk Insert/Update
+
+```php
+// Bulk insert - lebih efisien dengan Query Builder
+DB::table('user_logs')->insert([
+    ['user_id' => 1, 'action' => 'login', 'created_at' => now()],
+    ['user_id' => 2, 'action' => 'logout', 'created_at' => now()],
+    ['user_id' => 3, 'action' => 'view_profile', 'created_at' => now()],
+    // ... thousands of records
+]);
+
+// Bulk update
+DB::table('products')
+    ->where('category_id', 5)
+    ->update([
+        'discount_rate' => 0.15,
+        'updated_at' => now()
+    ]);
+```
+
+### 3. Raw SQL untuk Query Khusus
+
+```php
+$monthlyStats = DB::select("
+    SELECT
+        DATE_FORMAT(created_at, '%Y-%m') as month,
+        COUNT(*) as total_users,
+        COUNT(CASE WHEN email_verified_at IS NOT NULL THEN 1 END) as verified_users,
+        ROUND(
+            COUNT(CASE WHEN email_verified_at IS NOT NULL THEN 1 END) * 100.0 / COUNT(*), 2
+        ) as verification_rate
+    FROM users
+    WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+    GROUP BY DATE_FORMAT(created_at, '%Y-%m')
+    ORDER BY month DESC
+");
+```
+
+### 4. Performance-Critical Operations
+
+```php
+// Query Builder untuk dashboard analytics yang butuh performa tinggi
+$dashboardData = DB::table('transactions as t')
+    ->selectRaw('
+        DATE(t.created_at) as date,
+        COUNT(*) as transaction_count,
+        SUM(t.amount) as total_amount,
+        AVG(t.amount) as avg_amount
+    ')
+    ->whereBetween('t.created_at', [$startDate, $endDate])
+    ->groupBy(DB::raw('DATE(t.created_at)'))
+    ->orderBy('date', 'desc')
+    ->get();
+```
+
+## Kapan Menggunakan Eloquent?
+
+### 1. CRUD Operations Sederhana
+
+```php
+// Create
+$user = User::create([
+    'name' => 'John Doe',
+    'email' => 'john@example.com',
+    'password' => Hash::make('password')
+]);
+
+// Read
+$user = User::find(1);
+$users = User::where('active', 1)->get();
+
+// Update
+$user = User::find(1);
+$user->update(['name' => 'Jane Doe']);
+
+// Delete
+$user = User::find(1);
+$user->delete();
+```
+
+### 2. Relationship Management
+
+```php
+// Eloquent sangat powerful untuk relationship
+$user = User::with(['posts', 'comments', 'profile'])->find(1);
+
+// Nested relationship
+$posts = Post::with([
+    'user:id,name',
+    'comments' => function($query) {
+        $query->where('approved', 1)->with('user:id,name');
+    },
+    'tags'
+])->where('published', 1)->get();
+
+// Dynamic relationship
+$user = User::find(1);
+$user->posts()->where('published', 1)->get();
+```
+
+### 3. Model Events dan Observers
+
+```php
+class Post extends Model
+{
+    protected static function booted()
+    {
+        static::creating(function ($post) {
+            $post->slug = Str::slug($post->title);
+        });
+
+        static::created(function ($post) {
+            // Send notification
+            Notification::send($post->user, new PostPublished($post));
+        });
+
+        static::updating(function ($post) {
+            if ($post->isDirty('published_at')) {
+                // Log publication status change
+                Log::info("Post {$post->id} publication status changed");
+            }
+        });
+    }
+}
+```
+
+### 4. Accessor, Mutator, dan Casts
+
+```php
+class User extends Model
+{
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'settings' => 'array',
+        'is_admin' => 'boolean'
+    ];
+
+    // Accessor
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    // Mutator
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
+
+    // Custom cast
+    public function getSettingsAttribute($value)
+    {
+        return json_decode($value, true) ?? [];
+    }
+}
+```
+
+## Best Practices dan Recommendations
+
+### 1. Kombinasi Query Builder dan Eloquent
+
+Terkadang kita perlu mengkombinasikan keduanya untuk hasil optimal:
+
+```php
+class PostService
+{
+    public function getPopularPosts($limit = 10)
+    {
+        // Gunakan Query Builder untuk query kompleks
+        $postIds = DB::table('posts')
+            ->select('posts.id')
+            ->join('post_views', 'posts.id', '=', 'post_views.post_id')
+            ->selectRaw('COUNT(post_views.id) as view_count')
+            ->where('posts.published', 1)
+            ->whereDate('post_views.created_at', '>=', now()->subDays(7))
+            ->groupBy('posts.id')
+            ->orderBy('view_count', 'desc')
+            ->limit($limit)
+            ->pluck('posts.id');
+
+        // Gunakan Eloquent untuk load relationship
+        return Post::with(['user', 'tags', 'featuredImage'])
+            ->whereIn('id', $postIds)
+            ->get()
+            ->sortBy(function($post) use ($postIds) {
+                return array_search($post->id, $postIds->toArray());
+            });
+    }
+}
+```
+
+### 2. Optimization Techniques
+
+#### Eloquent Optimization
+
+```php
+// N+1 Problem - AVOID
+$posts = Post::all();
+foreach ($posts as $post) {
+    echo $post->user->name; // N+1 query!
+}
+
+// Solution: Eager Loading
+$posts = Post::with('user')->get();
+foreach ($posts as $post) {
+    echo $post->user->name; // Only 2 queries total
+}
+
+// Select only needed columns
+$posts = Post::with('user:id,name')
+    ->select(['id', 'title', 'user_id', 'created_at'])
+    ->get();
+
+// Chunking for large datasets
+Post::where('published', 1)
+    ->chunk(1000, function ($posts) {
+        foreach ($posts as $post) {
+            // Process each post
+        }
+    });
+```
+
+#### Query Builder Optimization
+
+```php
+// Use indexes effectively
+$users = DB::table('users')
+    ->where('status', 'active') // Make sure 'status' is indexed
+    ->where('created_at', '>=', now()->subDays(30))
+    ->orderBy('created_at', 'desc')
+    ->limit(100)
+    ->get();
+
+// Use exists() instead of count() for checking existence
+$hasActivePosts = DB::table('posts')
+    ->where('user_id', $userId)
+    ->where('published', 1)
+    ->exists(); // Better than count() > 0
+```
+
+### 3. Decision Matrix
+
+| Kriteria            | Query Builder | Eloquent   |
+| ------------------- | ------------- | ---------- |
+| **Performance**     | ⭐⭐⭐⭐⭐    | ⭐⭐⭐     |
+| **Readability**     | ⭐⭐⭐        | ⭐⭐⭐⭐⭐ |
+| **Maintainability** | ⭐⭐⭐        | ⭐⭐⭐⭐⭐ |
+| **Complex Queries** | ⭐⭐⭐⭐⭐    | ⭐⭐       |
+| **Relationships**   | ⭐⭐          | ⭐⭐⭐⭐⭐ |
+| **Learning Curve**  | ⭐⭐⭐⭐      | ⭐⭐⭐     |
+| **Bulk Operations** | ⭐⭐⭐⭐⭐    | ⭐⭐       |
+
+## Kesimpulan
+
+### Gunakan Query Builder ketika:
+
+- Performance adalah prioritas utama
+- Melakukan operasi bulk (insert/update/delete)
+- Query kompleks dengan multiple joins
+- Reporting dan analytics
+- Raw SQL diperlukan untuk kasus khusus
+
+### Gunakan Eloquent ketika:
+
+- Rapid development dan prototyping
+- CRUD operations standard
+- Relationship management
+- Model events dan business logic
+- Team dengan developer junior yang banyak
+
+### Hybrid Approach:
+
+Dalam aplikasi real-world, kombinasi keduanya seringkali memberikan hasil terbaik. Gunakan Eloquent untuk mayoritas operasi CRUD dan relationship, kemudian Query Builder untuk query kompleks dan performance-critical operations.
+
+```php
+class UserRepository
+{
+    public function find($id)
+    {
+        return User::with(['profile', 'roles'])->find($id);
+    }
+
+    public function getUserStats($userId)
+    {
+        return DB::table('users as u')
+            ->leftJoin('posts as p', 'u.id', '=', 'p.user_id')
+            ->leftJoin('comments as c', 'u.id', '=', 'c.user_id')
+            ->select([
+                'u.id',
+                'u.name',
+                DB::raw('COUNT(DISTINCT p.id) as total_posts'),
+                DB::raw('COUNT(DISTINCT c.id) as total_comments'),
+                DB::raw('AVG(p.views) as avg_post_views')
+            ])
+            ->where('u.id', $userId)
+            ->groupBy('u.id', 'u.name')
+            ->first();
+    }
+}
+```
+
+Ingat, tidak ada solusi one-size-fits-all. Pilihan terbaik selalu bergantung pada konteks spesifik aplikasi Anda, tim development, dan requirement performance yang dibutuhkan.
