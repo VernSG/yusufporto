@@ -12,7 +12,7 @@ const ICON_SIZE: number = 22;
 
 export const BOTTOMBAR_ITEMS = [
   { icon: <AiOutlineHome size={ICON_SIZE} />, pathname: "/" },
-  { icon: <SiAboutdotme size={ICON_SIZE} />, pathname: "/about" },
+  // { icon: <SiAboutdotme size={ICON_SIZE} />, pathname: "/about" },
   {
     icon: <FaBlog size={ICON_SIZE} />,
     pathname: "/blog",
