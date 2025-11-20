@@ -63,7 +63,8 @@ export default async function Blog({ params }: { params: { slug: string } }) {
     notFound();
   }
 
-  const { title, summary, publishedAt, tags, image, source } = post.metadata;
+  const { title, summary, publishedAt, tags, image } = post.metadata;
+  const { source } = post;
   return (
     <section id="blog" className="p-6">
       <div className="mx-auto max-w-screen-lg">
