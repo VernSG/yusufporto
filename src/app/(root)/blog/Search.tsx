@@ -14,10 +14,12 @@ const Search = ({ posts }: { posts: any[] }) => {
   const filteredPosts = posts.filter((post) => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
     return (
-      post.metadata.title.toLowerCase().includes(lowercasedSearchTerm) ||
-      post.metadata.tags.some((tag: any) =>
-        tag.toLowerCase().includes(lowercasedSearchTerm),
-      )
+      post.metadata?.title?.toLowerCase().includes(lowercasedSearchTerm) ||
+      (post.metadata?.tags &&
+        Array.isArray(post.metadata.tags) &&
+        post.metadata.tags.some(
+          (tag: any) => tag?.toLowerCase().includes(lowercasedSearchTerm),
+        ))
     );
   });
 
