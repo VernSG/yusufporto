@@ -10,11 +10,11 @@ const ICON_SIZE: number = 24;
 
 export const SIDEBAR_ITEMS = [
   { icon: <AiOutlineHome size={ICON_SIZE} />, pathname: "/", label: "Home" },
-  {
-    icon: <SiAboutdotme size={ICON_SIZE} />,
-    pathname: "/about",
-    label: "About",
-  },
+  // {
+  //   icon: <SiAboutdotme size={ICON_SIZE} />,
+  //   pathname: "/about",
+  //   label: "About",
+  // },
   {
     icon: <FaBlog size={ICON_SIZE} />,
     pathname: "/blog",
