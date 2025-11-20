@@ -12,6 +12,8 @@ type Metadata = {
   publishedAt: string;
   summary: string;
   image?: string;
+  tags?: string[];
+  slug?: string;
 };
 
 function getMDXFiles(dir: string) {
@@ -37,15 +39,32 @@ export async function markdownToHTML(markdown: string) {
 }
 
 export async function getPost(slug: string) {
-  const filePath = path.join("content", `${slug}.mdx`);
-  let source = fs.readFileSync(filePath, "utf-8");
-  const { content: rawContent, data: metadata } = matter(source);
-  const content = await markdownToHTML(rawContent);
-  return {
-    source: content,
-    metadata,
-    slug,
-  };
+  try {
+    const filePath = path.join("content", `${slug}.mdx`);
+    let source = fs.readFileSync(filePath, "utf-8");
+    const { content: rawContent, data: metadata } = matter(source);
+    const content = await markdownToHTML(rawContent);
+
+    // Ensure metadata has default values
+    const safeMetadata = {
+      title: metadata.title || "Untitled",
+      publishedAt: metadata.publishedAt || new Date().toISOString(),
+      summary: metadata.summary || "No summary available",
+      image: metadata.image || null,
+      tags: Array.isArray(metadata.tags) ? metadata.tags : [],
+      slug: metadata.slug || slug,
+      ...metadata,
+    };
+
+    return {
+      source: content,
+      metadata: safeMetadata,
+      slug,
+    };
+  } catch (error) {
+    console.error(`Error reading post ${slug}:`, error);
+    throw new Error(`Failed to load post: ${slug}`);
+  }
 }
 
 async function getAllPosts(dir: string) {
