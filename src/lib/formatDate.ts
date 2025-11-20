@@ -1,4 +1,7 @@
 export function formatDate(date: string) {
+  if (!date) {
+    return "No date provided";
+  }
   let currentDate = new Date().getTime();
   if (!date.includes("T")) {
     date = `${date}T00:00:00`;
