@@ -1,12 +1,13 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, ChangeEvent, KeyboardEvent } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import PageTitle from "@/components/elements/PageTitle";
+import { ChatMessage, ChatCommand } from "@/types";
 
 export default function ChatPage() {
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "system",
       content: "Halo! Saya Open AI. Bagaimana saya bisa membantu?",
@@ -15,38 +16,30 @@ export default function ChatPage() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [isCooldown, setIsCooldown] = useState(false);
-  const [commands] = useState([
+  const [commands] = useState<ChatCommand[]>([
     { command: "/about-yusuf", description: "About Yusuf" },
     { command: "/help", description: "Show command feature" },
     { command: "/clear", description: "Clear all chat" },
   ]);
-  const messagesEndRef = useRef<null | HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInput(value);
-
-    if (value.startsWith("/")) {
-      setShowSuggestions(true);
-    } else {
-      setShowSuggestions(false);
-    }
-
-    console.log("Input:", value);
-    console.log("showSuggestions:", showSuggestions);
+    setShowSuggestions(value.startsWith("/"));
   };
 
-  const handleKeyDown = (e: any) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && input.trim()) {
       sendMessage();
     }
   };
 
-  const selectCommand = (command: any) => {
+  const selectCommand = (command: string) => {
     setInput(command);
     setShowSuggestions(false);
   };
