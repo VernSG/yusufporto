@@ -2,12 +2,17 @@
 "use client";
 
 import ProductCard from "@/components/cards/ProductCard";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
+import { Post } from "@/types";
 
-const Search = ({ posts }: { posts: any[] }) => {
+interface SearchProps {
+  posts: Post[];
+}
+
+const Search = ({ posts }: SearchProps) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
@@ -15,7 +20,7 @@ const Search = ({ posts }: { posts: any[] }) => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
     return (
       post.metadata.title.toLowerCase().includes(lowercasedSearchTerm) ||
-      post.metadata.tags.some((tag: any) =>
+      post.metadata.tags.some((tag: string) =>
         tag.toLowerCase().includes(lowercasedSearchTerm),
       )
     );

@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div className="px-8 pb-5 pt-8">
+      <div className="p-8">
         <PageTitle title="Home" description="introduction to myself" />
         <Header />
         <Hero />

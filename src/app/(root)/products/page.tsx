@@ -16,12 +16,10 @@ export default async function ProductPage() {
   const posts = await getProductPosts();
 
   return (
-    <section className="p-8">
+    <div className="p-8">
       <PageTitle title="Product" description="Share my products" />
-      <div className="container mx-auto">
-        {/* Search component to filter posts */}
-        <Search posts={posts} />
-      </div>
-    </section>
+      {/* Search component to filter posts */}
+      <Search posts={posts} />
+    </div>
   );
 }

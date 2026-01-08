@@ -77,3 +77,68 @@ export interface Activity {
   };
   buttons?: string[];
 }
+
+// MDX Component Types
+export interface CustomLinkProps {
+  href: string;
+  children: React.ReactNode;
+  [key: string]: unknown;
+}
+
+export interface RoundedImageProps {
+  alt: string;
+  src: string;
+  width?: number;
+  height?: number;
+  className?: string;
+}
+
+// Block Types for extractHeadings
+export interface ContentBlock {
+  _type: string;
+  _key: string;
+  style?: string;
+  children?: Array<{ text: string }>;
+}
+
+// Chat Types
+export interface ChatMessage {
+  role: "user" | "system" | "bot";
+  content: string;
+}
+
+export interface ChatCommand {
+  command: string;
+  description: string;
+}
+
+// Search/Post Types
+export interface PostMetadata {
+  title: string;
+  publishedAt: string;
+  summary: string;
+  image?: string;
+  tags: string[];
+}
+
+export interface Post {
+  metadata: PostMetadata;
+  slug: string;
+  source?: string;
+}
+
+// Tech Stack Types (untuk Card)
+export interface TechStackItem {
+  label: string;
+  icon: React.ReactElement;
+}
+
+// Base Card Props (untuk ProjectCard & SertifCard)
+export interface BaseCardProps {
+  url: string;
+  title: string;
+  description: string;
+  techStack: TechStackItem[];
+  image: string;
+  imageAlt: string;
+}

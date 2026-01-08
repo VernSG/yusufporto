@@ -1,13 +1,18 @@
 // Client-side Search component (with "use client" directive)
 "use client";
 
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import BlogCard from "@/components/cards/BlogCard";
+import { Post } from "@/types";
 
-const Search = ({ posts }: { posts: any[] }) => {
+interface SearchProps {
+  posts: Post[];
+}
+
+const Search = ({ posts }: SearchProps) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
@@ -18,7 +23,7 @@ const Search = ({ posts }: { posts: any[] }) => {
       (post.metadata?.tags &&
         Array.isArray(post.metadata.tags) &&
         post.metadata.tags.some(
-          (tag: any) => tag?.toLowerCase().includes(lowercasedSearchTerm),
+          (tag: string) => tag?.toLowerCase().includes(lowercasedSearchTerm),
         ))
     );
   });

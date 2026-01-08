@@ -17,15 +17,13 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <section className="p-8">
+    <div className="p-8">
       <PageTitle
         title="Blog"
         description="Share thoughts and tutorials on web development."
       />
-      <div className="container mx-auto">
-        {/* Search component to filter posts */}
-        <Search posts={posts} />
-      </div>
-    </section>
+      {/* Search component to filter posts */}
+      <Search posts={posts} />
+    </div>
   );
 }
