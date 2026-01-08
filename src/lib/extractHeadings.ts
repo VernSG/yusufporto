@@ -1,45 +1,29 @@
-import { Headings } from "../types";
+import { Headings, ContentBlock } from "../types";
 
-export const extractHeadings = (blocks: any[]) => {
+type HeadingStyle = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+const HEADING_LEVELS: Record<HeadingStyle, number> = {
+  h1: 1,
+  h2: 2,
+  h3: 3,
+  h4: 4,
+  h5: 5,
+  h6: 6,
+};
+
+export const extractHeadings = (blocks: ContentBlock[]): Headings[] => {
   const headings: Headings[] = [];
 
   blocks.forEach((block) => {
-    if (block._type === "block" && block.style === "h1") {
-      headings.push({
-        level: 1,
-        text: block.children[0].text,
-        headingId: block._key,
-      });
-    } else if (block._type === "block" && block.style === "h2") {
-      headings.push({
-        level: 2,
-        text: block.children[0].text,
-        headingId: block._key,
-      });
-    } else if (block._type === "block" && block.style === "h3") {
-      headings.push({
-        level: 3,
-        text: block.children[0].text,
-        headingId: block._key,
-      });
-    } else if (block._type === "block" && block.style === "h4") {
-      headings.push({
-        level: 4,
-        text: block.children[0].text,
-        headingId: block._key,
-      });
-    } else if (block._type === "block" && block.style === "h5") {
-      headings.push({
-        level: 5,
-        text: block.children[0].text,
-        headingId: block._key,
-      });
-    } else if (block._type === "block" && block.style === "h6") {
-      headings.push({
-        level: 5,
-        text: block.children[0].text,
-        headingId: block._key,
-      });
+    if (block._type === "block" && block.style) {
+      const level = HEADING_LEVELS[block.style as HeadingStyle];
+      if (level && block.children?.[0]?.text) {
+        headings.push({
+          level,
+          text: block.children[0].text,
+          headingId: block._key,
+        });
+      }
     }
   });
 
