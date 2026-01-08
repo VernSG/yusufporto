@@ -28,7 +28,7 @@ export default function Layouts({ children }: { children: React.ReactNode }) {
       >
         <Sidebar />
 
-        <div className="lg:max-w-5xl">
+        <div className="w-full lg:mr-8 lg:max-w-5xl">
           <main>{children}</main>
           <Bottombar />
           <Footer />
