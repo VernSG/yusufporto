@@ -47,7 +47,7 @@ export default function ChatPage() {
   const sendMessage = async () => {
     if (!input.trim() || isCooldown) return;
 
-    const newMessage = { role: "user", content: input };
+    const newMessage: ChatMessage = { role: "user", content: input };
     setMessages((prev) => [...prev, newMessage]);
 
     setInput("");
