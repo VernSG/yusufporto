@@ -72,7 +72,6 @@ export default async function Product({
     publishedAt,
     tags,
     image,
-    source,
     price,
     updatedAt,
     sales,

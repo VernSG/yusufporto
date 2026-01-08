@@ -121,10 +121,22 @@ export interface PostMetadata {
   tags: string[];
 }
 
+export interface ProductMetadata extends PostMetadata {
+  price: string;
+  updatedAt: string;
+  sales: number;
+}
+
 export interface Post {
   metadata: PostMetadata;
   slug: string;
   source?: string;
+}
+
+export interface ProductPost {
+  metadata: ProductMetadata;
+  slug: string;
+  source: string;
 }
 
 // Tech Stack Types (untuk Card)

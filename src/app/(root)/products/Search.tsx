@@ -3,10 +3,10 @@
 
 import ProductCard from "@/components/cards/ProductCard";
 import { useState, ChangeEvent } from "react";
-import { Post } from "@/types";
+import { ProductPost } from "@/types";
 
 interface SearchProps {
-  posts: Post[];
+  posts: ProductPost[];
 }
 
 const Search = ({ posts }: SearchProps) => {
