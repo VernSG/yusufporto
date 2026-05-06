@@ -8,11 +8,28 @@ import {
   SiPrisma,
   SiLaravel,
   SiInertia,
+  SiVuedotjs,
+  SiExpress,
 } from "react-icons/si";
 
 import { FaLaravel, FaVuejs } from "react-icons/fa";
 
 const ICON_SIZE: number = 24;
+
+export const TECH_STACK_KMI = [
+  {
+    label: "React.js",
+    icon: <SiVuedotjs size={ICON_SIZE} color="#61DAFB" />,
+  },
+  {
+    label: "Tailwind CSS",
+    icon: <SiTailwindcss size={ICON_SIZE} color="#38BDF8" />,
+  },
+  {
+    label: "Firebase",
+    icon: <SiExpress size={ICON_SIZE} color="#016949" />,
+  },
+];
 
 export const TECH_STACK_SIZE = [
   {
@@ -93,6 +110,14 @@ export const TECH_STACK_ANIME = [
 ];
 
 export const PROJECTCARD_CONTENTS = [
+  {
+    url: "kmi.or.id",
+    techStack: TECH_STACK_KMI,
+    name: "KMI Digital",
+    description: "Website resmi komunitas Modbus Indonesia untuk berbagi informasi teknis, modul pembelajaran, dan diskusi tentang protokol Modbus dalam aplikasi industri.",
+    image: "https://res.cloudinary.com/djsdnb4td/image/upload/v1778053758/KMIMODBUS_qrge4w.jpg",
+    imageAlt: "KMI Digital",
+  },
   {
     url: "",
     techStack: TECH_STACK_BTH,
