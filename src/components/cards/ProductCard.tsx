@@ -40,13 +40,14 @@ export default function ProductCard({
           )}
         >
           {image && (
-            <Image
-              src={image}
-              alt={title}
-              width={1200}
-              height={600}
-              className="w-full object-cover"
-            />
+            <div className="relative h-48 w-full overflow-hidden">
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-cover"
+              />
+            </div>
           )}
           <div className="flex-grow p-4">
             <div className="mb-2 flex flex-wrap gap-2">

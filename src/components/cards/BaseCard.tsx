@@ -52,14 +52,21 @@ export default function BaseCard({
         className={clsx("group cursor-pointer", "flex flex-col", "h-full")}
         legacyBehavior
       >
-        <div>
+        <div
+          className={clsx(
+            !isCertificate && "relative h-56 overflow-hidden rounded-t-md"
+          )}
+        >
           <Image
             className={clsx(
-              "rounded-t-md",
-              isCertificate ? "h-auto w-auto" : "h-full w-full object-cover"
+              isCertificate
+                ? "h-auto w-auto rounded-t-md"
+                : "object-cover"
             )}
-            width={1920}
-            height={1080}
+            {...(isCertificate
+              ? { width: 1920, height: 1080 }
+              : { fill: true }
+            )}
             src={image}
             alt={imageAlt}
             loading="lazy"

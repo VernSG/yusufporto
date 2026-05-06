@@ -6,6 +6,8 @@ import {
   SiMysql,
   SiNextdotjs,
   SiPrisma,
+  SiLaravel,
+  SiInertia,
 } from "react-icons/si";
 
 import { FaLaravel, FaVuejs } from "react-icons/fa";
@@ -78,7 +80,7 @@ export const TECH_STACK_OGE = [
 export const TECH_STACK_ANIME = [
   {
     label: "Next JS",
-    icon: <SiNextdotjs size={ICON_SIZE} color="" />,
+    icon: <SiLaravel size={ICON_SIZE} color="" />,
   },
   {
     label: "Tailwind CSS",
@@ -86,7 +88,7 @@ export const TECH_STACK_ANIME = [
   },
   {
     label: "Prisma",
-    icon: <SiPrisma size={ICON_SIZE} color="" />,
+    icon: <SiInertia size={ICON_SIZE} color="" />,
   },
 ];
 
@@ -110,13 +112,13 @@ export const PROJECTCARD_CONTENTS = [
     imageAlt: "Irma Anime",
   },
   {
-    url: "https://mangaverse.my.id",
+    url: "https://mangaphase.me",
     techStack: TECH_STACK_ANIME,
-    name: "MangaVerse",
+    name: "MangaPhase",
     description: "Read Manga, Manhwa and Manhua with Next.js and Tailwind CSS",
     image:
-      "https://res.cloudinary.com/djsdnb4td/image/upload/v1743945192/6802C4FF-2DBE-46D5-866B-F57DD33A0026_peoomp.png",
-    imageAlt: "MangaVerse",
+      "https://res.cloudinary.com/djsdnb4td/image/upload/v1778051662/mangaphasefoto_yexkzn.jpg",
+    imageAlt: "MangaPhase",
   },
   {
     url: "https://sizestore.site",
