@@ -28,8 +28,8 @@ export const SIDEBAR_ITEMS = [
   },
   {
     icon: <LuFileJson size={ICON_SIZE} />,
-    pathname: "/api-docs",
-    label: "API Docs",
+    pathname: "/komiku-api-docs",
+    label: "Komiku API",
   },
   {
     icon: <BiSolidDashboard size={ICON_SIZE} />,

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Complete API documentation for the Komiku REST API endpoints, response fields, examples, and scraper compatibility notes.",
   alternates: {
-    canonical: "https://yusufs.me/api-docs",
+    canonical: "https://yusufs.me/komiku-api-docs",
   },
 };
 
