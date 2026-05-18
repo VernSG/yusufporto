@@ -1,39 +1,87 @@
 <!-- GitAds-Verify: DBW8G884X4K725U9YJY8NEG65BPFJJKJ -->
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=vernsg/yusufporto@github)](https://gitads.dev/v1/ad-track?source=vernsg/yusufporto@github)
 
-# Yusuf Portfolio
 
-Personal website built with Next.js, TypeScript, and Tailwind CSS.
+<div align=center>
 
-## Komiku API Docs
+# [yusufs.me](https://yusufs.me/)
 
-![Komiku API Docs preview](./public/komiku-api-docs-preview.svg)
+`Next JS`
 
-Open the docs:
-[https://yusufs.me/komiku-api-docs](https://yusufs.me/komiku-api-docs)
+`Typescript`
 
-API base URL:
+`Tailwind CSS`
 
-```txt
-https://komiku-rest-api.vercel.app
-```
+</div>
 
-Quick test:
+## Run Locally
 
-```bash
-curl https://komiku-rest-api.vercel.app/terbaru
-curl https://komiku-rest-api.vercel.app/detail-komik/komen-fuufu
-curl https://komiku-rest-api.vercel.app/baca-chapter/komen-fuufu/19
-```
-
-## Local Development
+Clone the project
 
 ```bash
-npm install
-npm run dev
+  git clone https://github.com/VernSG/yusufporto.git
 ```
 
-Then open:
+Go to the project directory
 
-```txt
-http://localhost:3000/komiku-api-docs
+```bash
+  cd yusufporto
 ```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+### [Giscus](https://giscus.app/)
+
+`NEXT_PUBLIC_GISCUS_REPO`
+
+`NEXT_PUBLIC_GISCUS_REPO_ID`
+
+`NEXT_PUBLIC_GISCUS_CATEGORY`
+
+`NEXT_PUBLIC_GISCUS_CATEGORY_ID`
+
+### [Github](https://github.com/)
+
+`GH_READ_USER_TOKEN_PERSONAL`
+
+### [Wakatime](https://wakatime.com/)
+
+`WAKATIME_API_KEY`
+
+### [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started)
+
+`NEXT_PUBLIC_PAGESPEED_API_KEY`
+
+### [Google App Password](https://myaccount.google.com/apppasswords)
+
+`MY_EMAIL`
+
+`MY_PASSWORD`
+
+## Documentation
+
+[Giscus](https://giscus.app/)
+
+[Nodemailer](https://nodemailer.com/)
+
+## Inspiration of this project
+
+[andre](https://github.com/ndrvndr)
+
+[xyzuan](https://github.com/xyzuan)
+t
