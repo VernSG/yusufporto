@@ -5,6 +5,7 @@ import { FaBlog } from "react-icons/fa";
 import { CiChat1 } from "react-icons/ci";
 import { BiSolidDashboard } from "react-icons/bi";
 import { AiFillProject } from "react-icons/ai";
+import { LuFileJson } from "react-icons/lu";
 
 const ICON_SIZE: number = 24;
 
@@ -24,6 +25,11 @@ export const SIDEBAR_ITEMS = [
     icon: <AiFillProject size={ICON_SIZE} />,
     pathname: "/projects",
     label: "Project",
+  },
+  {
+    icon: <LuFileJson size={ICON_SIZE} />,
+    pathname: "/komiku-api-docs",
+    label: "Komiku API",
   },
   {
     icon: <BiSolidDashboard size={ICON_SIZE} />,
