@@ -1,0 +1,105 @@
+<svg width="2048" height="1028" viewBox="0 0 2048 1028" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2048" height="1028" fill="#FFFFFF"/>
+  <rect x="430" y="0" width="2" height="1028" fill="#E5E7EB"/>
+  <circle cx="458" cy="72" r="26" fill="#EEF2FF"/>
+  <text x="504" y="65" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Yusuf</text>
+  <text x="504" y="96" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="20">Saputra</text>
+  <line x1="430" y1="164" x2="688" y2="164" stroke="#CBD5E1" stroke-dasharray="4 3"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#1F2937" font-size="20" font-weight="700">
+    <text x="500" y="240">Home</text>
+    <text x="500" y="320">Blog</text>
+    <text x="500" y="400">Project</text>
+    <text x="500" y="480">Komiku API</text>
+    <text x="500" y="556">Dashboard</text>
+    <text x="500" y="636">Chat</text>
+    <text x="500" y="716">Contact</text>
+  </g>
+  <rect x="430" y="441" width="258" height="60" rx="8" fill="url(#navGradient)"/>
+  <g stroke="#1F2937" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M452 223h24v24h-24z"/>
+    <path d="M454 223l10-10 10 10"/>
+    <path d="M454 303c14 0 22 8 22 22"/>
+    <path d="M454 313c8 0 12 4 12 12"/>
+    <path d="M454 323h.01"/>
+    <path d="M453 381h22v22h-22z"/>
+    <path d="M460 381v9h8v-9"/>
+    <path d="M456 459h18l8 8v24h-26z"/>
+    <path d="M474 459v9h8"/>
+    <path d="M464 474l-4 5 4 5"/>
+    <path d="M472 474l4 5-4 5"/>
+    <path d="M452 540h10v10h-10zM466 540h10v10h-10zM452 554h10v10h-10zM466 554h10v10h-10z"/>
+    <path d="M452 620h24v16h-24z"/>
+    <path d="M452 700l28-16-10 32-7-12-11 7z"/>
+  </g>
+  <g transform="translate(726 48)">
+    <text x="0" y="22" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Komiku REST API Docs</text>
+    <text x="0" y="66" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="24">Dokumentasi endpoint untuk backend Express.js Komiku scraper yang memakai</text>
+    <text x="0" y="102" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="24">halaman publik komiku.org.</text>
+    <line x1="0" y1="150" x2="850" y2="150" stroke="#CBD5E1" stroke-dasharray="4 3"/>
+  </g>
+  <g transform="translate(726 238)">
+    <rect width="270" height="284" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <circle cx="40" cy="40" r="13" stroke="#00D2FF" stroke-width="3"/>
+    <text x="26" y="94" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Base URL</text>
+    <rect x="26" y="110" width="218" height="70" rx="8" fill="#F3F4F6"/>
+    <text x="42" y="140" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">https://komiku-rest-</text>
+    <text x="42" y="166" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">api.vercel.app</text>
+  </g>
+  <g transform="translate(1016 238)">
+    <rect width="270" height="284" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <path d="M40 28l12 6v14c0 9-6 16-12 19-6-3-12-10-12-19V34l12-6z" stroke="#00D2FF" stroke-width="3"/>
+    <text x="26" y="94" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Source</text>
+    <text x="26" y="132" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">Scraper mengambil HTML</text>
+    <text x="26" y="162" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">publik dari komiku.org dan</text>
+    <text x="26" y="192" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">menghindari endpoint</text>
+    <text x="26" y="222" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">lama yang rawan SSL</text>
+    <text x="26" y="252" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">mismatch.</text>
+  </g>
+  <g transform="translate(1306 238)">
+    <rect width="270" height="284" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <path d="M32 28h18l8 8v25H32z" stroke="#00D2FF" stroke-width="3"/>
+    <path d="M50 28v9h8" stroke="#00D2FF" stroke-width="3"/>
+    <text x="26" y="94" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Format</text>
+    <text x="26" y="132" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">Semua endpoint</text>
+    <text x="26" y="162" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">mengembalikan JSON dan</text>
+    <text x="26" y="192" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">mempertahankan field</text>
+    <text x="26" y="222" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">lama yang dipakai</text>
+    <text x="26" y="252" fill="#374151" font-family="Inter, Arial, sans-serif" font-size="18">frontend.</text>
+  </g>
+  <g transform="translate(726 572)">
+    <rect width="850" height="410" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="66" y="52" fill="#1F2937" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">Response Models</text>
+    <circle cx="38" cy="42" r="11" stroke="#00D2FF" stroke-width="3"/>
+    <g font-family="Inter, Arial, sans-serif" font-size="20" fill="#1F2937" font-weight="800">
+      <text x="46" y="122">ComicListItem</text>
+      <text x="318" y="122">ChapterImage</text>
+      <text x="590" y="122">ApiError</text>
+    </g>
+    <g font-family="Inter, Arial, sans-serif" font-size="18" fill="#374151">
+      <text x="72" y="158">title</text>
+      <text x="72" y="194">originalLink / url</text>
+      <text x="72" y="230">thumbnail</text>
+      <text x="72" y="266">type</text>
+      <text x="72" y="302">genre</text>
+      <text x="344" y="158">src</text>
+      <text x="344" y="194">alt</text>
+      <text x="344" y="230">id</text>
+      <text x="344" y="266">fallbackSrc</text>
+      <text x="616" y="158">error</text>
+      <text x="616" y="194">detail</text>
+      <text x="616" y="230">message</text>
+      <text x="616" y="266">status / success</text>
+    </g>
+    <g stroke="#10B981" stroke-width="2">
+      <circle cx="54" cy="151" r="8"/><circle cx="54" cy="187" r="8"/><circle cx="54" cy="223" r="8"/><circle cx="54" cy="259" r="8"/><circle cx="54" cy="295" r="8"/>
+      <circle cx="326" cy="151" r="8"/><circle cx="326" cy="187" r="8"/><circle cx="326" cy="223" r="8"/><circle cx="326" cy="259" r="8"/>
+      <circle cx="598" cy="151" r="8"/><circle cx="598" cy="187" r="8"/><circle cx="598" cy="223" r="8"/><circle cx="598" cy="259" r="8"/>
+    </g>
+  </g>
+  <defs>
+    <linearGradient id="navGradient" x1="430" y1="441" x2="688" y2="501" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00D2FF"/>
+      <stop offset="1" stop-color="#3A7BD5"/>
+    </linearGradient>
+  </defs>
+</svg>
