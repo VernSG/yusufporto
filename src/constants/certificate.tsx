@@ -1,4 +1,3 @@
-import { url } from "inspector";
 import {
   SiFirebase,
   SiFlask,
@@ -17,9 +16,17 @@ import {
   SiGit,
   SiLaravel,
   SiVuedotjs,
+  SiFigma,
 } from "react-icons/si";
 
 const ICON_SIZE: number = 24;
+
+export const TECH_STACK_UIUX = [
+  {
+    label: "Figma",
+    icon: <SiFigma size={ICON_SIZE} color="#38BDF8" />,
+  },
+];
 
 export const TECH_STACK_HACK = [
   {
@@ -29,8 +36,8 @@ export const TECH_STACK_HACK = [
   {
     label: "Vue",
     icon: <SiVuedotjs size={ICON_SIZE} color="#38BDF8" />,
-  }
-]
+  },
+];
 
 export const TECH_STACK_JS = [
   {
@@ -118,10 +125,10 @@ export const PROJECTCARD_CONTENTS = [
   {
     url: "",
     name: "3rd Place UI/UX Digital Solution Competition",
-    description: "3rd place on UI/UX Digital Solution Competition ",
-    techStack: [],
+    description: "3rd place on UI/UX Digital Solution Competition",
+    techStack: TECH_STACK_UIUX,
     image: "https://res.cloudinary.com/djsdnb4td/image/upload/v1790148296/1784572343177_uazj6f.jpg",
-    imageAlt: "",
+    imageAlt: "3rd Place UI/UX Digital Solution Competition Certificate",
   },
   {
     url: "",

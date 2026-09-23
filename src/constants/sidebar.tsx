@@ -5,6 +5,7 @@ import { FaBlog } from "react-icons/fa";
 import { CiChat1 } from "react-icons/ci";
 import { BiSolidDashboard } from "react-icons/bi";
 import { AiFillProject } from "react-icons/ai";
+import { LiaCertificateSolid } from "react-icons/lia";
 
 const ICON_SIZE: number = 24;
 
@@ -26,7 +27,7 @@ export const SIDEBAR_ITEMS = [
     label: "Project",
   },
   {
-    icon: <FaRegPaperPlane size={ICON_SIZE} />,
+    icon: <LiaCertificateSolid size={ICON_SIZE} />,
     pathname: "/certificate",
     label: "Certificate",
   },
