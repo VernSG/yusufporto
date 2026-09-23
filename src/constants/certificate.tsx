@@ -1,3 +1,4 @@
+import { url } from "inspector";
 import {
   SiFirebase,
   SiFlask,
@@ -14,9 +15,22 @@ import {
   SiHtml5,
   SiCss3,
   SiGit,
+  SiLaravel,
+  SiVuedotjs,
 } from "react-icons/si";
 
 const ICON_SIZE: number = 24;
+
+export const TECH_STACK_HACK = [
+  {
+    label: "Laravel",
+    icon: <SiLaravel size={ICON_SIZE} color="#38BDF8" />,
+  },
+  {
+    label: "Vue",
+    icon: <SiVuedotjs size={ICON_SIZE} color="#38BDF8" />,
+  }
+]
 
 export const TECH_STACK_JS = [
   {
@@ -93,6 +107,22 @@ export const TECH_STACK_BTH = [
   },
 ];
 export const PROJECTCARD_CONTENTS = [
+  {
+    url: "https://github.com/VernSG/KIC-Hackathon",
+    name: "2nd Honorable Mention Hackathon KIC 2026",
+    description: "Finalist on KIC Hackathon with AI-powered fuel ratio forecasting, anomaly detection, and fleet capacity optimization system built for KIDECO mining operations with XGBoost, PyTorch, and Laravel-Vue.",
+    techStack: TECH_STACK_HACK,
+    image: "https://res.cloudinary.com/djsdnb4td/image/upload/v1790148277/kic_b7wdex.jpg",
+    imageAlt: "KIC",
+  },
+  {
+    url: "",
+    name: "3rd Place UI/UX Digital Solution Competition",
+    description: "3rd place on UI/UX Digital Solution Competition ",
+    techStack: [],
+    image: "https://res.cloudinary.com/djsdnb4td/image/upload/v1790148296/1784572343177_uazj6f.jpg",
+    imageAlt: "",
+  },
   {
     url: "",
     name: "Website landing pages competition participation",

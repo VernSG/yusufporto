@@ -26,9 +26,9 @@ export const SIDEBAR_ITEMS = [
     label: "Project",
   },
   {
-    icon: <BiSolidDashboard size={ICON_SIZE} />,
-    pathname: "/dashboard",
-    label: "Dashboard",
+    icon: <FaRegPaperPlane size={ICON_SIZE} />,
+    pathname: "/certificate",
+    label: "Certificate",
   },
   {
     icon: <CiChat1 size={ICON_SIZE} />,
