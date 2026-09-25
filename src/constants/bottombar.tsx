@@ -7,6 +7,7 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { GrCertificate } from "react-icons/gr";
 import { CiMusicNote1 } from "react-icons/ci";
 import { FaBlog } from "react-icons/fa";
+import { LiaCertificateSolid } from "react-icons/lia";
 
 const ICON_SIZE: number = 22;
 
@@ -19,7 +20,7 @@ export const BOTTOMBAR_ITEMS = [
   },
   { icon: <AiOutlineProject size={ICON_SIZE} />, pathname: "/projects" },
   // { icon: <BiSolidDashboard size={ICON_SIZE} />, pathname: "/dashboard" },
-  { icon: <FaRegPaperPlane size={ICON_SIZE} />, pathname: "/certificate" },
+  { icon: <LiaCertificateSolid size={ICON_SIZE} />, pathname: "/certificate" },
   { icon: <CiChat1 size={ICON_SIZE} />, pathname: "/guestbook" },
   { icon: <FaRegPaperPlane size={ICON_SIZE} />, pathname: "/contact" },
 ];
